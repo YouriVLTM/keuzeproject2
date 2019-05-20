@@ -13,15 +13,16 @@
         <title>JSP Page</title>
     </head>
     <body>
-         <%Hotel hotelnaam = (Hotel) request.getAttribute("hotelnaam");%>
-         <%if (hotelnaam == null ){%>
+         <%Hotel hotel = (Hotel) request.getAttribute("hotel");%>
+         <%if (hotel == null){%>
          <h1>Helaas, er is geen hotel gevonden!</h1>
-         <%} else {%>
+       
+         <%} else{%>
         <h1>Toon het hotel</h1>
-        <p>De naam: <%=hotelnaam.getNaam()%></p>
-        <p>Het aantal sterren: <%=hotelnaam.getAantalSterren()%></p>
-        <a href="HotelServlet?hotelId=<%=hotelnaam.getId()%>">Klik hier voor meer details</a>
-        <a href="starthotels.jsp">Klik hier om terug te gaan naar de startpagina van hotels</a>
+        <p>De naam: <%=hotel.getNaam()%></p>
+        <p>Het aantal sterren: <%=hotel.getAantalSterren()%></p>
+        <p><a href="HotelServlet?hotelId=<%=hotel.getId()%>">Klik hier voor meer details</a></p>       
         <%}%>
+        <p><a href="starthotels.jsp">Klik hier om terug te gaan naar de startpagina van hotels</a></p>
     </body>
 </html>

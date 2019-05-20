@@ -13,7 +13,7 @@
     </head>
     <body>
         
-        <h1>Hello World!</h1>
+        <h1>Hotel</h1>
         <form action="HotelServlet">
             <p>
                 <label for="hotelNaam"> 
@@ -23,7 +23,7 @@
             </p>
             <p> <input type="submit" value="zoeken" name="zoekHotel"></p>
         </form>
-        <p><a href="HotelServlet">Toon specifiek hotel</a></p>
+        <p><a href="HotelServlet?toonspecifiek=1">Toon specifiek hotel</a></p>
         <p><a href="HotelServlet?toonhotels=1">Toon alle hotels</a></p>
         <p><a href="HotelServlet?uitgebreid=1">Uitgebreid zoeken</a></p>
     </body>

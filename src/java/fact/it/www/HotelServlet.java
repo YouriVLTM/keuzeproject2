@@ -25,12 +25,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "HotelServlet", urlPatterns = {"/HotelServlet"}, initParams = {
-    @WebInitParam(name = "url", value = "jdbc:oracle:thin:@itf-oracledb01.thomasmore.be:1521:XE"),
-    @WebInitParam(name = "login", value = "r0662682"),
-    @WebInitParam(name = "password", value = "1234"),
+    @WebInitParam(name = "url", value = "jdbc:oracle:thin:@itf-oracledb01.thomasmore.be:1521:XE")
+    ,
+    @WebInitParam(name = "login", value = "r0662682")
+    ,
+    @WebInitParam(name = "password", value = "1234")
+    ,
     @WebInitParam(name = "driver", value = "oracle.jdbc.driver.OracleDriver")})
 
 public class HotelServlet extends HttpServlet {
+
     private DAHotel dahotel = null;
     private DARegio daregio = null;
     private DAHotelaanbod daHotelaanbod = null;
@@ -73,32 +77,33 @@ public class HotelServlet extends HttpServlet {
             throws ServletException, IOException {
         RequestDispatcher rd = null;
         HttpSession session = request.getSession();
-        Hotel hotel = dahotel.getHotel();
-        rd = request.getRequestDispatcher("hotel.jsp");
-        request.setAttribute("hotel", hotel);
-        
-        if (request.getParameter("zoekHotel")!=null) {
-        Hotel hotelnaam = dahotel.getHotel(request.getParameter("hotelNaam").toLowerCase());
-        request.setAttribute("hotelnaam", hotelnaam);
-        rd = request.getRequestDispatcher("hotel.jsp");
-        
-        } else if (request.getParameter("toonhotels") != null){
-            
+        if (request.getParameter("toonspecifiek") != null) {
+            Hotel hotel = dahotel.getHotel();
+            rd = request.getRequestDispatcher("hotel.jsp");
+            request.setAttribute("hotel", hotel);
+        }
+        if (request.getParameter("zoekHotel") != null) {
+            Hotel hotel = dahotel.getHotel(request.getParameter("hotelNaam").toLowerCase());
+            request.setAttribute("hotel", hotel);
+            rd = request.getRequestDispatcher("hotel.jsp");
+
+        } else if (request.getParameter("toonhotels") != null) {
+
             ArrayList<Hotel> hotels = dahotel.getAlleHotels();
             request.setAttribute("hotels", hotels);
             rd = request.getRequestDispatcher("overzichtHotels.jsp");
-            
-        }else if (request.getParameter("hotelId") != null){
-            
+
+        } else if (request.getParameter("hotelId") != null) {
+
             int hotelid = Integer.parseInt(request.getParameter("hotelId"));
-            Hotel hotelIdZoek  = dahotel.getHotelById(hotelid);
+            Hotel hotelIdZoek = dahotel.getHotelById(hotelid);
             Regio regioIdZoek = daregio.getRegionaamByHotelId(hotelid);
             request.setAttribute("regioIdZoek", regioIdZoek);
             request.setAttribute("hotelIdZoek", hotelIdZoek);
             rd = request.getRequestDispatcher("hoteldetails.jsp");
-            
-        }else if(request.getParameter("zoekPrijs") != null) {
-            
+
+        } else if (request.getParameter("zoekPrijs") != null) {
+
             int hotelid = Integer.parseInt(request.getParameter("zoekPrijs"));
             String zoekPrijsHotelNaam = request.getParameter("zoekPrijsHotelNaam");
             ArrayList<Periode> periode = daperiode.getHotelPrijs(hotelid);
@@ -107,18 +112,17 @@ public class HotelServlet extends HttpServlet {
             request.setAttribute("periode", periode);
             request.setAttribute("zoekPrijsHotelNaam", zoekPrijsHotelNaam);
             rd = request.getRequestDispatcher("hotelprijs.jsp");
-        }else if(request.getParameter("uitgebreid") != null){
-            
+        } else if (request.getParameter("uitgebreid") != null) {
+
             ArrayList<Regio> alleRegios = daregio.getAlleRegios();
             ArrayList<Periode> allePeriodes = daperiode.getAllePeriodes();
             request.setAttribute("alleRegios", alleRegios);
             request.setAttribute("allePeriodes", allePeriodes);
             rd = request.getRequestDispatcher("zoekhotel.jsp");
         }
-             
+
         rd.forward(request, response);
-    }   
-     
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
