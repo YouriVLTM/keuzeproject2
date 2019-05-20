@@ -84,6 +84,16 @@ public class ParkServlet extends HttpServlet {
             rd = request.getRequestDispatcher("overzichtparken.jsp");
             request.setAttribute("parken", parken);
             
+        }else if(request.getParameter("parkId") != null){
+            int parkId = Integer.parseInt(request.getParameter("parkId"));           
+            
+            Park park = dapark.getParkId(parkId);
+            // vraag regio op
+            
+            
+            rd = request.getRequestDispatcher("parkdetails.jsp");
+            request.setAttribute("park", park);
+            
         }
         
         
