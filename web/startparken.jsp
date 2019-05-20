@@ -14,9 +14,10 @@
     <body>
          <form action="ParkServlet" >
              <h1>VakantiePark</h1>
-             <label for="naam">Geef ID in</label>
+             <label for="naam">Geef begin letters in: </label>
              <input type="text" name="naam" id="naam"/>
-            <p><input type="submit" value="Toon Specifiek Park" name="toonVakantiePark" /></p>
+             <input type="submit" value="Toon Specifiek Park id 1" name="vakantiePark1" />
+            <input type="submit" value="Toon Specifiek Park" name="vakantiePark" />
         </form>
     </body>
 </html>

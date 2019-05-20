@@ -58,6 +58,25 @@ public class ParkServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //vul aan
+        
+         RequestDispatcher rd = null;
+        if(request.getParameter("vakantiePark1") != null){
+           
+            Park park = dapark.getPark();
+            
+            rd = request.getRequestDispatcher("park.jsp");
+            request.setAttribute("park", park);
+            
+        }else if(request.getParameter("vakantiePark") != null){
+            String naam = request.getParameter("naam");
+            
+            Park park = dapark.getPark(naam);
+            
+            rd = request.getRequestDispatcher("park.jsp");
+            request.setAttribute("park", park);
+            
+        }
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

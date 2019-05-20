@@ -15,8 +15,12 @@
     <body>
         <%Park park = (Park) request.getAttribute("park");%>
         <h1>VakantiePark</h1>
-        <p>VakantiePark: <%=park.getNaam()%> </p>  
-        <p>AantalSterren: <%=park.getAantalSterren()%> </p> 
+        <% if(park != null){ %>
+            <p>VakantiePark: <%=park.getNaam()%> </p>  
+            <p>AantalSterren: <%=park.getAantalSterren()%> </p> 
+        <% }else{ %>
+            <p>Er is geen park gevonden met deze beginletters</p>        
+        <% } %>
         <p>  <a href="index.jsp">Terug naar beginpagina</a></p>
     </body>
 </html>
