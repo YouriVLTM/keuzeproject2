@@ -4,6 +4,7 @@
     Author     : Ruben
 --%>
 
+<%@page import="fact.it.www.beans.Regio"%>
 <%--@page import="java.lang.Integer.parseInt(String)"--%>
 <%@page import="fact.it.www.beans.Hotel"%>
 <%@page import="java.util.ArrayList"%>
@@ -16,14 +17,15 @@
     </head>
     
         <%Hotel hotel = (Hotel)request.getAttribute("hotelIdZoek");%>
+        <%Regio regio = (Regio)request.getAttribute("regioIdZoek");%>
         <h1>Details van het hotel</h1>
 
-            <p><%=hotel.getNaam()%></p>
-            <p><%=hotel.getAantalSterren()%></p>
-            <p><%=hotel.getLigging()%></p>
-            <p><%=hotel.getOntspanning()%></p>
-            <p><%=hotel.getRegioid()%></p> 
-            <p><%=hotel.getFoto()%></p> 
+            <p>Naam: <%=hotel.getNaam()%></p>
+            <p>Aantal Sterren: <%=hotel.getAantalSterren()%></p>
+            <p>Ligging: <%=hotel.getLigging()%></p>
+            <p>Ontspanningsmogelijkheden <%=hotel.getOntspanning()%></p>  
+            <img src="images/<%=hotel.getFoto()%>">
+            <p>Naam van de streek:<%=regio.getNaam()%></p>
  
             <a href="starthotels.jsp.">Klik hier om terug te gaan naar de startpagina van hotels.</a>
     

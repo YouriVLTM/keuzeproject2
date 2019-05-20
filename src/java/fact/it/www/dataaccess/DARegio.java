@@ -3,6 +3,7 @@ package fact.it.www.dataaccess;
 import fact.it.www.beans.Regio;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -28,6 +29,27 @@ public class DARegio {
                 regio = new Regio();
                 regio.setId(resultSet.getInt("id"));
                 regio.setNaam(resultSet.getString("naam"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return regio;
+    }
+    public Regio getRegionaamByHotelId(int hotelId) {
+        Regio regio = null;
+    
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("select * from regio join hotel on regio.id = hotel.regioid where hotel.id = ?");) {
+
+            statement.setInt(1, hotelId);
+            ResultSet resultSet = statement.executeQuery();
+            
+            if (resultSet.next()) {
+                regio = new Regio();
+                regio.setId(resultSet.getInt("id"));
+                regio.setNaam(resultSet.getString("naam"));
+              
             }
         } catch (Exception e) {
             e.printStackTrace();
