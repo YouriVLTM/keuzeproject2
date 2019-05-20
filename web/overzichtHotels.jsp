@@ -15,6 +15,7 @@
     </head>
     <body>
         <%ArrayList<Hotel> hotels = (ArrayList<Hotel>) request.getAttribute("hotels");%>
+        
 
         <h1>Overzicht hotels</h1>
         <%if(hotels.size() == 0){%>
@@ -28,7 +29,7 @@
             <%}%>
         </ul>
         <%}%>
-        <a href="zoekhotel.jsp">Opnieuw zoeken</a>
+        <a href="HotelServlet?uitgebreid=1">Opnieuw zoeken</a>
         
         
     </body>

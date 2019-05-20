@@ -76,10 +76,20 @@ public class ZoekHotelServlet extends HttpServlet {
             throws ServletException, IOException {
         RequestDispatcher rd = null;
 
-        int aantalSterren = Integer.parseInt(request.getParameter("select"));
-        ArrayList<Hotel> hotels = dahotel.getHotelsByAantalSterren(aantalSterren);
-        request.setAttribute("hotels", hotels);
-        rd = request.getRequestDispatcher("overzichtHotels.jsp");
+        if (request.getParameter("zoekHotelAantalSterren") != null) {
+            
+            int aantalSterren = Integer.parseInt(request.getParameter("select"));
+            ArrayList<Hotel> hotels = dahotel.getHotelsByAantalSterren(aantalSterren);
+            request.setAttribute("hotels", hotels);
+            rd = request.getRequestDispatcher("overzichtHotels.jsp");
+
+        }else if (request.getParameter("zoekHotelRegio") != null) {
+            
+            int regioId = Integer.parseInt(request.getParameter("regio"));
+            ArrayList<Hotel> hotels = dahotel.getHotelsByRegio(regioId);
+            request.setAttribute("hotels", hotels);           
+            rd = request.getRequestDispatcher("overzichtHotels.jsp");
+        }
         rd.forward(request, response);
     }
 

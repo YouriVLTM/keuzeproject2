@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class DARegio {
 
@@ -55,6 +56,25 @@ public class DARegio {
             e.printStackTrace();
         }
         return regio;
+    }
+    public ArrayList<Regio> getAlleRegios() {
+        Regio regio = null;
+        ArrayList<Regio> regios = new ArrayList <>();
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM regio");) {
+            while (resultSet.next()) {
+                regio = new Regio();
+                regio.setId(resultSet.getInt("id"));
+                regio.setNaam(resultSet.getString("naam"));
+                regios.add(regio);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return regios;
     }
 
 
