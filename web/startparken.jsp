@@ -18,6 +18,7 @@
              <input type="text" name="naam" id="naam"/>
              <input type="submit" value="Toon Specifiek Park id 1" name="vakantiePark1" />
             <input type="submit" value="Toon Specifiek Park" name="vakantiePark" />
+            <input type="submit" value="Toon alle Park" name="alleVakantiePark" />
         </form>
     </body>
 </html>

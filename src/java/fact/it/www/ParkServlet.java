@@ -76,8 +76,21 @@ public class ParkServlet extends HttpServlet {
             request.setAttribute("park", park);
             
         }
+        else if(request.getParameter("alleVakantiePark") != null){
+            
+            
+            ArrayList<Park> parken = dapark.getParken();
+            
+            rd = request.getRequestDispatcher("overzichtparken.jsp");
+            request.setAttribute("parken", parken);
+            
+        }
+        
+        
         rd.forward(request, response);
     }
+    
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

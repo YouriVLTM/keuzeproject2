@@ -69,6 +69,35 @@ public class DAPark {
         }
         return park;
     }
+    
+        public ArrayList<Park> getParken() {        
+        ArrayList<Park> parken = new ArrayList<>();
 
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM park ORDER BY naam ASC");     ) {
+                
+           
+            while (resultSet.next()) {
+                Park park = new Park();                
+                park.setId(resultSet.getInt("id"));
+                park.setNaam(resultSet.getString("naam"));
+                park.setRegioid(resultSet.getInt("regioid"));
+                park.setAantalSterren(resultSet.getInt("aantalSterren"));
+                park.setVoorzieningen(resultSet.getString("voorzieningen"));
+                park.setFoto(resultSet.getString("foto"));
+                // arralist
+                parken.add(park);
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return parken;
+    }
+    
+
+    
    
 }
