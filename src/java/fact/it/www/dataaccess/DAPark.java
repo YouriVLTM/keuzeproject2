@@ -19,6 +19,25 @@ public class DAPark {
         this.login = login;
         this.password = password;
     }
+    
+    
+    public Park getPark() {
+        Park park = null;
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM park where id = 1");) {
+            if (resultSet.next()) {
+                park = new Park();
+                park.setId(resultSet.getInt("id"));
+                park.setNaam(resultSet.getString("naam"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return park;
+    }
 
    
 }
