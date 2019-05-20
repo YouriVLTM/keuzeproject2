@@ -23,7 +23,8 @@
             </p>
             <p> <input type="submit" value="zoeken" name="zoekHotel"></p>
         </form>
-        <a href="HotelServlet">Toon specifiek hotel</a>
-        <a href="HotelServlet?toonhotels=toonAlles">Toon alle hotels</a>
+        <p><a href="HotelServlet">Toon specifiek hotel</a></p>
+        <p><a href="HotelServlet?toonhotels=1">Toon alle hotels</a></p>
+        <p><a href="HotelServlet?uitgebreid=1">Uitgebreid zoeken</a></p>
     </body>
 </html>

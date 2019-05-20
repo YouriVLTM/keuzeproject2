@@ -85,7 +85,7 @@ public class HotelServlet extends HttpServlet {
         } else if (request.getParameter("toonhotels") != null){
             
             ArrayList<Hotel> hotels = dahotel.getAlleHotels();
-            session.setAttribute("hotels", hotels);
+            request.setAttribute("hotels", hotels);
             rd = request.getRequestDispatcher("overzichtHotels.jsp");
             
         }else if (request.getParameter("hotelId") != null){
@@ -107,6 +107,9 @@ public class HotelServlet extends HttpServlet {
             request.setAttribute("periode", periode);
             request.setAttribute("zoekPrijsHotelNaam", zoekPrijsHotelNaam);
             rd = request.getRequestDispatcher("hotelprijs.jsp");
+        }else if(request.getParameter("uitgebreid") != null){
+            
+            rd = request.getRequestDispatcher("zoekhotel.jsp");
         }
              
         rd.forward(request, response);

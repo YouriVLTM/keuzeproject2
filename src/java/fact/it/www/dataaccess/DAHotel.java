@@ -127,5 +127,32 @@ public class DAHotel {
         }
         return hotel;
     }
+     public ArrayList<Hotel> getHotelsByAantalSterren(int aantalSterren) {
+        Hotel hotel = null;
+        ArrayList<Hotel> hotels = new ArrayList <>();
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel where aantalSterren = ?");) {
+
+            statement.setInt(1, aantalSterren);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                hotel = new Hotel();
+                hotel.setId(resultSet.getInt("id"));
+                hotel.setNaam(resultSet.getString("naam"));
+                hotel.setAantalSterren(resultSet.getInt("aantalSterren"));
+                hotel.setLigging(resultSet.getString("ligging"));
+                hotel.setMaaltijden(resultSet.getString("maaltijden"));
+                hotel.setOntspanning(resultSet.getString("ontspanning"));
+                hotel.setFoto(resultSet.getString("foto"));
+                hotel.setRegioid(resultSet.getInt("regioid"));
+                hotels.add(hotel);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return hotels;
+    }
 
 }

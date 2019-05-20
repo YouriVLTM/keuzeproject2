@@ -24,13 +24,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "ZoekHotelServlet", urlPatterns = {"/ZoekHotelServlet"}, initParams = {
-    @WebInitParam(name = "url", value = "jdbc:oracle:thin:@itf-oracledb01.thomasmore.be:1521:XE"),
-    @WebInitParam(name = "login", value = "r0662682"),
-    @WebInitParam(name = "password", value = "1234"),
+    @WebInitParam(name = "url", value = "jdbc:oracle:thin:@itf-oracledb01.thomasmore.be:1521:XE")
+    ,
+    @WebInitParam(name = "login", value = "r0662682")
+    ,
+    @WebInitParam(name = "password", value = "1234")
+    ,
     @WebInitParam(name = "driver", value = "oracle.jdbc.driver.OracleDriver")})
 
 public class ZoekHotelServlet extends HttpServlet {
-private DAHotel dahotel = null;
+
+    private DAHotel dahotel = null;
     private DARegio daregio = null;
     private DAHotelaanbod daHotelaanbod = null;
     private DAPeriode daperiode = null;
@@ -58,6 +62,7 @@ private DAHotel dahotel = null;
             throw new ServletException(e);
         }
     }
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -69,7 +74,13 @@ private DAHotel dahotel = null;
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //vul aan
+        RequestDispatcher rd = null;
+
+        int aantalSterren = Integer.parseInt(request.getParameter("select"));
+        ArrayList<Hotel> hotels = dahotel.getHotelsByAantalSterren(aantalSterren);
+        request.setAttribute("hotels", hotels);
+        rd = request.getRequestDispatcher("overzichtHotels.jsp");
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

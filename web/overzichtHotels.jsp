@@ -14,9 +14,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <%ArrayList<Hotel> hotels = (ArrayList<Hotel>) session.getAttribute("hotels");%>
+        <%ArrayList<Hotel> hotels = (ArrayList<Hotel>) request.getAttribute("hotels");%>
 
         <h1>Overzicht hotels</h1>
+        <%if(hotels.size() == 0){%>
+        <p>Helaas, geen hotels gevonden!</p>
+        <%} else {%>
         <ul>
             <%for (Hotel hotel : hotels) {%>
             <li>
@@ -24,6 +27,9 @@
             </li>
             <%}%>
         </ul>
+        <%}%>
+        <a href="zoekhotel.jsp">Opnieuw zoeken</a>
+        
         
     </body>
 </html>
