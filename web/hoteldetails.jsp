@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Hoteldetails</title>
     </head>
     
         <%Hotel hotel = (Hotel)request.getAttribute("hotelIdZoek");%>
@@ -23,9 +23,9 @@
             <p>Naam: <%=hotel.getNaam()%></p>
             <p>Aantal Sterren: <%=hotel.getAantalSterren()%></p>
             <p>Ligging: <%=hotel.getLigging()%></p>
-            <p>Ontspanningsmogelijkheden <%=hotel.getOntspanning()%></p>  
+            <p>Ontspanningsmogelijkheden: <%=hotel.getOntspanning()%></p>              
+            <p>Naam van de streek: <%=regio.getNaam()%></p>
             <img src="images/<%=hotel.getFoto()%>">
-            <p>Naam van de streek:<%=regio.getNaam()%></p>
  
             <a href="starthotels.jsp.">Klik hier om terug te gaan naar de startpagina van hotels.</a>
     

@@ -20,6 +20,7 @@
         <h1>Toon het hotel</h1>
         <p>De naam: <%=hotelnaam.getNaam()%></p>
         <p>Het aantal sterren: <%=hotelnaam.getAantalSterren()%></p>
+        <a href="HotelServlet?hotelId=<%=hotelnaam.getId()%>">Klik hier voor meer details</a>
         <a href="starthotels.jsp">Klik hier om terug te gaan naar de startpagina van hotels</a>
         <%}%>
     </body>
