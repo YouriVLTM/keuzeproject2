@@ -20,7 +20,7 @@
         <%Regio regio = (Regio)request.getAttribute("regioIdZoek");%>
         <h1>Details van het hotel</h1>
 
-            <p>Naam: <%=hotel.getNaam()%></p>
+        <p>Naam: <a href="HotelServlet?zoekPrijs=<%=hotel.getId()%>&zoekPrijsHotelNaam=<%=hotel.getNaam()%>"><%=hotel.getNaam()%></a></p>
             <p>Aantal Sterren: <%=hotel.getAantalSterren()%></p>
             <p>Ligging: <%=hotel.getLigging()%></p>
             <p>Ontspanningsmogelijkheden: <%=hotel.getOntspanning()%></p>              

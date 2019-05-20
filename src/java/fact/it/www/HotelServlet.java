@@ -79,20 +79,34 @@ public class HotelServlet extends HttpServlet {
         
         if (request.getParameter("zoekHotel")!=null) {
         Hotel hotelnaam = dahotel.getHotel(request.getParameter("hotelNaam").toLowerCase());
-        rd = request.getRequestDispatcher("hotel.jsp");
         request.setAttribute("hotelnaam", hotelnaam);
+        rd = request.getRequestDispatcher("hotel.jsp");
         
         } else if (request.getParameter("toonhotels") != null){
+            
             ArrayList<Hotel> hotels = dahotel.getAlleHotels();
             session.setAttribute("hotels", hotels);
             rd = request.getRequestDispatcher("overzichtHotels.jsp");
+            
         }else if (request.getParameter("hotelId") != null){
+            
             int hotelid = Integer.parseInt(request.getParameter("hotelId"));
             Hotel hotelIdZoek  = dahotel.getHotelById(hotelid);
             Regio regioIdZoek = daregio.getRegionaamByHotelId(hotelid);
             request.setAttribute("regioIdZoek", regioIdZoek);
             request.setAttribute("hotelIdZoek", hotelIdZoek);
             rd = request.getRequestDispatcher("hoteldetails.jsp");
+            
+        }else if(request.getParameter("zoekPrijs") != null) {
+            
+            int hotelid = Integer.parseInt(request.getParameter("zoekPrijs"));
+            String zoekPrijsHotelNaam = request.getParameter("zoekPrijsHotelNaam");
+            ArrayList<Periode> periode = daperiode.getHotelPrijs(hotelid);
+            ArrayList<Hotelaanbod> hotelaanbod = daHotelaanbod.getHotelPrijs(hotelid);
+            request.setAttribute("hotelaanbod", hotelaanbod);
+            request.setAttribute("periode", periode);
+            request.setAttribute("zoekPrijsHotelNaam", zoekPrijsHotelNaam);
+            rd = request.getRequestDispatcher("hotelprijs.jsp");
         }
              
         rd.forward(request, response);
