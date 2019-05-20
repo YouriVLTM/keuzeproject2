@@ -36,6 +36,11 @@
                 </select>
                 <input type="submit" name="zoekHotelRegio" value="zoeken op regio">
             </p>
+            <p>
+                <label for="hotelNaam">Naam van het hotel</label>
+                <input type="text" name="hotelNaam" id="hotelNaam">
+                <input type="submit" name="zoekHotelNaam" value="zoeken op naam">
+            </p>
             
         </form>
         <a href="starthotels.jsp">Terug naar de startpagina</a>

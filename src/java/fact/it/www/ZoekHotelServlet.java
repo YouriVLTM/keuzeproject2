@@ -81,15 +81,22 @@ public class ZoekHotelServlet extends HttpServlet {
             int aantalSterren = Integer.parseInt(request.getParameter("select"));
             ArrayList<Hotel> hotels = dahotel.getHotelsByAantalSterren(aantalSterren);
             request.setAttribute("hotels", hotels);
-            rd = request.getRequestDispatcher("overzichtHotels.jsp");
 
         }else if (request.getParameter("zoekHotelRegio") != null) {
             
             int regioId = Integer.parseInt(request.getParameter("regio"));
             ArrayList<Hotel> hotels = dahotel.getHotelsByRegio(regioId);
             request.setAttribute("hotels", hotels);           
-            rd = request.getRequestDispatcher("overzichtHotels.jsp");
+            
+        }else if (request.getParameter("zoekHotelNaam") != null) {
+            
+            String hotelNaam = request.getParameter("hotelNaam").toLowerCase();
+            ArrayList<Hotel> hotels = dahotel.getHotelsByNaam(hotelNaam);
+            request.setAttribute("hotels", hotels);           
+            
+            
         }
+        rd = request.getRequestDispatcher("overzichtHotels.jsp");
         rd.forward(request, response);
     }
 

@@ -181,5 +181,32 @@ public class DAHotel {
         }
         return hotels;
     }
+     public ArrayList<Hotel> getHotelsByNaam(String hotelNaam) {
+        Hotel hotel = null;
+        ArrayList<Hotel> hotels = new ArrayList <>();
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel where lower(naam) like ?");) {
+
+            statement.setString(1, "%" + hotelNaam + "%");
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                hotel = new Hotel();
+                hotel.setId(resultSet.getInt("id"));
+                hotel.setNaam(resultSet.getString("naam"));
+                hotel.setAantalSterren(resultSet.getInt("aantalSterren"));
+                hotel.setLigging(resultSet.getString("ligging"));
+                hotel.setMaaltijden(resultSet.getString("maaltijden"));
+                hotel.setOntspanning(resultSet.getString("ontspanning"));
+                hotel.setFoto(resultSet.getString("foto"));
+                hotel.setRegioid(resultSet.getInt("regioid"));
+                hotels.add(hotel);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return hotels;
+    }
 
 }
