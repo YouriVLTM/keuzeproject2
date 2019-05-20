@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "ZoekHotelServlet", urlPatterns = {"/ZoekHotelServlet"}, initParams = {
     @WebInitParam(name = "url", value = "jdbc:oracle:thin:@itf-oracledb01.thomasmore.be:1521:XE"),
-    @WebInitParam(name = "login", value = "geefhierjelogin"),
+    @WebInitParam(name = "login", value = "r0662682"),
     @WebInitParam(name = "password", value = "1234"),
     @WebInitParam(name = "driver", value = "oracle.jdbc.driver.OracleDriver")})
 
