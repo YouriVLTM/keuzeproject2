@@ -110,7 +110,9 @@ public class HotelServlet extends HttpServlet {
         }else if(request.getParameter("uitgebreid") != null){
             
             ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+            ArrayList<Periode> allePeriodes = daperiode.getAllePeriodes();
             request.setAttribute("alleRegios", alleRegios);
+            request.setAttribute("allePeriodes", allePeriodes);
             rd = request.getRequestDispatcher("zoekhotel.jsp");
         }
              

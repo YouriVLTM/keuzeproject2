@@ -4,6 +4,7 @@
     Author     : Ruben
 --%>
 
+<%@page import="fact.it.www.beans.Periode"%>
 <%@page import="fact.it.www.beans.Regio"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,6 +16,7 @@
     </head>
     <body>
         <%ArrayList<Regio> regios = (ArrayList<Regio>) request.getAttribute("alleRegios");%>
+        <%ArrayList<Periode> periodes = (ArrayList<Periode>) request.getAttribute("allePeriodes");%>
         <h1>Zoek je hotel</h1>
         <form action="ZoekHotelServlet">
             <p>                
@@ -41,7 +43,15 @@
                 <input type="text" name="hotelNaam" id="hotelNaam">
                 <input type="submit" name="zoekHotelNaam" value="zoeken op naam">
             </p>
-            
+            <p>
+                <label for="periode">In welke periode wilt u op vakantie gaan?</label>
+                <select name="periode" id="periode">
+                    <%for (Periode periode : periodes) {%>
+                    <option value="<%=periode.getId()%>"><%=periode.getNaam()%></option>
+                    <%}%>
+                </select>
+                <input type="submit" name="zoekHotelPeriode" value="zoeken op periode">
+            </p>
         </form>
         <a href="starthotels.jsp">Terug naar de startpagina</a>
     </body>

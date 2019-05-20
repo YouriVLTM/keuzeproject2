@@ -95,6 +95,13 @@ public class ZoekHotelServlet extends HttpServlet {
             request.setAttribute("hotels", hotels);           
             
             
+        }else if (request.getParameter("zoekHotelPeriode") != null) {
+            
+            int periodeId = Integer.parseInt(request.getParameter("periode"));
+            ArrayList<Hotel> hotels = dahotel.getHotelsByPeriode(periodeId);
+            request.setAttribute("hotels", hotels);           
+            
+            
         }
         rd = request.getRequestDispatcher("overzichtHotels.jsp");
         rd.forward(request, response);
