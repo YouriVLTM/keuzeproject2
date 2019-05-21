@@ -31,14 +31,27 @@
                            
 
          <form action="ParkServlet" >
-             <label for="naam">Geef begin letters in: </label>
-             <input type="text" name="naam" id="naam"/>
-             <input type="submit" value="Toon Specifiek Park id 1" name="vakantiePark1" />
-            <input type="submit" value="Toon Specifiek Park" name="vakantiePark" />
-            <input type="submit" value="Toon alle Park" name="alleVakantiePark" />
-            
+                 
+             
+             <div class="form-row mt-5">
+                 <div class="col-12">
+                        <label for="naam">Geef begin letters in: </label>         
+                    </div>
+                    <div class="col-5 contact-forms">
+                         <label for="attractieNaam" class="sr-only">attractie Naam</label>
+                           <input type="text" class="form-control" id="naam" name="naam" placeholder="Geef de naam in">
+                    </div>
+                             
+             </div>
+             <br>
+             <div class="btn-group" role="group" aria-label="Basic example">
+                <input type="submit" class="btn btn-outline-primary"  value="Toon Specifiek Park id 1" name="vakantiePark1" />
+               <input type="submit" class="btn btn-outline-primary"  value="Toon Specifiek Park" name="vakantiePark" />
+               <input type="submit" class="btn btn-outline-primary"  value="Toon alle Park" name="alleVakantiePark" />
+                       <a href="ZoekParkServlet?uitgebreid=1" class="btn btn-outline-primary">uitgebreid</a>
+
+            </div>
         </form>
-        <a href="ZoekParkServlet?uitgebreid=1">uitgebreid</a>
                         
                     </div>
 			
