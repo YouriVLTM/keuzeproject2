@@ -7,11 +7,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
+    <jsp:include page="temp/head.jsp" />
     <body>
+        <jsp:include page="temp/nav.jsp" />
+        
+                        <!-- banner -->
+<section class="banner_inner" id="home">
+	<div class="banner_inner_overlay">
+	</div>
+</section>
+                        
+                        
          <form action="ParkServlet" >
              <h1>VakantiePark</h1>
              <label for="naam">Geef begin letters in: </label>

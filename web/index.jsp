@@ -29,8 +29,6 @@
         <p>
             <a href="admin.jsp">Informatie over regio's</a>
         </p>  
-                                    <br>
-                        <a href="index.jsp">Ga terug naar Home</a>
                         
                     </div>
 			

@@ -16,6 +16,10 @@
         <input type="checkbox" id="drop" />
         <ul class="menu ml-auto mt-1">
           <li class="active"><a href="index.jsp">Home</a></li>
+          <li class="active"><a href="starthotels.jsp">Hotels</a></li>
+          <li class="active"><a href="startparken.jsp">Vakantie parken</a></li>
+
+
         </ul>
       </nav>
       <!-- //nav -->
