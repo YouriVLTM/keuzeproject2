@@ -18,18 +18,18 @@
         <%ArrayList<Regio> regios = (ArrayList<Regio>) request.getAttribute("alleRegios");%>
         <%ArrayList<Periode> periodes = (ArrayList<Periode>) request.getAttribute("allePeriodes");%>
         <%ArrayList<String> maaltijden = (ArrayList<String>) session.getAttribute("maaltijden");%>
-               
+
         <h1>Zoek je hotel</h1>
         <form action="ZoekHotelServlet">
             <p>                
-            <label for="select">Hoeveel sterren moet het hotel hebben?</label>
-            <select name="select" id="select">
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-            </select>
-            <input type="submit" name="zoekHotelAantalSterren" value="zoeken op aantal sterren">
+                <label for="select">Hoeveel sterren moet het hotel hebben?</label>
+                <select name="select" id="select">
+                    <option value="2">2</option>
+                    <option value="3" selected>3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <input type="submit" name="zoekHotelAantalSterren" value="zoeken op aantal sterren">
             </p>
             <p>
                 <label for="regio">In welke regio moet het hotel liggen?</label>
@@ -39,35 +39,36 @@
                     <%}%>
                 </select>
                 <input type="submit" name="zoekHotelRegio" value="zoeken op regio">
-            </p>
-            <p>
-                <label for="hotelNaam">Naam van het hotel</label>
-                <input type="text" name="hotelNaam" id="hotelNaam">
-                <input type="submit" name="zoekHotelNaam" value="zoeken op naam">
-            </p>
+            </p>           
             <p>
                 <label for="periode">In welke periode wilt u op vakantie gaan?</label>
-                <select name="periode" id="periode">
+                <select name="periode" id="periode">                   
                     <%for (Periode periode : periodes) {%>
                     <option value="<%=periode.getId()%>"><%=periode.getNaam()%></option>
                     <%}%>
                 </select>
                 <input type="submit" name="zoekHotelPeriode" value="zoeken op periode">
             </p>
-            <P>
+            <p>
                 <label for="maaltijd">Welke maaltiijd wilt u?</label>
                 <select name="maaltijd" id="maaltijd">
-                <%for(int i=0; i<maaltijden.size(); i++) {%>
+                    <%for (int i = 0; i < maaltijden.size(); i++) {%>
                     <option value="<%=i%>"><%=maaltijden.get(i)%></option>
                     <%}%>
-                    </select>
-                    <input type="submit" name="zoekHotelMaaltijd" value="zoeken op maaltijd">
-        </P>
-        <P>
-                <label for="ontspanning">Welke ontspanning wilt u?</label>
+                </select>
+                <input type="submit" name="zoekHotelMaaltijd" value="zoeken op maaltijd">
+            </p>
+            <p>
+                <label for="hotelNaam">Naam van het hotel<sup>(optioneel)</sup></label>
+                <input type="text" name="hotelNaam" id="hotelNaam">
+                <input type="submit" name="zoekHotelNaam" value="zoeken op naam">
+            </p>
+            <p>
+                <label for="ontspanning">Welke ontspanning wilt u?<sup>(optioneel)</sup></label>
                 <input type="text" name="ontspanning" id="ontspanning">
-                    <input type="submit" name="zoekHotelOntspanning" value="zoeken op ontspanning">
-        </P>
+                <input type="submit" name="zoekHotelOntspanning" value="zoeken op ontspanning">
+            </p>
+            <input type="submit" name="hotelZoeken"id="hotelZoeken" value="Zoeken">
         </form>
         <a href="starthotels.jsp">Terug naar de startpagina</a>
     </body>

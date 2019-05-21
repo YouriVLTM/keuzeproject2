@@ -78,83 +78,122 @@ public class ZoekHotelServlet extends HttpServlet {
         RequestDispatcher rd = null;
 
         if (request.getParameter("zoekHotelAantalSterren") != null) {
-            
+
             int aantalSterren = Integer.parseInt(request.getParameter("select"));
             ArrayList<Hotel> hotels = dahotel.getHotelsByAantalSterren(aantalSterren);
             request.setAttribute("hotels", hotels);
 
-        }else if (request.getParameter("zoekHotelRegio") != null) {
-            
+        } else if (request.getParameter("zoekHotelRegio") != null) {
+
             int regioId = Integer.parseInt(request.getParameter("regio"));
             ArrayList<Hotel> hotels = dahotel.getHotelsByRegio(regioId);
-            request.setAttribute("hotels", hotels);           
-            
-        }else if (request.getParameter("zoekHotelNaam") != null) {
-            
+            request.setAttribute("hotels", hotels);
+
+        } else if (request.getParameter("zoekHotelNaam") != null) {
+
             String hotelNaam = request.getParameter("hotelNaam").toLowerCase();
             ArrayList<Hotel> hotels = dahotel.getHotelsByNaam(hotelNaam);
-            request.setAttribute("hotels", hotels);           
-            
-            
-        }else if (request.getParameter("zoekHotelPeriode") != null) {
-            
+            request.setAttribute("hotels", hotels);
+
+        } else if (request.getParameter("zoekHotelPeriode") != null) {
+
             int periodeId = Integer.parseInt(request.getParameter("periode"));
             ArrayList<Hotel> hotels = dahotel.getHotelsByPeriode(periodeId);
-            request.setAttribute("hotels", hotels);           
-            
-            
-        }else if(request.getParameter("zoekHotelMaaltijd") != null){
+            request.setAttribute("hotels", hotels);
+
+        } else if (request.getParameter("zoekHotelMaaltijd") != null) {
+
             int maaltijdenNummer = Integer.parseInt(request.getParameter("maaltijd"));
-            ArrayList<String> maaltijden = (ArrayList<String>)session.getAttribute("maaltijden");
+            ArrayList<String> maaltijden = (ArrayList<String>) session.getAttribute("maaltijden");
             String zoekMaaltijd = maaltijden.get(maaltijdenNummer);
             ArrayList<Hotel> hotels = dahotel.getHotelsByMaaltijd(zoekMaaltijd);
-            request.setAttribute("hotels", hotels);        
-        }else if(request.getParameter("zoekHotelOntspanning") != null){
+            request.setAttribute("hotels", hotels);
+
+        } else if (request.getParameter("zoekHotelOntspanning") != null) {
+
             String zoekOntspanning = request.getParameter("ontspanning").toLowerCase();
             ArrayList<Hotel> hotels = dahotel.getHotelsByOntspanning(zoekOntspanning);
-            request.setAttribute("hotels", hotels); 
+            request.setAttribute("hotels", hotels);
+
+        } else if (request.getParameter("hotelZoeken") != null) {
+
+            int aantalSterren = Integer.parseInt(request.getParameter("select"));
+            int regioId = Integer.parseInt(request.getParameter("regio"));
+            int maaltijdenNummer = Integer.parseInt(request.getParameter("maaltijd"));
+            ArrayList<String> maaltijden = (ArrayList<String>) session.getAttribute("maaltijden");
+            String maaltijdNaam = maaltijden.get(maaltijdenNummer);
+            String hotelNaam = request.getParameter("hotelNaam").toLowerCase();
+            String zoekOntspanning = request.getParameter("ontspanning").toLowerCase();
+            ArrayList<Hotel> hotels = dahotel.getHotelByAlles(aantalSterren, regioId, maaltijdNaam, hotelNaam, zoekOntspanning);
+                request.setAttribute("hotels", hotels);
+            if (request.getParameter("hotelnaam") == null || request.getParameter("ontspanning") == null) {
+
+                if (request.getParameter("hotelnaam") == null && request.getParameter("ontspanning") == null) {
+                    hotels = dahotel.getHotelByAllesBehalveHotelnaamEnOntspanning(aantalSterren, regioId, maaltijdNaam);
+                    request.setAttribute("hotels", hotels);
+                }
+
+                if (request.getParameter("hotelnaam") == null && request.getParameter("ontspanning") != null) {
+                    hotels = dahotel.getHotelByAllesBehalveHotelnaam(aantalSterren, regioId, maaltijdNaam, zoekOntspanning);
+                    request.setAttribute("hotels", hotels);
+                }
+
+                if (request.getParameter("hotelnaam") != null && request.getParameter("ontspanning") == null) {
+                    hotels = dahotel.getHotelByAllesBehalveOntspanning(aantalSterren, regioId, maaltijdNaam,hotelNaam );
+                    request.setAttribute("hotels", hotels);
+                }
+
+                
+
+            }
         }
-        rd = request.getRequestDispatcher("overzichtHotels.jsp");
-        rd.forward(request, response);
-    }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            rd = request.getRequestDispatcher("overzichtHotels.jsp");
+            rd.forward(request, response);
+        }
+
+        // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+        /**
+         * Handles the HTTP <code>GET</code> method.
+         *
+         * @param request servlet request
+         * @param response servlet response
+         * @throws ServletException if a servlet-specific error occurs
+         * @throws IOException if an I/O error occurs
+         */
+        @Override
+        protected void doGet
+        (HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
+            processRequest(request, response);
+        }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        /**
+         * Handles the HTTP <code>POST</code> method.
+         *
+         * @param request servlet request
+         * @param response servlet response
+         * @throws ServletException if a servlet-specific error occurs
+         * @throws IOException if an I/O error occurs
+         */
+        @Override
+        protected void doPost
+        (HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
+            processRequest(request, response);
+        }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
+        /**
+         * Returns a short description of the servlet.
+         *
+         * @return a String containing servlet description
+         */
+        @Override
+        public String getServletInfo
+        
+        
+            () {
         return "Short description";
-    }// </editor-fold>
+        }// </editor-fold>
 
-}
+    }

@@ -76,13 +76,13 @@ public class DAHotel {
 
     public ArrayList<Hotel> getAlleHotels() {
         Hotel hotel = null;
-        ArrayList<Hotel> hotels = new ArrayList <>();
+        ArrayList<Hotel> hotels = new ArrayList<>();
 
         try (
                 Connection connection = DriverManager.getConnection(url, login, password);
                 Statement statement = connection.createStatement();
                 ResultSet resultSet = statement.executeQuery("SELECT * FROM hotel order by naam");) {
-            
+
             while (resultSet.next()) {
                 hotel = new Hotel();
                 hotel.setId(resultSet.getInt("id"));
@@ -100,16 +100,17 @@ public class DAHotel {
         }
         return hotels;
     }
-     public Hotel getHotelById(int hotelId) {
+
+    public Hotel getHotelById(int hotelId) {
         Hotel hotel = null;
-    
+
         try (
                 Connection connection = DriverManager.getConnection(url, login, password);
                 PreparedStatement statement = connection.prepareStatement("select * from hotel where id = ?");) {
 
             statement.setInt(1, hotelId);
             ResultSet resultSet = statement.executeQuery();
-            
+
             if (resultSet.next()) {
                 hotel = new Hotel();
                 hotel.setId(resultSet.getInt("id"));
@@ -120,16 +121,17 @@ public class DAHotel {
                 hotel.setOntspanning(resultSet.getString("ontspanning"));
                 hotel.setFoto(resultSet.getString("foto"));
                 hotel.setRegioid(resultSet.getInt("regioid"));
-              
+
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return hotel;
     }
-     public ArrayList<Hotel> getHotelsByAantalSterren(int aantalSterren) {
+
+    public ArrayList<Hotel> getHotelsByAantalSterren(int aantalSterren) {
         Hotel hotel = null;
-        ArrayList<Hotel> hotels = new ArrayList <>();
+        ArrayList<Hotel> hotels = new ArrayList<>();
 
         try (
                 Connection connection = DriverManager.getConnection(url, login, password);
@@ -154,9 +156,10 @@ public class DAHotel {
         }
         return hotels;
     }
-     public ArrayList<Hotel> getHotelsByRegio(int regioId) {
+
+    public ArrayList<Hotel> getHotelsByRegio(int regioId) {
         Hotel hotel = null;
-        ArrayList<Hotel> hotels = new ArrayList <>();
+        ArrayList<Hotel> hotels = new ArrayList<>();
 
         try (
                 Connection connection = DriverManager.getConnection(url, login, password);
@@ -181,9 +184,10 @@ public class DAHotel {
         }
         return hotels;
     }
-     public ArrayList<Hotel> getHotelsByNaam(String hotelNaam) {
+
+    public ArrayList<Hotel> getHotelsByNaam(String hotelNaam) {
         Hotel hotel = null;
-        ArrayList<Hotel> hotels = new ArrayList <>();
+        ArrayList<Hotel> hotels = new ArrayList<>();
 
         try (
                 Connection connection = DriverManager.getConnection(url, login, password);
@@ -208,9 +212,10 @@ public class DAHotel {
         }
         return hotels;
     }
-     public ArrayList<Hotel> getHotelsByPeriode(int periodeId) {
+
+    public ArrayList<Hotel> getHotelsByPeriode(int periodeId) {
         Hotel hotel = null;
-        ArrayList<Hotel> hotels = new ArrayList <>();
+        ArrayList<Hotel> hotels = new ArrayList<>();
 
         try (
                 Connection connection = DriverManager.getConnection(url, login, password);
@@ -236,9 +241,9 @@ public class DAHotel {
         return hotels;
     }
 
-     public ArrayList<String> getMaaltijden() {
+    public ArrayList<String> getMaaltijden() {
         String maaltijd = null;
-        ArrayList<String> maaltijden = new ArrayList <>();
+        ArrayList<String> maaltijden = new ArrayList<>();
 
         try (
                 Connection connection = DriverManager.getConnection(url, login, password);
@@ -254,17 +259,16 @@ public class DAHotel {
         }
         return maaltijden;
     }
-     
-     
-     public ArrayList<Hotel> getHotelsByMaaltijd(String zoekMaaltijd) {
+
+    public ArrayList<Hotel> getHotelsByMaaltijd(String zoekMaaltijd) {
         Hotel hotel = null;
-        ArrayList<Hotel> hotels = new ArrayList <>();
+        ArrayList<Hotel> hotels = new ArrayList<>();
 
         try (
                 Connection connection = DriverManager.getConnection(url, login, password);
                 PreparedStatement statement = connection.prepareStatement("select * from hotel where maaltijden =  ?");) {
 
-            statement.setString(1,zoekMaaltijd);
+            statement.setString(1, zoekMaaltijd);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 hotel = new Hotel();
@@ -282,12 +286,11 @@ public class DAHotel {
             e.printStackTrace();
         }
         return hotels;
-     }
-     
-     
-      public ArrayList<Hotel> getHotelsByOntspanning(String zoekOntspanning) {
+    }
+
+    public ArrayList<Hotel> getHotelsByOntspanning(String zoekOntspanning) {
         Hotel hotel = null;
-        ArrayList<Hotel> hotels = new ArrayList <>();
+        ArrayList<Hotel> hotels = new ArrayList<>();
 
         try (
                 Connection connection = DriverManager.getConnection(url, login, password);
@@ -312,5 +315,125 @@ public class DAHotel {
         }
         return hotels;
     }
-    
+    public ArrayList<Hotel> getHotelByAlles( int aantalSterren, int regioId, String maaltijdNaam, String hotelNaam, String zoekOntspanning) {
+        Hotel hotel = null;
+        ArrayList<Hotel> hotels = new ArrayList<>();
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel where aantalsterren = ? and regioid = ? and maaltijden = ? and lower(naam) like ? and lower(ontspanning) like ?");) {
+
+            statement.setInt(1,  aantalSterren );
+            statement.setInt(2, regioId);
+            statement.setString(3, maaltijdNaam);
+            statement.setString(4, "%" + hotelNaam + "%");
+            statement.setString(5, "%" + zoekOntspanning + "%");
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                hotel = new Hotel();
+                hotel.setId(resultSet.getInt("id"));
+                hotel.setNaam(resultSet.getString("naam"));
+                hotel.setAantalSterren(resultSet.getInt("aantalSterren"));
+                hotel.setLigging(resultSet.getString("ligging"));
+                hotel.setMaaltijden(resultSet.getString("maaltijden"));
+                hotel.setOntspanning(resultSet.getString("ontspanning"));
+                hotel.setFoto(resultSet.getString("foto"));
+                hotel.setRegioid(resultSet.getInt("regioid"));
+                hotels.add(hotel);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return hotels;
+    }
+    public ArrayList<Hotel> getHotelByAllesBehalveHotelnaamEnOntspanning(int aantalSterren, int regioId, String maaltijdNaam) {
+        Hotel hotel = null;
+        ArrayList<Hotel> hotels = new ArrayList<>();
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel where aantalsterren = ? and regioid = ? and maaltijden = ?");) {
+
+            statement.setInt(1,  aantalSterren );
+            statement.setInt(2, regioId);
+            statement.setString(3, maaltijdNaam);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                hotel = new Hotel();
+                hotel.setId(resultSet.getInt("id"));
+                hotel.setNaam(resultSet.getString("naam"));
+                hotel.setAantalSterren(resultSet.getInt("aantalSterren"));
+                hotel.setLigging(resultSet.getString("ligging"));
+                hotel.setMaaltijden(resultSet.getString("maaltijden"));
+                hotel.setOntspanning(resultSet.getString("ontspanning"));
+                hotel.setFoto(resultSet.getString("foto"));
+                hotel.setRegioid(resultSet.getInt("regioid"));
+                hotels.add(hotel);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return hotels;
+    }
+    public ArrayList<Hotel> getHotelByAllesBehalveHotelnaam(int aantalSterren, int regioId, String maaltijdNaam,String zoekOntspanning) {
+        Hotel hotel = null;
+        ArrayList<Hotel> hotels = new ArrayList<>();
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel where aantalsterren = ? and regioid = ? and maaltijden = ? and lower(ontspanning) like ?");) {
+
+            statement.setInt(1,  aantalSterren );
+            statement.setInt(2, regioId);
+            statement.setString(3, maaltijdNaam);            
+            statement.setString(4, "%" + zoekOntspanning + "%");
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                hotel = new Hotel();
+                hotel.setId(resultSet.getInt("id"));
+                hotel.setNaam(resultSet.getString("naam"));
+                hotel.setAantalSterren(resultSet.getInt("aantalSterren"));
+                hotel.setLigging(resultSet.getString("ligging"));
+                hotel.setMaaltijden(resultSet.getString("maaltijden"));
+                hotel.setOntspanning(resultSet.getString("ontspanning"));
+                hotel.setFoto(resultSet.getString("foto"));
+                hotel.setRegioid(resultSet.getInt("regioid"));
+                hotels.add(hotel);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return hotels;
+    }
+    public ArrayList<Hotel> getHotelByAllesBehalveOntspanning(int aantalSterren, int regioId, String maaltijdNaam,String hotelNaam) {
+        Hotel hotel = null;
+        ArrayList<Hotel> hotels = new ArrayList<>();
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel where aantalsterren = ? and regioid = ? and maaltijden = ? and lower(naam) like ?");) {
+
+            statement.setInt(1,  aantalSterren );
+            statement.setInt(2, regioId);
+            statement.setString(3, maaltijdNaam);            
+            statement.setString(4, "%" + hotelNaam + "%");
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                hotel = new Hotel();
+                hotel.setId(resultSet.getInt("id"));
+                hotel.setNaam(resultSet.getString("naam"));
+                hotel.setAantalSterren(resultSet.getInt("aantalSterren"));
+                hotel.setLigging(resultSet.getString("ligging"));
+                hotel.setMaaltijden(resultSet.getString("maaltijden"));
+                hotel.setOntspanning(resultSet.getString("ontspanning"));
+                hotel.setFoto(resultSet.getString("foto"));
+                hotel.setRegioid(resultSet.getInt("regioid"));
+                hotels.add(hotel);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return hotels;
+    }
+
 }
