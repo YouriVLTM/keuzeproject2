@@ -74,6 +74,7 @@ public class ZoekHotelServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession();
         RequestDispatcher rd = null;
 
         if (request.getParameter("zoekHotelAantalSterren") != null) {
@@ -102,6 +103,16 @@ public class ZoekHotelServlet extends HttpServlet {
             request.setAttribute("hotels", hotels);           
             
             
+        }else if(request.getParameter("zoekHotelMaaltijd") != null){
+            int maaltijdenNummer = Integer.parseInt(request.getParameter("maaltijd"));
+            ArrayList<String> maaltijden = (ArrayList<String>)session.getAttribute("maaltijden");
+            String zoekMaaltijd = maaltijden.get(maaltijdenNummer);
+            ArrayList<Hotel> hotels = dahotel.getHotelsByMaaltijd(zoekMaaltijd);
+            request.setAttribute("hotels", hotels);        
+        }else if(request.getParameter("zoekHotelOntspanning") != null){
+            String zoekOntspanning = request.getParameter("ontspanning").toLowerCase();
+            ArrayList<Hotel> hotels = dahotel.getHotelsByOntspanning(zoekOntspanning);
+            request.setAttribute("hotels", hotels); 
         }
         rd = request.getRequestDispatcher("overzichtHotels.jsp");
         rd.forward(request, response);

@@ -17,6 +17,8 @@
     <body>
         <%ArrayList<Regio> regios = (ArrayList<Regio>) request.getAttribute("alleRegios");%>
         <%ArrayList<Periode> periodes = (ArrayList<Periode>) request.getAttribute("allePeriodes");%>
+        <%ArrayList<String> maaltijden = (ArrayList<String>) session.getAttribute("maaltijden");%>
+               
         <h1>Zoek je hotel</h1>
         <form action="ZoekHotelServlet">
             <p>                
@@ -52,6 +54,20 @@
                 </select>
                 <input type="submit" name="zoekHotelPeriode" value="zoeken op periode">
             </p>
+            <P>
+                <label for="maaltijd">Welke maaltiijd wilt u?</label>
+                <select name="maaltijd" id="maaltijd">
+                <%for(int i=0; i<maaltijden.size(); i++) {%>
+                    <option value="<%=i%>"><%=maaltijden.get(i)%></option>
+                    <%}%>
+                    </select>
+                    <input type="submit" name="zoekHotelMaaltijd" value="zoeken op maaltijd">
+        </P>
+        <P>
+                <label for="ontspanning">Welke ontspanning wilt u?</label>
+                <input type="text" name="ontspanning" id="ontspanning">
+                    <input type="submit" name="zoekHotelOntspanning" value="zoeken op ontspanning">
+        </P>
         </form>
         <a href="starthotels.jsp">Terug naar de startpagina</a>
     </body>
