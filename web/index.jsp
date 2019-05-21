@@ -1,13 +1,26 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Lekker genieten op vakantie</title>
-    </head>
+    <jsp:include page="temp/head.jsp" />
+    
     <body>
-        <h1>Lekker genieten op vakantie</h1>
-        <p>
+        <jsp:include page="temp/nav.jsp" />
+        
+                <!-- banner -->
+<section class="banner_inner" id="home">
+	<div class="banner_inner_overlay">
+	</div>
+</section>
+          
+                <!-- tour packages -->
+<section class="packages pt-5">
+	<div class="container py-lg-4 py-sm-3">
+		
+		<div class="row">               
+				
+                    <div class="col-lg-12 contact-left-form">
+                        <h1 class="heading text-center mb-5">Lekker genieten op <strong>vakantie</strong></h1>
+                                     <p>
             <a href="startparken.jsp">Startpagina vakantieparken</a>
         </p>
         <p>
@@ -15,6 +28,21 @@
         </p>   
         <p>
             <a href="admin.jsp">Informatie over regio's</a>
-        </p>   
+        </p>  
+                                    <br>
+                        <a href="index.jsp">Ga terug naar Home</a>
+                        
+                    </div>
+			
+                
+			
+		</div>
+	</div>
+</section>
+<!-- tour packages -->
+
+
+
+        <jsp:include page="temp/footer.jsp" />
     </body>
 </html>

@@ -54,6 +54,12 @@
                 <input type="submit" name="zoekAantalslaapkamers" value="zoeken op aantal slaapkamers">
             </p>
             
+            <p>
+                <label for="aantalPersonen">Aantal Personen</label>
+                <input type="text" name="aantalPersonen" id="aantalPersonen">
+                <input type="submit" name="zoekAantalPersonen" value="zoeken op aantal Personen">
+            </p>
+            
         </form>
         <a href="startparken.jsp">Terug naar de startpagina</a>s
                     

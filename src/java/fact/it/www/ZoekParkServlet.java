@@ -105,7 +105,18 @@ public class ZoekParkServlet extends HttpServlet {
             
             rd = request.getRequestDispatcher("overzichtparken.jsp");
             request.setAttribute("parken", parken);
+        }else if(request.getParameter("zoekAantalPersonen") != null){
+            
+            int aantalslaapkamers = Integer.parseInt(request.getParameter("aantalPersonen")); 
+            
+            ArrayList<Park> parken = dapark.getParkAantalPersonen(aantalslaapkamers);            
+            
+            rd = request.getRequestDispatcher("overzichtparken.jsp");
+            request.setAttribute("parken", parken);
         }
+        
+        
+        
       
         
 
