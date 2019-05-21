@@ -27,6 +27,6 @@
             <p>Naam van de streek: <%=regio.getNaam()%></p>
             <img src="images/<%=hotel.getFoto()%>">
  
-            <a href="starthotels.jsp.">Klik hier om terug te gaan naar de startpagina van hotels.</a>
+            <a href="starthotels.jsp">Klik hier om terug te gaan naar de startpagina van hotels.</a>
     
 </html>
