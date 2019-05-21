@@ -14,9 +14,9 @@
         <jsp:include page="temp/nav.jsp" />
         
         <section class="banner_inner" id="home">
-	<div class="banner_inner_overlay">
-	</div>
-</section>
+                <div class="banner_inner_overlay">
+                </div>
+        </section>
         
 
 
@@ -34,14 +34,26 @@
                 <% if(parken != null){ %>
 
                     <div class="row">
+                        
                     <% for(Park park : parken) { %>
 
                         <div class="col-lg-6 col-sm-6 mb-5">
-                                <div class="package-info text-center">
-                                        <h2 class="my-2"><span><%=park.getNaam()%></span></h2>
-                                        <p>AantalSterren: <%=park.getAantalSterren()%> </p> 
-                                        <a href="ParkServlet?parkId=<%=park.getId()%>">klik hier</a>
+                             <div class="package-info">
+                                <div class="row">
+                                     <div class="col-12 text-center">
+                                        <h2 class="my-2"><span><%=park.getNaam()%></span></h2> 
+                                        <br>
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="images/<%=park.getFoto()%>" class="rounded img-fluid" style="width: 250px"/>
+                                    </div>
+                                    <div class="col-6">
+                                            <p>AantalSterren: <%=park.getAantalSterren()%> </p> 
+                                            <a href="ParkServlet?parkId=<%=park.getId()%>">meer info</a>
+                                    </div>
 
+                                </div>
+                               
 
                                 </div>
                         </div>
