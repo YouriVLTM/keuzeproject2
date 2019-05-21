@@ -18,8 +18,19 @@
 </section>
                         
                         
+        
+        
+         
+<section class="packages pt-5">
+	<div class="container py-lg-4 py-sm-3">
+		
+		<div class="row">               
+				
+                    <div class="col-lg-12 contact-left-form">
+                        <h1 class="heading text-center mb-5">VakantiePark</h1>
+                           
+
          <form action="ParkServlet" >
-             <h1>VakantiePark</h1>
              <label for="naam">Geef begin letters in: </label>
              <input type="text" name="naam" id="naam"/>
              <input type="submit" value="Toon Specifiek Park id 1" name="vakantiePark1" />
@@ -28,8 +39,18 @@
             
         </form>
         <a href="ZoekParkServlet?uitgebreid=1">uitgebreid</a>
-        
-         
-        
+                        
+                    </div>
+			
+                
+			
+		</div>
+	</div>
+</section>
+<!-- tour packages -->
+
+
+
+        <jsp:include page="temp/footer.jsp" />
     </body>
 </html>
