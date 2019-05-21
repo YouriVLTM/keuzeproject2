@@ -29,6 +29,7 @@
         <% }else{ %>
             <p>Er is geen park gevonden</p>        
         <% } %>
+        <p>  <a href="ZoekParkServlet?uitgebreid=1">Terug naar zoekfunctie</a></p>
         <p>  <a href="index.jsp">Terug naar beginpagina</a></p>
     </body>
 </html>
