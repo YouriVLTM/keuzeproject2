@@ -86,7 +86,20 @@ public class ZoekParkServlet extends HttpServlet {
             
             rd = request.getRequestDispatcher("overzichtparken.jsp");
             request.setAttribute("parken", parken);
+            
+        }else if(request.getParameter("zoekParkNaam") != null){
+            
+            String parkNaam = request.getParameter("parkNaam"); 
+            
+            ArrayList<Park> parken = dapark.getParkNaam(parkNaam);
+            
+            
+            rd = request.getRequestDispatcher("overzichtparken.jsp");
+            request.setAttribute("parken", parken);
         }
+        
+        
+        
         
         
         

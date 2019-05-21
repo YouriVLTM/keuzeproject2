@@ -42,6 +42,11 @@
                 </select>
                 <input type="submit" name="zoekParkRegio" value="zoeken op regio">
             </p>
+             <p>
+                <label for="parkNaam">Naam van het Park</label>
+                <input type="text" name="parkNaam" id="parkNaam">
+                <input type="submit" name="zoekParkNaam" value="zoeken op naam">
+            </p>
             
         </form>
         <a href="startparken.jsp">Terug naar de startpagina</a>s

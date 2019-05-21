@@ -70,6 +70,39 @@ public class DAPark {
         }
         return park;
     }
+     
+    public ArrayList<Park> getParkNaam(String naam) {
+       ArrayList<Park> parken = new ArrayList<>();
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM park where lower(naam) like ?");     ) {
+                naam = naam.toLowerCase();
+                statement.setString(1, "%" + naam + "%");
+                ResultSet resultSet = statement.executeQuery();
+           
+            if (resultSet.next()) {
+                Park park = new Park();
+                park.setId(resultSet.getInt("id"));
+                park.setNaam(resultSet.getString("naam"));
+                park.setRegioid(resultSet.getInt("regioid"));
+                park.setAantalSterren(resultSet.getInt("aantalSterren"));
+                park.setVoorzieningen(resultSet.getString("voorzieningen"));
+                park.setFoto(resultSet.getString("foto"));
+                
+                parken.add(park);
+                
+            }
+            // standaar staat de arraylist bij null elementen op 0 -> Maar moet opgevormd worden naar null
+            if(parken.isEmpty()){
+                parken = null;
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return parken;
+    }
     
         public ArrayList<Park> getParken() {        
         ArrayList<Park> parken = new ArrayList<>();
@@ -91,6 +124,10 @@ public class DAPark {
                 // arralist
                 parken.add(park);
                 
+            }
+            // standaar staat de arraylist bij null elementen op 0 -> Maar moet opgevormd worden naar null
+            if(parken.isEmpty()){
+                parken = null;
             }
         } catch (Exception e) {
             e.printStackTrace();
