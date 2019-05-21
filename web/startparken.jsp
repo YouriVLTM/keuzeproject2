@@ -19,6 +19,11 @@
              <input type="submit" value="Toon Specifiek Park id 1" name="vakantiePark1" />
             <input type="submit" value="Toon Specifiek Park" name="vakantiePark" />
             <input type="submit" value="Toon alle Park" name="alleVakantiePark" />
+            
         </form>
+        <a href="ZoekParkServlet?uitgebreid=1">uitgebreid</a>
+        
+         
+        
     </body>
 </html>

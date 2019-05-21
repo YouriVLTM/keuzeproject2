@@ -58,6 +58,26 @@ public class ZoekParkServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //vul aan
+ RequestDispatcher rd = null;
+        if(request.getParameter("uitgebreid") != null){  
+            
+            rd = request.getRequestDispatcher("zoekpark.jsp");
+            
+        }else if(request.getParameter("zoekParkAantalSterren") != null){
+            
+            int aantalSterren = Integer.parseInt(request.getParameter("aantalSterren"));    
+            
+            
+             ArrayList<Park> parken = dapark.getAantalSterren(aantalSterren);
+            
+            
+            rd = request.getRequestDispatcher("overzichtparken.jsp");
+            request.setAttribute("parken", parken);
+        }
+
+
+
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -27,7 +27,7 @@
             <% } %>
         </ul>
         <% }else{ %>
-            <p>Er is geen park gevonden met deze beginletters</p>        
+            <p>Er is geen park gevonden</p>        
         <% } %>
         <p>  <a href="index.jsp">Terug naar beginpagina</a></p>
     </body>
