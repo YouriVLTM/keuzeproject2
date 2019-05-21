@@ -120,26 +120,27 @@ public class ZoekHotelServlet extends HttpServlet {
             int aantalSterren = Integer.parseInt(request.getParameter("select"));
             int regioId = Integer.parseInt(request.getParameter("regio"));
             int maaltijdenNummer = Integer.parseInt(request.getParameter("maaltijd"));
+            int periodeId = Integer.parseInt(request.getParameter("periode"));
             ArrayList<String> maaltijden = (ArrayList<String>) session.getAttribute("maaltijden");
             String maaltijdNaam = maaltijden.get(maaltijdenNummer);
             String hotelNaam = request.getParameter("hotelNaam").toLowerCase();
             String zoekOntspanning = request.getParameter("ontspanning").toLowerCase();
-            ArrayList<Hotel> hotels = dahotel.getHotelByAlles(aantalSterren, regioId, maaltijdNaam, hotelNaam, zoekOntspanning);
+            ArrayList<Hotel> hotels = dahotel.getHotelByAlles(aantalSterren, regioId, maaltijdNaam, hotelNaam, zoekOntspanning, periodeId);
                 request.setAttribute("hotels", hotels);
             if (request.getParameter("hotelnaam") == null || request.getParameter("ontspanning") == null) {
 
                 if (request.getParameter("hotelnaam") == null && request.getParameter("ontspanning") == null) {
-                    hotels = dahotel.getHotelByAllesBehalveHotelnaamEnOntspanning(aantalSterren, regioId, maaltijdNaam);
+                    hotels = dahotel.getHotelByAllesBehalveHotelnaamEnOntspanning(aantalSterren, regioId, maaltijdNaam, periodeId);
                     request.setAttribute("hotels", hotels);
                 }
 
                 if (request.getParameter("hotelnaam") == null && request.getParameter("ontspanning") != null) {
-                    hotels = dahotel.getHotelByAllesBehalveHotelnaam(aantalSterren, regioId, maaltijdNaam, zoekOntspanning);
+                    hotels = dahotel.getHotelByAllesBehalveHotelnaam(aantalSterren, regioId, maaltijdNaam, zoekOntspanning, periodeId);
                     request.setAttribute("hotels", hotels);
                 }
 
                 if (request.getParameter("hotelnaam") != null && request.getParameter("ontspanning") == null) {
-                    hotels = dahotel.getHotelByAllesBehalveOntspanning(aantalSterren, regioId, maaltijdNaam,hotelNaam );
+                    hotels = dahotel.getHotelByAllesBehalveOntspanning(aantalSterren, regioId, maaltijdNaam,hotelNaam, periodeId);
                     request.setAttribute("hotels", hotels);
                 }
 

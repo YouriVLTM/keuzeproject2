@@ -50,7 +50,7 @@
                 <input type="submit" name="zoekHotelPeriode" value="zoeken op periode">
             </p>
             <p>
-                <label for="maaltijd">Welke maaltiijd wilt u?</label>
+                <label for="maaltijd">Welke maaltijd wilt u?</label>
                 <select name="maaltijd" id="maaltijd">
                     <%for (int i = 0; i < maaltijden.size(); i++) {%>
                     <option value="<%=i%>"><%=maaltijden.get(i)%></option>

@@ -315,19 +315,20 @@ public class DAHotel {
         }
         return hotels;
     }
-    public ArrayList<Hotel> getHotelByAlles( int aantalSterren, int regioId, String maaltijdNaam, String hotelNaam, String zoekOntspanning) {
+    public ArrayList<Hotel> getHotelByAlles( int aantalSterren, int regioId, String maaltijdNaam, String hotelNaam, String zoekOntspanning, int periodeid) {
         Hotel hotel = null;
         ArrayList<Hotel> hotels = new ArrayList<>();
 
         try (
                 Connection connection = DriverManager.getConnection(url, login, password);
-                PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel where aantalsterren = ? and regioid = ? and maaltijden = ? and lower(naam) like ? and lower(ontspanning) like ?");) {
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel join hotelaanbod on hotel.id = hotelaanbod.hotelid where aantalsterren = ? and regioid = ? and maaltijden = ? and lower(naam) like ? and lower(ontspanning) like ? and hotelaanbod.periodeid = ?");) {
 
             statement.setInt(1,  aantalSterren );
             statement.setInt(2, regioId);
             statement.setString(3, maaltijdNaam);
             statement.setString(4, "%" + hotelNaam + "%");
             statement.setString(5, "%" + zoekOntspanning + "%");
+            statement.setInt(6, periodeid);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 hotel = new Hotel();
@@ -346,17 +347,19 @@ public class DAHotel {
         }
         return hotels;
     }
-    public ArrayList<Hotel> getHotelByAllesBehalveHotelnaamEnOntspanning(int aantalSterren, int regioId, String maaltijdNaam) {
+    public ArrayList<Hotel> getHotelByAllesBehalveHotelnaamEnOntspanning(int aantalSterren, int regioId, String maaltijdNaam, int periodeid) {
         Hotel hotel = null;
         ArrayList<Hotel> hotels = new ArrayList<>();
 
         try (
                 Connection connection = DriverManager.getConnection(url, login, password);
-                PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel where aantalsterren = ? and regioid = ? and maaltijden = ?");) {
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel join hotelaanbod on hotel.id = hotelaanbod.hotelid where aantalsterren = ? and regioid = ? and maaltijden = ? and hotelaanbod.periodeid = ?");) {
 
             statement.setInt(1,  aantalSterren );
             statement.setInt(2, regioId);
             statement.setString(3, maaltijdNaam);
+            statement.setInt(2, periodeid);
+            
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 hotel = new Hotel();
@@ -375,18 +378,19 @@ public class DAHotel {
         }
         return hotels;
     }
-    public ArrayList<Hotel> getHotelByAllesBehalveHotelnaam(int aantalSterren, int regioId, String maaltijdNaam,String zoekOntspanning) {
+    public ArrayList<Hotel> getHotelByAllesBehalveHotelnaam(int aantalSterren, int regioId, String maaltijdNaam,String zoekOntspanning, int periodeid) {
         Hotel hotel = null;
         ArrayList<Hotel> hotels = new ArrayList<>();
 
         try (
                 Connection connection = DriverManager.getConnection(url, login, password);
-                PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel where aantalsterren = ? and regioid = ? and maaltijden = ? and lower(ontspanning) like ?");) {
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel join hotelaanbod on hotel.id = hotelaanbod.hotelid where aantalsterren = ? and regioid = ? and maaltijden = ? and lower(ontspanning) like ? and hotelaanbod.periodeid = ?");) {
 
             statement.setInt(1,  aantalSterren );
             statement.setInt(2, regioId);
             statement.setString(3, maaltijdNaam);            
             statement.setString(4, "%" + zoekOntspanning + "%");
+            statement.setInt(5, periodeid);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 hotel = new Hotel();
@@ -405,18 +409,19 @@ public class DAHotel {
         }
         return hotels;
     }
-    public ArrayList<Hotel> getHotelByAllesBehalveOntspanning(int aantalSterren, int regioId, String maaltijdNaam,String hotelNaam) {
+    public ArrayList<Hotel> getHotelByAllesBehalveOntspanning(int aantalSterren, int regioId, String maaltijdNaam,String hotelNaam,  int periodeid) {
         Hotel hotel = null;
         ArrayList<Hotel> hotels = new ArrayList<>();
 
         try (
                 Connection connection = DriverManager.getConnection(url, login, password);
-                PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel where aantalsterren = ? and regioid = ? and maaltijden = ? and lower(naam) like ?");) {
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel join hotelaanbod on hotel.id = hotelaanbod.hotelid where aantalsterren = ? and regioid = ? and maaltijden = ? and lower(naam) like ? and hotelaanbod.periodeid = ?");) {
 
             statement.setInt(1,  aantalSterren );
             statement.setInt(2, regioId);
             statement.setString(3, maaltijdNaam);            
             statement.setString(4, "%" + hotelNaam + "%");
+            statement.setInt(5, periodeid);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 hotel = new Hotel();
