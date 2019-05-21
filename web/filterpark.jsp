@@ -41,7 +41,7 @@
             </div>
             <div class="form-group col-md-3">
             <select class="form-control" name="aantalSterren" id="select">
-                <option value="null">geen</option>
+                <option value="0">geen</option>
                 <option value="2">2 sterren</option>
                 <option value="3">3 sterren</option>
                 <option value="4">4 sterren</option>
@@ -60,7 +60,7 @@
             </div>
             <div class="form-group col-md-3"> 
                 <select class="form-control" name="regio" id="regio">
-                    <option value="null">geen</option>
+                    <option value="">geen</option>
 
                     <%for (Regio regio : regios) {%>
                     <option value="<%=regio.getId()%>"><%=regio.getNaam()%></option>
@@ -75,7 +75,7 @@
                 <label for="parkNaam">Naam van het Park</label>
             </div>
             <div class="form-group col-md-3">    
-                <input class="form-control" type="text" name="parkNaam" id="parkNaam">
+                <input class="form-control" type="text" name="parkNaam" id="parkNaam" value="">
             </div>
             </p>
             </div>
@@ -86,7 +86,7 @@
                 <label for="aantalSlaapkamers">Aantal slaapkamers</label>
                 </div>
                 <div class="form-group col-md-3">
-                <input class="form-control" type="text" name="aantalSlaapkamers" id="aantalSlaapkamers" value="">
+                <input class="form-control" type="text" name="aantalSlaapkamers" id="aantalSlaapkamers" value="0">
                 </div>
             </p>
             </div>
@@ -97,7 +97,7 @@
                 <label for="aantalPersonen">Aantal Personen</label>
                 </div>
                 <div class="form-group col-md-3">
-                <input class="form-control" type="text" name="aantalPersonen" id="aantalPersonen" value="">
+                <input class="form-control" type="text" name="aantalPersonen" id="aantalPersonen" value="0">
                 </div>
             </p>
             </div>

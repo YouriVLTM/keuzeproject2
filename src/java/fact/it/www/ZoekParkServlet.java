@@ -123,13 +123,14 @@ public class ZoekParkServlet extends HttpServlet {
         }else if(request.getParameter("zoekFilter") != null){
             
            int aantalSterren = Integer.parseInt(request.getParameter("aantalSterren")); 
-           String regio = request.getParameter("regio");
+           int regioId = Integer.parseInt(request.getParameter("regio"));
            String parkNaam = request.getParameter("parkNaam");
+           // kijken of deze leeg is
            int aantalSlaapkamers = Integer.parseInt(request.getParameter("aantalSlaapkamers")); 
            int aantalPersonen = Integer.parseInt(request.getParameter("aantalPersonen")); 
            
            
-           
+           ArrayList<Park> parken = dapark.getParkFilter(aantalSterren,regioId,parkNaam,aantalSlaapkamers,aantalPersonen);
            
            
             
