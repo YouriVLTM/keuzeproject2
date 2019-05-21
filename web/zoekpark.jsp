@@ -34,48 +34,94 @@
                         <h1 class="heading text-center mb-5">Zoek je Park</h1></h1>
 
         <form action="ZoekParkServlet">  
+            <div class="form-row">
+            <div class="form-group col-md-5">
             <p>
             <label for="select">Hoeveel sterren moet het hotel hebben? <i class="fas fa-star"></i></label>
-            <select name="aantalSterren" id="select">
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+            </div>
+            <div class="form-group col-md-3">
+            <select class="form-control" name="aantalSterren" id="select">
+                <option value="2">2 sterren</option>
+                <option value="3">3 sterren</option>
+                <option value="4">4 sterren</option>
+                <option value="5">5 sterren</option>
             </select>
+            </div>
+            <br>
+            <div class="form-group col-md-4">
             <input type="submit" name="zoekParkAantalSterren" value="zoeken op aantal sterren" class="btn btn-outline-primary">
+            </div>
             </p>
+            </div>
             
             
             <%ArrayList<Regio> regios = (ArrayList<Regio>) request.getAttribute("alleRegios");%>
+            <div class="form-row">
+            <div class="form-group col-md-5">
             <p>
                 <label for="regio">In welke regio moet het hotel liggen?</label>
-                <select name="regio" id="regio">
+            </div>
+            <div class="form-group col-md-3"> 
+                <select class="form-control" name="regio" id="regio">
                     <%for (Regio regio : regios) {%>
                     <option value="<%=regio.getId()%>"><%=regio.getNaam()%></option>
                     <%}%>
                 </select>
+            </div>
+                <br>
+                <div class="form-group col-md-4">
                 <input type="submit" name="zoekParkRegio" value="zoeken op regio" class="btn btn-outline-primary">
+                </div>
             </p>
+                </div>
              <p>
+            <div class="form-row">
+            <div class="form-group col-md-5">
                 <label for="parkNaam">Naam van het Park</label>
-                <input type="text" name="parkNaam" id="parkNaam">
+            </div>
+            <div class="form-group col-md-3">    
+                <input class="form-control" type="text" name="parkNaam" id="parkNaam">
+            </div>
+                <br>
+            <div class="form-group col-md-4">
                 <input type="submit" name="zoekParkNaam" value="zoeken op naam" class="btn btn-outline-primary">
+            </div>
             </p>
+            </div>
             
              <p>
+            <div class="form-row">
+                <div class="form-group col-md-5">
                 <label for="aantalSlaapkamers">Aantal slaapkamers</label>
-                <input type="text" name="aantalSlaapkamers" id="aantalSlaapkamers" value="2">
+                </div>
+                <div class="form-group col-md-3">
+                <input class="form-control" type="text" name="aantalSlaapkamers" id="aantalSlaapkamers" value="2">
+                </div>
+                <br>
+                <div class="form-group col-md-4">
                 <input type="submit" name="zoekAantalslaapkamers" value="zoeken op aantal slaapkamers" class="btn btn-outline-primary">
+                </div>
             </p>
+            </div>
             
             <p>
+            <div class="form-row">
+                <div class="form-group col-md-5">
                 <label for="aantalPersonen">Aantal Personen</label>
-                <input type="text" name="aantalPersonen" id="aantalPersonen" value="4">
-                <input type="submit" name="zoekAantalPersonen" value="zoeken op aantal Personen" class="bbtn btn-outline-primary">
+                </div>
+                <div class="form-group col-md-3">
+                <input class="form-control" type="text" name="aantalPersonen" id="aantalPersonen" value="4">
+                </div>
+                <br>
+                <div class="form-group col-md-4">
+                <input type="submit" name="zoekAantalPersonen" value="zoeken op aantal Personen" class="btn btn-outline-primary">
+                </div>
+                <br>
             </p>
+            </div>
             
         </form>
-        <a href="startparken.jsp">Terug naar de startpaginas</a>
+        <a href="startparken.jsp">Terug naar de startpagina</a>
         </div>
         		</div>
 	</div>
