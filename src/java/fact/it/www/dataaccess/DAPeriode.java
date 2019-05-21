@@ -42,6 +42,25 @@ public class DAPeriode {
         }
         return periodes;
     }
+    public ArrayList<Periode> getAllePeriodes() {
+        Periode periode = null;
+        ArrayList<Periode> periodes = new ArrayList <>();
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM periode");) {
+            while (resultSet.next()) {
+                periode = new Periode();
+                periode.setId(resultSet.getInt("id"));
+                periode.setNaam(resultSet.getString("naam"));
+                periodes.add(periode);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return periodes;
+    }
     
     public ArrayList<Periode> getVanantiehuisPrijs(int vakantieId) {
         Periode periode = null;
