@@ -113,7 +113,31 @@ public class ZoekParkServlet extends HttpServlet {
             
             rd = request.getRequestDispatcher("overzichtparken.jsp");
             request.setAttribute("parken", parken);
+        }else if(request.getParameter("filter") != null){
+            
+            ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+            
+            rd = request.getRequestDispatcher("filterpark.jsp");
+            request.setAttribute("alleRegios", alleRegios);
+            
+        }else if(request.getParameter("zoekFilter") != null){
+            
+           int aantalSterren = Integer.parseInt(request.getParameter("aantalSterren")); 
+           String regio = request.getParameter("regio");
+           String parkNaam = request.getParameter("parkNaam");
+           int aantalSlaapkamers = Integer.parseInt(request.getParameter("aantalSlaapkamers")); 
+           int aantalPersonen = Integer.parseInt(request.getParameter("aantalPersonen")); 
+           
+           
+           
+           
+           
+            
+            rd = request.getRequestDispatcher("overzichtparken.jsp");
+            request.setAttribute("parken", parken);
         }
+        
+        
         
         
         

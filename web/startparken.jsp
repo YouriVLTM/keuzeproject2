@@ -49,6 +49,7 @@
                <input type="submit" class="btn btn-outline-primary"  value="Toon Specifiek Park" name="vakantiePark" />
                <input type="submit" class="btn btn-outline-primary"  value="Toon alle Park" name="alleVakantiePark" />
                        <a href="ZoekParkServlet?uitgebreid=1" class="btn btn-outline-primary">uitgebreid</a>
+                       <a href="ZoekParkServlet?filter=1" class="btn btn-outline-primary">filter</a>
 
             </div>
         </form>
