@@ -61,19 +61,35 @@ public class ZoekParkServlet extends HttpServlet {
  RequestDispatcher rd = null;
         if(request.getParameter("uitgebreid") != null){  
             
+            
+            ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+            
             rd = request.getRequestDispatcher("zoekpark.jsp");
+            request.setAttribute("alleRegios", alleRegios);
+
             
         }else if(request.getParameter("zoekParkAantalSterren") != null){
+            int aantalSterren = Integer.parseInt(request.getParameter("aantalSterren"));            
             
-            int aantalSterren = Integer.parseInt(request.getParameter("aantalSterren"));    
+             ArrayList<Park> parken = dapark.getAantalSterren(aantalSterren);            
+            
+            rd = request.getRequestDispatcher("overzichtparken.jsp");
+            request.setAttribute("parken", parken);
+            
+        }else if(request.getParameter("zoekParkRegio") != null){
+            
+            int regio = Integer.parseInt(request.getParameter("regio")); 
             
             
-             ArrayList<Park> parken = dapark.getAantalSterren(aantalSterren);
+             ArrayList<Park> parken = dapark.getParksByRegio(regio);
             
             
             rd = request.getRequestDispatcher("overzichtparken.jsp");
             request.setAttribute("parken", parken);
         }
+        
+        
+        
 
 
 

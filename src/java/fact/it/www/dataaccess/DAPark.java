@@ -157,6 +157,37 @@ public ArrayList<Park> getAantalSterren(int aantalSterren) {
         return parken;
     }
 
+public ArrayList<Park> getParksByRegio(int regioId) {
+        Park park = null;
+        ArrayList<Park> parken = new ArrayList <>();
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("select * from park join regio on park.regioid = regio.id where regio.id = ?");) {
+
+            statement.setInt(1, regioId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                park = new Park();
+                park.setId(resultSet.getInt("id"));
+                park.setNaam(resultSet.getString("naam"));
+                park.setRegioid(resultSet.getInt("regioid"));
+                park.setAantalSterren(resultSet.getInt("aantalSterren"));
+                park.setVoorzieningen(resultSet.getString("voorzieningen"));
+                park.setFoto(resultSet.getString("foto"));
+                
+                parken.add(park);
+            }
+             // standaar staat de arraylist bij null elementen op 0 -> Maar moet opgevormd worden naar null
+            if(parken.isEmpty()){
+                parken = null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return parken;
+    }
+
     
 
     

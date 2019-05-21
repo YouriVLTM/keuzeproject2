@@ -30,6 +30,19 @@
             <input type="submit" name="zoekParkAantalSterren" value="zoeken op aantal sterren">
             </p>
             
+            
+            <%ArrayList<Regio> regios = (ArrayList<Regio>) request.getAttribute("alleRegios");%>
+            
+            <p>
+                <label for="regio">In welke regio moet het hotel liggen?</label>
+                <select name="regio" id="regio">
+                    <%for (Regio regio : regios) {%>
+                    <option value="<%=regio.getId()%>"><%=regio.getNaam()%></option>
+                    <%}%>
+                </select>
+                <input type="submit" name="zoekParkRegio" value="zoeken op regio">
+            </p>
+            
         </form>
         <a href="startparken.jsp">Terug naar de startpagina</a>s
                     
