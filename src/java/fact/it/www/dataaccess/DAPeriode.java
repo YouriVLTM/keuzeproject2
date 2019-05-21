@@ -42,14 +42,23 @@ public class DAPeriode {
         }
         return periodes;
     }
-    public ArrayList<Periode> getAllePeriodes() {
+    
+    public ArrayList<Periode> getVanantiehuisPrijs(int vakantieId) {
         Periode periode = null;
         ArrayList<Periode> periodes = new ArrayList <>();
 
         try (
-                Connection connection = DriverManager.getConnection(url, login, password);
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery("SELECT * FROM periode");) {
+               Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("SELECT periode.ID,periode.NAAM FROM huisaanbod \n" +
+                                                                    "Join Vakantiehuis on huisaanbod.VAKANTIEHUISID = VAKANTIEHUIS.ID\n" +
+                                                                    "Join periode on HUISAANBOD.PERIODEID = PERIODE.ID\n" +
+                                                                    "WHERE VAKANTIEHUISID = ?");) {
+            
+            
+            statement.setInt(1, vakantieId);
+            ResultSet resultSet = statement.executeQuery();
+            
+            
             while (resultSet.next()) {
                 periode = new Periode();
                 periode.setId(resultSet.getInt("id"));

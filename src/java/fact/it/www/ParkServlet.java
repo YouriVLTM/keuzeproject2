@@ -101,7 +101,27 @@ public class ParkServlet extends HttpServlet {
             request.setAttribute("vakantiehuis", vakantiehuis);
 
             
+        }else if(request.getParameter("vakantiehuisId") != null){
+            int vakantiehuisId = Integer.parseInt(request.getParameter("vakantiehuisId")); 
+            Vakantiehuis vakantiehuis = davakantiehuis.getVakantiehuizenById(vakantiehuisId);          
+          
+            // huisaanbod
+            ArrayList<Huisaanbod> huisaanboden = daHuisaanbod.getHuisaanbodByVakantiehuisId(vakantiehuisId);          
+            
+            //periode
+            ArrayList<Periode> periodes = daperiode.getVanantiehuisPrijs(vakantiehuisId);          
+
+            
+            
+             rd = request.getRequestDispatcher("huisprijs.jsp");
+            request.setAttribute("vakantiehuis", vakantiehuis);
+            request.setAttribute("huisaanboden", huisaanboden);
+             request.setAttribute("periodes", periodes);
+
+            
         }
+        
+        
         
         
         rd.forward(request, response);

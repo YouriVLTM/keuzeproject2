@@ -18,6 +18,32 @@ public class DAVakantiehuis {
         this.login = login;
         this.password = password;
     }
+    
+    public Vakantiehuis getVakantiehuizenById(int vakantiehuisId) {        
+        Vakantiehuis vakantiehuis = null;
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM vakantiehuis where id = ?");     ) {
+                
+                statement.setInt(1, vakantiehuisId);
+                ResultSet resultSet = statement.executeQuery();
+           
+            if (resultSet.next()) {
+                vakantiehuis = new Vakantiehuis();
+                vakantiehuis.setId(resultSet.getInt("id"));
+                vakantiehuis.setParkid(resultSet.getInt("parkid"));
+                vakantiehuis.setType(resultSet.getString("type"));
+                vakantiehuis.setAantalSlaapkamers(resultSet.getInt("aantalSlaapkamers"));
+                vakantiehuis.setAantalPersonen(resultSet.getInt("aantalPersonen"));
+                vakantiehuis.setOppervlakte(resultSet.getInt("oppervlakte"));
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return vakantiehuis;
+    }
 
    public ArrayList<Vakantiehuis> getVakantiehuizenByParkIdBeschikbaar(int parkId) {        
         ArrayList<Vakantiehuis> vakantiehuizen = new ArrayList<>();

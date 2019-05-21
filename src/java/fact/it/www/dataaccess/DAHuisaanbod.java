@@ -19,4 +19,32 @@ public class DAHuisaanbod {
     }
 
    
+    public ArrayList<Huisaanbod> getHuisaanbodByVakantiehuisId(int vakantiehuisId) {        
+        ArrayList<Huisaanbod> huisaanboden = new ArrayList <>();
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM huisaanbod\n" +
+                                                        "JOIN vakantiehuis on huisaanbod.VAKANTIEHUISID = VAKANTIEHUIS.ID\n" +                                                        
+                                                        "WHERE VAKANTIEHUIS.ID = ?");     
+                ) {
+                
+                statement.setInt(1, vakantiehuisId);
+                ResultSet resultSet = statement.executeQuery();
+           
+            while (resultSet.next()) {
+                Huisaanbod huisaanbod = new Huisaanbod();
+                huisaanbod.setId(resultSet.getInt("id"));
+                huisaanbod.setVakantiehuisid(resultSet.getInt("vakantiehuisid"));
+                huisaanbod.setPeriodeid(resultSet.getInt("periodeid"));
+                huisaanbod.setPrijsperweek(resultSet.getInt("prijsperweek"));
+                
+                huisaanboden.add(huisaanbod);
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return huisaanboden;
+    }
 }

@@ -54,7 +54,7 @@
             
             <% if(vakantiehuizen != null){ %>                
                 <% for(Vakantiehuis vakantiehuis : vakantiehuizen ){%>
-                    <p><%=vakantiehuis.toString()%></p>
+                    <p><a href="ParkServlet?vakantiehuisId=<%=vakantiehuis.getId()%>"><%=vakantiehuis.toString()%></a></p>
                 <%}%>
                             
             <%}else{ %>
