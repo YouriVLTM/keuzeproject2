@@ -9,27 +9,58 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
+<jsp:include page="temp/head.jsp" />
     <body>
-         <%ArrayList<Park> parken = (ArrayList<Park>) request.getAttribute("parken");%>
-        <h1>VakantiePark</h1>
+        <jsp:include page="temp/nav.jsp" />
         
-        <% if(parken != null){ %>
-        <ul>
-            <% for(Park park : parken) { %>
-            <li>
-                <a href="ParkServlet?parkId=<%=park.getId()%>"><%=park.getNaam()%></a>
-                <p>AantalSterren: <%=park.getAantalSterren()%> </p> 
-            </li>
-            <% } %>
-        </ul>
-        <% }else{ %>
-            <p>Er is geen park gevonden</p>        
-        <% } %>
-        <p>  <a href="ZoekParkServlet?uitgebreid=1">Terug naar zoekfunctie</a></p>
-        <p>  <a href="index.jsp">Terug naar beginpagina</a></p>
+        <section class="banner_inner" id="home">
+	<div class="banner_inner_overlay">
+	</div>
+</section>
+        
+
+
+        
+        <!-- tour packages -->
+<section class="packages pt-5">
+	<div class="container py-lg-4 py-sm-3">
+		<h2 class="heading text-capitalize text-center">Overzicht VakantiePark</h2>
+                <br>
+		
+                 <%ArrayList<Park> parken = (ArrayList<Park>) request.getAttribute("parken");%>
+                 
+                 
+                
+                <% if(parken != null){ %>
+
+                    <div class="row">
+                    <% for(Park park : parken) { %>
+
+                        <div class="col-lg-6 col-sm-6 mb-5">
+                                <div class="package-info text-center">
+                                        <h2 class="my-2"><span><%=park.getNaam()%></span></h2>
+                                        <p>AantalSterren: <%=park.getAantalSterren()%> </p> 
+                                        <a href="ParkServlet?parkId=<%=park.getId()%>">klik hier</a>
+
+
+                                </div>
+                        </div>
+
+                     <% } %>
+                    </div>
+
+                                        <% }else{ %>
+                        <p>Er is geen park gevonden</p>        
+                    <% } %>
+
+                    <br>
+                    <a href="ZoekParkServlet?uitgebreid=1" class="btn btn-outline-primary">Terug naar zoekfunctie</a>
+                    <a href="index.jsp" class="btn btn-outline-primary">Terug naar beginpagina</a>
+                    </div>
+            </section>
+            <!-- tour packages -->
+        
+        <jsp:include page="temp/footer.jsp" />
+        
     </body>
 </html>
