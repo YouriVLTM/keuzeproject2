@@ -89,10 +89,17 @@ public class ParkServlet extends HttpServlet {
             
             Park park = dapark.getParkId(parkId);
             // vraag regio op
+            Regio regio = daregio.getRegionaamByParkId(parkId);
+            // vakantiehuizen beschikbaar 
+            ArrayList<Vakantiehuis> vakantiehuis = davakantiehuis.getVakantiehuizenByParkIdBeschikbaar(parkId);
+            
             
             
             rd = request.getRequestDispatcher("parkdetails.jsp");
             request.setAttribute("park", park);
+            request.setAttribute("regio", regio);
+            request.setAttribute("vakantiehuis", vakantiehuis);
+
             
         }
         

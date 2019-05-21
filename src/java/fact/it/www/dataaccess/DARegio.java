@@ -57,6 +57,27 @@ public class DARegio {
         }
         return regio;
     }
+    public Regio getRegionaamByParkId(int parkId) {
+        Regio regio = null;
+    
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("select * from regio join park on regio.id = park.regioid where park.id = ?");) {
+
+            statement.setInt(1, parkId);
+            ResultSet resultSet = statement.executeQuery();
+            
+            if (resultSet.next()) {
+                regio = new Regio();
+                regio.setId(resultSet.getInt("id"));
+                regio.setNaam(resultSet.getString("naam"));
+              
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return regio;
+    }
     public ArrayList<Regio> getAlleRegios() {
         Regio regio = null;
         ArrayList<Regio> regios = new ArrayList <>();

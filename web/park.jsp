@@ -16,7 +16,7 @@
         <%Park park = (Park) request.getAttribute("park");%>
         <h1>VakantiePark</h1>
         <% if(park != null){ %>
-            <p>VakantiePark: <%=park.getNaam()%> </p>  
+        <p>VakantiePark: <a href="ParkServlet?parkId=<%=park.getId()%>"><%=park.getNaam()%></a></p>  
             <p>AantalSterren: <%=park.getAantalSterren()%> </p> 
         <% }else{ %>
             <p>Er is geen park gevonden met deze beginletters</p>        

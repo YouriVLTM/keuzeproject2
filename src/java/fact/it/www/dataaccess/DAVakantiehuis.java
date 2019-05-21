@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DAVakantiehuis {
@@ -18,6 +19,33 @@ public class DAVakantiehuis {
         this.password = password;
     }
 
-   
+   public ArrayList<Vakantiehuis> getVakantiehuizenByParkIdBeschikbaar(int parkId) {        
+        ArrayList<Vakantiehuis> vakantiehuizen = new ArrayList<>();
+
+        try (
+                 Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM vakantiehuis where parkid = ?");     ) {
+                
+            statement.setInt(1, parkId);
+            ResultSet resultSet = statement.executeQuery();
+           
+            while (resultSet.next()) {
+                Vakantiehuis vakantiehuis = new Vakantiehuis();   
+                vakantiehuis.setId(resultSet.getInt("id"));
+                vakantiehuis.setParkid(resultSet.getInt("parkid"));
+                vakantiehuis.setType(resultSet.getString("type"));
+                vakantiehuis.setAantalSlaapkamers(resultSet.getInt("aantalSlaapkamers"));
+                vakantiehuis.setAantalPersonen(resultSet.getInt("aantalPersonen"));
+                vakantiehuis.setOppervlakte(resultSet.getInt("oppervlakte"));
+
+                // arralist
+                vakantiehuizen.add(vakantiehuis);
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return vakantiehuizen;
+    }
 
 }
