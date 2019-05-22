@@ -409,6 +409,27 @@ public ArrayList<Park> getParkAantalPersonen(int aantalPersonen) {
         }
         return resultaat;
     }
+    
+        public boolean updatePark(int parkId, String parknaam,int regioId,int aantalSterren, String voorzieningen, String fotonaam) {
+        boolean resultaat = true;
+
+        try (Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement
+                = connection.prepareStatement("update park set naam=?, regioid=?, aantalsterren=?, voorzieningen=?, foto=?  where id=?");) {
+            
+            statement.setString(1, parknaam);
+            statement.setInt(2, regioId);
+            statement.setInt(3, aantalSterren);
+            statement.setString(4, voorzieningen);
+            statement.setString(5, fotonaam);
+            statement.setInt(6, parkId);
+            statement.executeUpdate();
+        } catch (Exception e) {
+            resultaat = false;
+            e.printStackTrace();
+        }
+        return resultaat;
+    }
         
        
     

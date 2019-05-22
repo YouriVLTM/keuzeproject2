@@ -26,24 +26,33 @@
 
                     <div class="col-lg-12 contact-left-form">
                         <h1 class="heading text-center mb-5">Lijst van Parken</h1>
-                        
+
                         <%String foutmelding = (String) request.getAttribute("foutmelding");%>
-                               <%if (foutmelding != null) {%>
-                               <div class="alert alert-danger">
-                                    <strong>Alert!</strong> 
-                                    <ul>
-                                       <%=foutmelding%>
-                                    </ul>
-                                  </div>
-                                <%}%>
+                        <%if (foutmelding != null) {%>
+                        <div class="alert alert-danger">
+                            <strong>Alert!</strong> 
+                            <ul>
+                                <%=foutmelding%>
+                            </ul>
+                        </div>
+                        <%}%>
+                        <%String melding = (String) request.getAttribute("melding");%>
+                        <%if (melding != null) {%>
+                        <div class="alert alert-success">
+                            <strong>Alert!</strong> 
+                            <ul>
+                                <%=melding%>
+                            </ul>
+                        </div>
+                        <%}%>
 
                         <%ArrayList<Park> parken = (ArrayList<Park>) request.getAttribute("parken");%>
 
                         <% if (parken != null) { %>
 
-                            <table class="table table-hover">
-                                <thead>
-                                  <tr>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
                                     <th scope="col">id</th>
                                     <th scope="col">Naam</th>
                                     <th scope="col">RegioId</th>
@@ -54,39 +63,40 @@
                                     <th scope="col">Delete</th>
 
 
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                    <% for (Park park : parken) { %>
-                            
-                            <tr>
-                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for (Park park : parken) {%>
+
+                                <tr>
+
                                     <th scope="row"><%=park.getId()%></th>
-                                    <th><%=park.getNaam()%></th>
-                                    <th><%=park.getRegioid()%></th>
-                                    <th><%=park.getAantalSterren()%></th>
-                                    <th><%=park.getVoorzieningen()%></th>
-                                    <th><img src="images/<%=park.getFoto()%>" class="img-fluid"><%=park.getFoto()%></th>
-                                    <th><a href="ParkServlet?adminoverzichtparkendelete=<%=park.getId()%>" <i class="far fa-edit"></i></a> </th>
-                                    <th><a href="ParkServlet?adminoverzichtparkendelete=<%=park.getId()%>" <i class="fas fa-trash"></i></a></th>
+                                    <td><%=park.getNaam()%></td>
+                                    <td><%=park.getRegioid()%></td>
+                                    <td><%=park.getAantalSterren()%></td>
+                                    <td><%=park.getVoorzieningen()%></td>
+                                    <td><img src="images/<%=park.getFoto()%>" class="img-fluid"><%=park.getFoto()%></td>
+                                    <td><a href="ParkServlet?wijzigparkpagina=<%=park.getId()%>" <i class="far fa-edit"></i></a> </td>
+                                    <td><a href="ParkServlet?adminoverzichtparkendelete=<%=park.getId()%>" <i class="fas fa-trash"></i></a></td>
 
-                                                                        
-                                  </tr>
 
-                            <%}%>
-                                  
-                                  
-                                </tbody>
-                              </table>
+                                </tr>
 
-                            
-                            
-                            <%} else {%>
-                            <p>Er is geen park gevonden</p>        
-                            <%}%>
+                                <%}%>
+
+
+                            </tbody>
+                        </table>
 
 
 
+                        <%} else {%>
+                        <p>Er is geen park gevonden</p>        
+                        <%}%>
+
+
+
+                        <a href="startparken.jsp" class="btn btn-outline-primary">Terug naar parken</a>
 
 
                     </div>

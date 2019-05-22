@@ -28,6 +28,25 @@
 				
                     <div class="col-lg-12 contact-left-form">
                         <h1 class="heading text-center mb-5">VakantiePark</h1>
+                        
+                                                <%String foutmelding = (String) request.getAttribute("foutmelding");%>
+                               <%if (foutmelding != null) {%>
+                               <div class="alert alert-danger">
+                                    <strong>Alert!</strong> 
+                                    <ul>
+                                       <%=foutmelding%>
+                                    </ul>
+                                  </div>
+                                <%}%>
+                       <%String melding = (String) request.getAttribute("melding");%>
+                               <%if (melding != null) {%>
+                               <div class="alert alert-success">
+                                    <strong>Alert!</strong> 
+                                    <ul>
+                                       <%=melding%>
+                                    </ul>
+                                  </div>
+                                <%}%>
                            
 
          <form action="ParkServlet" >

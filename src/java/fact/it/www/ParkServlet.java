@@ -132,6 +132,7 @@ public class ParkServlet extends HttpServlet {
                 // insert
                 if (dapark.insertPark(parknaam, regioId, aantalSterren, voorzieningen, fotonaam)) {
                     rd = request.getRequestDispatcher("startparken.jsp");
+                    request.setAttribute("melding", "Park succesvol toe gevoegd");
 
                 } else {
                     ArrayList<Regio> alleRegios = daregio.getAlleRegios();
@@ -164,7 +165,7 @@ public class ParkServlet extends HttpServlet {
                 ArrayList<Park> parken = dapark.getParken();
                 rd = request.getRequestDispatcher("adminoverzichtparken.jsp");
                 request.setAttribute("parken", parken);
-                request.setAttribute("foutmelding", "Park is succesvol gedelete!");
+                request.setAttribute("melding", "Park is succesvol gedelete!");
 
 
             } else {
@@ -175,7 +176,44 @@ public class ParkServlet extends HttpServlet {
 
             }
 
+        } else if (request.getParameter("wijzigparkpagina") != null) {
+            int parkId = Integer.parseInt(request.getParameter("wijzigparkpagina"));
+
+            Park park = dapark.getParkId(parkId);
+            // alle regio's tonen
+            ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+
+            rd = request.getRequestDispatcher("wijzigpark.jsp");
+            request.setAttribute("park", park);
+            request.setAttribute("alleRegios", alleRegios);
+        }else if (request.getParameter("wijzigpark") != null) {
+            
+            int parkId = Integer.parseInt(request.getParameter("parkIdla"));
+            String parknaam = request.getParameter("naam");
+            int regioId = Integer.parseInt(request.getParameter("regioId"));
+            int aantalSterren = Integer.parseInt(request.getParameter("aantalSterren"));
+            String voorzieningen = request.getParameter("Voorzieningen");
+            String fotonaam = request.getParameter("fotonaam");
+
+            if(dapark.updatePark(parkId,parknaam,regioId,aantalSterren,voorzieningen,fotonaam)){
+                ArrayList<Park> parken = dapark.getParken();
+                rd = request.getRequestDispatcher("adminoverzichtparken.jsp");
+                request.setAttribute("parken", parken);
+                request.setAttribute("melding", "Park succesvol geupdate");
+            }else{
+                ArrayList<Park> parken = dapark.getParken();
+                rd = request.getRequestDispatcher("adminoverzichtparken.jsp");
+                request.setAttribute("parken", parken);
+                request.setAttribute("foutmelding", "Deze park kan niet worden geupdate");
+
+            }
+           
         }
+        
+        
+        
+        
+        
 
         rd.forward(request, response);
     }
