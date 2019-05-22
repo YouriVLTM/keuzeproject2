@@ -80,10 +80,13 @@ public class ParkServlet extends HttpServlet {
 
         } else if (request.getParameter("alleVakantiePark") != null) {
 
+            ArrayList<Regio> alleRegios = daregio.getAlleRegios();              
+                
             ArrayList<Park> parken = dapark.getParken();
 
             rd = request.getRequestDispatcher("overzichtparken.jsp");
             request.setAttribute("parken", parken);
+            request.setAttribute("alleRegios", alleRegios);
 
         } else if (request.getParameter("parkId") != null) {
             int parkId = Integer.parseInt(request.getParameter("parkId"));

@@ -132,10 +132,11 @@ public class ZoekParkServlet extends HttpServlet {
            
            ArrayList<Park> parken = dapark.getParkFilter(aantalSterren,regioId,parkNaam,aantalSlaapkamers,aantalPersonen);
            
-           
+           ArrayList<Regio> alleRegios = daregio.getAlleRegios();              
             
             rd = request.getRequestDispatcher("overzichtparken.jsp");
             request.setAttribute("parken", parken);
+            request.setAttribute("alleRegios", alleRegios);
         }
         
         
