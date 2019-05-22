@@ -25,29 +25,52 @@
                 <div class="row">               
 
                     <div class="col-lg-12 contact-left-form">
-                        <h1 class="heading text-center mb-5">Lijst van pagina overzichten</h1>
+                        <h1 class="heading text-center mb-5">Lijst van Parken</h1>
+                        
+                        <%String foutmelding = (String) request.getAttribute("foutmelding");%>
+                               <%if (foutmelding != null) {%>
+                               <div class="alert alert-danger">
+                                    <strong>Alert!</strong> 
+                                    <ul>
+                                       <%=foutmelding%>
+                                    </ul>
+                                  </div>
+                                <%}%>
 
                         <%ArrayList<Park> parken = (ArrayList<Park>) request.getAttribute("parken");%>
 
                         <% if (parken != null) { %>
 
-                            <table class="table">
+                            <table class="table table-hover">
                                 <thead>
                                   <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th scope="col">id</th>
+                                    <th scope="col">Naam</th>
+                                    <th scope="col">RegioId</th>
+                                    <th scope="col">Aantalsterren</th>
+                                    <th scope="col">voorzieningen</th>
+                                    <th scope="col">foto</th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Delete</th>
+
+
                                   </tr>
                                 </thead>
                                 <tbody>
                                     <% for (Park park : parken) { %>
                             
                             <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+                                    
+                                    <th scope="row"><%=park.getId()%></th>
+                                    <th><%=park.getNaam()%></th>
+                                    <th><%=park.getRegioid()%></th>
+                                    <th><%=park.getAantalSterren()%></th>
+                                    <th><%=park.getVoorzieningen()%></th>
+                                    <th><img src="images/<%=park.getFoto()%>" class="img-fluid"><%=park.getFoto()%></th>
+                                    <th><a href="ParkServlet?adminoverzichtparkendelete=<%=park.getId()%>" <i class="far fa-edit"></i></a> </th>
+                                    <th><a href="ParkServlet?adminoverzichtparkendelete=<%=park.getId()%>" <i class="fas fa-trash"></i></a></th>
+
+                                                                        
                                   </tr>
 
                             <%}%>

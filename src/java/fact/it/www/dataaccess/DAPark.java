@@ -395,6 +395,21 @@ public ArrayList<Park> getParkAantalPersonen(int aantalPersonen) {
         return resultaat;
     }
         
+    public boolean deletePark(int parkId) {
+        boolean resultaat = true;
+
+        try (Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement
+                = connection.prepareStatement("delete from park where id = ?");) {
+            statement.setInt(1, parkId);
+            statement.executeUpdate();
+        } catch (Exception e) {
+            resultaat = false;
+            e.printStackTrace();
+        }
+        return resultaat;
+    }
+        
        
     
 
