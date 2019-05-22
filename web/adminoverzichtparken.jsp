@@ -18,7 +18,6 @@
             <div class="banner_inner_overlay">
             </div>
         </section>
-
         <section class="packages pt-5">
             <div class="container py-lg-4 py-sm-3">
 
@@ -65,15 +64,11 @@
                                     <th scope="col">foto</th>
                                     <th scope="col">Edit</th>
                                     <th scope="col">Delete</th>
-
-
                                 </tr>
                             </thead>
                             <tbody>
                                 <% for (Park park : parken) {%>
-
                                 <tr>
-
                                     <th scope="row"><%=park.getId()%></th>
                                     <td><%=park.getNaam()%></td>
                                     <td><%=park.getRegioid()%></td>
@@ -82,34 +77,17 @@
                                     <td><img src="images/<%=park.getFoto()%>" class="img-fluid"><%=park.getFoto()%></td>
                                     <td><a href="ParkServlet?wijzigparkpagina=<%=park.getId()%>" <i class="far fa-edit"></i></a> </td>
                                     <td><a href="ParkServlet?adminoverzichtparkendelete=<%=park.getId()%>" <i class="fas fa-trash"></i></a></td>
-
-
                                 </tr>
-
                                 <%}%>
-
-
                             </tbody>
                         </table>
-
-
-
                         <%} else {%>
                         <p>Er is geen park gevonden</p>        
                         <%}%>
-
-
-
-
-
-
                     </div>
                 </div>
         </section>
         <!-- tour packages -->
-
-
-
         <jsp:include page="temp/footer.jsp" />
         
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
