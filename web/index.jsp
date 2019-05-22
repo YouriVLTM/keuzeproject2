@@ -28,7 +28,10 @@
         </p>   
         <p>
             <a href="admin.jsp">Informatie over regio's</a>
-        </p>  
+        </p>
+        <p>
+            <a href="HotelServlet?maakHotel=1">Een hotel aanmaken</a>
+        </p>
                         
                     </div>
 			

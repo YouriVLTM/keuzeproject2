@@ -121,8 +121,35 @@ public class HotelServlet extends HttpServlet {
             request.setAttribute("allePeriodes", allePeriodes);
             session.setAttribute("maaltijden", maaltijden);
             rd = request.getRequestDispatcher("zoekhotel.jsp");
+        }else if(request.getParameter("maakHotel")!= null){
+            
+            ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+            request.setAttribute("alleRegios", alleRegios);
+            rd = request.getRequestDispatcher("maakHotel.jsp");          
+            
         }
+      
+        else if (request.getParameter("voegHotelToe") != null) {    
+            ArrayList<Hotel> hotels = dahotel.getAlleHotels();
+            int hotelId = hotels.size() + 1;
+            String hotelNaam = request.getParameter("maakHotelNaam");
+            int regioId = Integer.parseInt(request.getParameter("maakHotelRegio"));
+            int aantalSterren= Integer.parseInt(request.getParameter("maakHotelAantalSterren"));
+            String hotelLigging = request.getParameter("maakHotelLigging");
+            String maaltijden = request.getParameter("maakHotelMaaltijden");
+            String ontspanning = request.getParameter("maakHotelOntspanning");
+            String foto = request.getParameter("maakHotelFoto");   
+       
+            if (dahotel.insertHotel(hotelId, hotelNaam, regioId, aantalSterren, hotelLigging, maaltijden, ontspanning, foto)) {
+                hotels = dahotel.getAlleHotels();
+                request.setAttribute("hotels", hotels);
+                rd = request.getRequestDispatcher("overzichtHotels.jsp");
+                
+            } else {                
+                rd = request.getRequestDispatcher("index.jsp");
+            }
 
+        }
         rd.forward(request, response);
     }
 

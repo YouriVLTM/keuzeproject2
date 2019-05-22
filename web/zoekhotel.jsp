@@ -21,6 +21,7 @@
 
         <h1>Zoek je hotel</h1>
         <form action="ZoekHotelServlet">
+            
             <p>                
                 <label for="select">Hoeveel sterren moet het hotel hebben?</label>
                 <select name="select" id="select">
@@ -73,3 +74,4 @@
         <a href="starthotels.jsp">Terug naar de startpagina</a>
     </body>
 </html>
+//
