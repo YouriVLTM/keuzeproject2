@@ -154,7 +154,7 @@
                                 <div class="form-group col-md-3">    
                                     <input class="form-control" type="text" name="hotelNaam" id="hotelNaam">
                                 </div>
-                                <br>
+
                                 <div class="form-group col-md-4">
                                     <input type="submit" name="zoekHotelNaam" value="zoeken op naam" class="btn btn-outline-primary">
                                 </div>
@@ -197,4 +197,3 @@
         <jsp:include page="temp/footer.jsp" />             
     </body>
 </html>
-                       
