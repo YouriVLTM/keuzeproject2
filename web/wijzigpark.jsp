@@ -18,7 +18,7 @@
             <div class="banner_inner_overlay">
             </div>
         </section>
-        
+
         <%Park park = (Park) request.getAttribute("park");%>
 
 
@@ -29,7 +29,6 @@
 
                     <div class="col-lg-12 contact-left-form">
                         <h1 class="heading text-center mb-5">Wijzig park</h1>
-
 
                         <form action="ParkServlet" >
                             <div class="form-row">
@@ -56,12 +55,13 @@
                                         <option value="0">geen</option>
 
                                         <%for (Regio regio : regios) {%>
-                                        <%if(regio.getId() == park.getRegioid()){%>
+                                        <%if (regio.getId() == park.getRegioid()) {%>
                                         <option value="<%=regio.getId()%>" selected><%=regio.getNaam()%></option>
-                                        <%}else{%>
+                                        <%} else {%>
                                         <option value="<%=regio.getId()%>"><%=regio.getNaam()%></option>
                                         <%}%>
                                         <%}%>
+                                        
                                     </select>
                                 </div>  
                             </div>
@@ -70,33 +70,29 @@
                                     <label for="aantalSterren">Aantal sterren</label>
                                     <input type="text" class="form-control" id="aantalSterren" name="aantalSterren" placeholder="aantal sterren"  value="<%=park.getAantalSterren()%>">
                                 </div>
-
                             </div>
                             <div class="form-row">
-
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="Voorzieningen">Voorzieningen</label>
                                     <input type="text" class="form-control" id="Voorzieningen" name="Voorzieningen" placeholder="Voorzieningen" value="<%=park.getVoorzieningen()%>">
                                 </div>
-
                             </div>
                             <div class="form-row">
-
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="fotonaam">Foto naam</label>
                                     <input type="text" class="form-control" id="fotonaam" name="fotonaam" placeholder="Geef de foto naam in" value="<%=park.getFoto()%>">
                                 </div>
-
                             </div>
-                               <%String foutmelding = (String) request.getAttribute("foutmelding");%>
-                               <%if (foutmelding != null) {%>
-                               <div class="alert alert-danger">
-                                    <strong>Alert!</strong> 
-                                    <ul>
-                                       <%=foutmelding%>
-                                    </ul>
-                                  </div>
-                                <%}%>
+                                
+                            <%String foutmelding = (String) request.getAttribute("foutmelding");%>
+                            <%if (foutmelding != null) {%>
+                            <div class="alert alert-danger">
+                                <strong>Alert!</strong> 
+                                <ul>
+                                    <%=foutmelding%>
+                                </ul>
+                            </div>
+                            <%}%>
 
                             <div class="form-row">
                                 <div class="col-6">
@@ -105,13 +101,8 @@
                             </div>
                     </div>
                     </form>
-
                 </div>
-                                
                 <a href="startparken.jsp" class="btn btn-outline-primary">Terug naar parken</a>
-
-
-
             </div>
         </div>
     </section>

@@ -57,7 +57,6 @@
                                     <input type="submit" name="zoekHotelAantalSterren" value="zoeken op aantal sterren" class="btn btn-outline-primary">
                                 </div>
                             </div>
-
                             <div class="form-row">
                                 <div class="form-group col-md-5">
                                     <p>
@@ -76,17 +75,6 @@
                                 </div>
                                 </p>
                             </div>
-                            <%--
-                                                        <p>
-                                                            <label for="regio">In welke regio moet het hotel liggen?</label>
-                                                            <select name="regio" id="regio">
-                                                                <%for (Regio regio : regios) {%>
-                                                                <option value="<%=regio.getId()%>"><%=regio.getNaam()%></option>
-                                                                <%}%>
-                                                            </select>
-                                                            <input type="submit" name="zoekHotelRegio" value="zoeken op regio">
-                                                        </p>
-                            --%>
                             <div class="form-row">
                                 <div class="form-group col-md-5">
                                     <p>
@@ -105,18 +93,6 @@
                                 </div>
                                 </p>
                             </div>
-                            <%--
-                    <p>
-                        <label for="periode">In welke periode wilt u op vakantie gaan?</label>
-                        <select name="periode" id="periode">                   
-                            <%for (Periode periode : periodes) {%>
-                            <option value="<%=periode.getId()%>"><%=periode.getNaam()%></option>
-                            <%}%>
-                        </select>
-                        <input type="submit" name="zoekHotelPeriode" value="zoeken op periode">
-                    </p>
-                            --%>
-
                             <div class="form-row">
                                 <div class="form-group col-md-5">
                                     <p>
@@ -135,21 +111,9 @@
                                 </div>
                                 </p>
                             </div>
-                            <%--  
-                      <p>
-                          <label for="maaltijd">Welke maaltijd wilt u?</label>
-                          <select name="maaltijd" id="maaltijd">
-                              <%for (int i = 0; i < maaltijden.size(); i++) {%>
-                              <option value="<%=i%>"><%=maaltijden.get(i)%></option>
-                              <%}%>
-                          </select>
-                          <input type="submit" name="zoekHotelMaaltijd" value="zoeken op maaltijd">
-                      </p>
-                            --%>
-
                             <div class="form-row">
                                 <div class="form-group col-md-5">
-                                    <label for="hotelNaam">Naam van het hotel?<sup>(optioneel)</sup></label>
+                                    <p><label for="hotelNaam">Naam van het hotel?<sup>(optioneel)</sup></label></p>
                                 </div>
                                 <div class="form-group col-md-3">    
                                     <input class="form-control" type="text" name="hotelNaam" id="hotelNaam">
@@ -160,16 +124,9 @@
                                 </div>
                                 </p>
                             </div>
-                            <%--
-                                                        <p>
-                                                            <label for="hotelNaam">Naam van het hotel<sup>(optioneel)</sup></label>
-                                                            <input type="text" name="hotelNaam" id="hotelNaam">
-                                                            <input type="submit" name="zoekHotelNaam" value="zoeken op naam">
-                                                        </p>
-                            --%>
                             <div class="form-row">
                                 <div class="form-group col-md-5">
-                                    <label for="ontspanning">Welke ontspanning wilt u?<sup>(optioneel)</sup></label>
+                                    <p><label for="ontspanning">Welke ontspanning wilt u?<sup>(optioneel)</sup></label></p>
                                 </div>
                                 <div class="form-group col-md-3">    
                                     <input class="form-control" type="text" name="ontspanning" id="ontspanning">
@@ -180,13 +137,6 @@
                                 </div>
                                 </p>
                             </div>
-                            <%--
-                            <p>
-                                <label for="ontspanning">Welke ontspanning wilt u?<sup>(optioneel)</sup></label>
-                                <input type="text" name="ontspanning" id="ontspanning">
-                                <input type="submit" name="zoekHotelOntspanning" value="zoeken op ontspanning">
-                            </p>
-                            --%>
                             <input type="submit" name="hotelZoeken"id="hotelZoeken" value="Zoeken" class="btn btn-outline-primary">                       
                         </form>
                         <a href="starthotels.jsp" class="btn btn-outline-primary mt-2">Terug naar de startpagina</a>

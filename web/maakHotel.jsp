@@ -39,10 +39,9 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="form-group col-12">
+                                <div class="form-group col-md-6">
                                     <label for="maakHotelRegio">Geef de regio: </label>
-                                </div>
-                                <div class="form-group col-md-6"> 
+                                
                                     <select class="form-control" name="maakHotelRegio" id="maakHotelRegio">
                                         <%for (Regio regio : regios) {%>
                                         <option value="<%=regio.getId()%>"><%=regio.getNaam()%></option>
