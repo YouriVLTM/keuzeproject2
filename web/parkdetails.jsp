@@ -53,8 +53,19 @@
                                    <p>Er is geen naam gegeven</p>
                                <%}%>
                                 <% if(park.getAantalSterren() != 0){ %>
-                                   <p>Aantalsterren: <%=park.getAantalSterren()%> </p> 
-
+                                   <p>Aantalsterren: <%=park.getAantalSterren()%> </p>
+                                   <%if(park.getAantalSterren() == 5) { %>
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                                    <% }%>
+                                    <%if(park.getAantalSterren() == 4) { %>
+                                    <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+                                    <% }%>
+                                    <%if(park.getAantalSterren() == 3) { %>
+                                    <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+                                    <% }%>
+                                    <%if(park.getAantalSterren() == 2) { %>
+                                    <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+                                    <% }%>
                                <%}else{ %>
                                    <p>Er is geen Aantalsterren gegeven</p>
                                <%}%>

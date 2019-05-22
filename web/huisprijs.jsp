@@ -52,7 +52,7 @@
                 <%for(Periode periode : periodes){%>
                     <% if(periode.getId() == huisaanbod.getPeriodeid()){ %>
                         <%=periode.getNaam()%> </p>
-                                
+                           
                                 </div>
                         </div>
 

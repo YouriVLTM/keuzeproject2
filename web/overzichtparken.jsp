@@ -50,6 +50,18 @@
                                     <div class="col-6">
                                             <p>AantalSterren: <%=park.getAantalSterren()%> </p> 
                                             <a href="ParkServlet?parkId=<%=park.getId()%>">meer info</a>
+                                            <%if(park.getAantalSterren() == 5) { %>
+                                            <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                                            <% }%>
+                                            <%if(park.getAantalSterren() == 4) { %>
+                                            <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></p>
+                                            <% }%>
+                                            <%if(park.getAantalSterren() == 3) { %>
+                                            <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+                                            <% }%>
+                                            <%if(park.getAantalSterren() == 2) { %>
+                                            <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+                                            <% }%>    
                                     </div>
 
                                 </div>
