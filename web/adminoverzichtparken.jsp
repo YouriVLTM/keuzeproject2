@@ -45,12 +45,16 @@
                             </ul>
                         </div>
                         <%}%>
+                        <a href="startparken.jsp" class="btn btn-outline-primary">Terug naar parken</a>
+                        <a href="ParkServlet?voegparktoepagina=1" class="btn btn-outline-primary">Voeg nieuw park toe</a>
+                        <br>
+                        <br>
 
                         <%ArrayList<Park> parken = (ArrayList<Park>) request.getAttribute("parken");%>
 
                         <% if (parken != null) { %>
 
-                        <table class="table table-hover">
+                        <table id="dtBasicParken" class="table table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">id</th>
@@ -96,7 +100,7 @@
 
 
 
-                        <a href="startparken.jsp" class="btn btn-outline-primary">Terug naar parken</a>
+
 
 
                     </div>
@@ -107,5 +111,10 @@
 
 
         <jsp:include page="temp/footer.jsp" />
+        
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+       <script type="text/javascript" charset="utf8" src="temp/table.js"></script>
+
     </body>
 </html>

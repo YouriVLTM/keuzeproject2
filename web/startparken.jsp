@@ -69,7 +69,7 @@
                <input type="submit" class="btn btn-outline-primary"  value="Toon alle Parken" name="alleVakantiePark" />
                        <a href="ZoekParkServlet?uitgebreid=1" class="btn btn-outline-primary">uitgebreid zoeken</a>
                        <a href="ZoekParkServlet?filter=1" class="btn btn-outline-primary">filter</a>
-                         <a href="ParkServlet?voegparktoepagina=1" class="btn btn-outline-primary">Voeg nieuw park toe</a>
+                         
                           <a href="ParkServlet?adminoverzichtparken=1" class="btn btn-outline-primary">admin overzicht park</a>
 
             </div>
