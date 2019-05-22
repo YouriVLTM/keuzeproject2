@@ -28,6 +28,7 @@
         <p><a href="HotelServlet?toonspecifiek=1">Toon specifiek hotel</a></p>
         <p><a href="HotelServlet?toonhotels=1">Toon alle hotels</a></p>
         <p><a href="HotelServlet?uitgebreid=1">Uitgebreid zoeken</a></p>        
-        <p><a href="HotelServlet?maakHotel=1">Een hotel aanmaken</a></p>
+        <p><a href="HotelServlet?maakHotel=1">Hotel aanmaken</a></p>
+        <p><a href="HotelServlet?pasAanDelete=1">Hotel aanpassen/verwijderen</a></p>
     </body>
 </html>

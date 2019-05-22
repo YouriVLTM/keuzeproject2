@@ -466,6 +466,20 @@ public class DAHotel {
         }
         return resultaat;
     }
+    public boolean deleteHotel(int hotelId) {
+        boolean resultaat = true;
+        try (Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("delete from hotel where id = ?");) {
+            statement.setInt(1, hotelId);
+
+            statement.executeUpdate();
+
+        } catch (Exception e) {
+            resultaat = false;
+            e.printStackTrace();
+        }
+        return resultaat;
+    }
 
     public boolean zoekHotelNaam(String naam) {
         boolean resultaat = false;
