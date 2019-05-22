@@ -50,7 +50,7 @@
                <input type="submit" class="btn btn-outline-primary"  value="Toon alle Park" name="alleVakantiePark" />
                        <a href="ZoekParkServlet?uitgebreid=1" class="btn btn-outline-primary">uitgebreid</a>
                        <a href="ZoekParkServlet?filter=1" class="btn btn-outline-primary">filter</a>
-                         <a href="ManageServlet?voegparktoe=1.jsp" class="btn btn-outline-primary">Voeg nieuw park toe</a>
+                         <a href="ParkServlet?voegparktoepagina=1" class="btn btn-outline-primary">Voeg nieuw park toe</a>
 
             </div>
         </form>
