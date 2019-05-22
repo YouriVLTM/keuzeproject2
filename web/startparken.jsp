@@ -39,15 +39,15 @@
                     </div>
                     <div class="col-5 contact-forms">
                          <label for="attractieNaam" class="sr-only">attractie Naam</label>
-                           <input type="text" class="form-control" id="naam" name="naam" placeholder="Geef de naam in">
+                           <input type="text" class="form-control" id="naam" name="naam" placeholder="Geef de begin letters in">
                     </div>
                              
              </div>
              <br>
              <div class="btn-group" role="group" aria-label="Basic example">
                 <input type="submit" class="btn btn-outline-primary"  value="Toon Specifiek Park id 1" name="vakantiePark1" />
-               <input type="submit" class="btn btn-outline-primary"  value="Toon Specifiek Park" name="vakantiePark" />
-               <input type="submit" class="btn btn-outline-primary"  value="Toon alle Park" name="alleVakantiePark" />
+               <input type="submit" class="btn btn-outline-primary"  value="Toon Specifiek Park op begin letters" name="vakantiePark" />
+               <input type="submit" class="btn btn-outline-primary"  value="Toon alle Parken" name="alleVakantiePark" />
                        <a href="ZoekParkServlet?uitgebreid=1" class="btn btn-outline-primary">uitgebreid zoeken</a>
                        <a href="ZoekParkServlet?filter=1" class="btn btn-outline-primary">filter</a>
                          <a href="ParkServlet?voegparktoepagina=1" class="btn btn-outline-primary">Voeg nieuw park toe</a>
