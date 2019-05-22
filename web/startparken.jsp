@@ -47,8 +47,8 @@
              <div class="btn-group" role="group" aria-label="Basic example">
                 <input type="submit" class="btn btn-outline-primary"  value="Toon Specifiek Park id 1" name="vakantiePark1" />
                <input type="submit" class="btn btn-outline-primary"  value="Toon Specifiek Park" name="vakantiePark" />
-               <input type="submit" class="btn btn-outline-primary"  value="Toon alle Park" name="alleVakantiePark" />
-                       <a href="ZoekParkServlet?uitgebreid=1" class="btn btn-outline-primary">uitgebreid</a>
+               <input type="submit" class="btn btn-outline-primary"  value="Toon alle Parken" name="alleVakantiePark" />
+                       <a href="ZoekParkServlet?uitgebreid=1" class="btn btn-outline-primary">uitgebreid zoeken</a>
 
             </div>
         </form>
