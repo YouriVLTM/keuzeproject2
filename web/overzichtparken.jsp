@@ -123,7 +123,7 @@
                                             <br>
                                         </div>
                                         <div class="col-6">
-                                            <img src="images/<%=park.getFoto()%>" class="rounded img-fluid" style="width: 250px"/>
+                                            <img src="images/<%=park.getFoto()%>" onerror="this.src='images/noPic.png'" class="rounded img-fluid" style="width: 250px"/>
                                         </div>
                                         <div class="col-6">
                                             <p>AantalSterren: <%=park.getAantalSterren()%> </p> 

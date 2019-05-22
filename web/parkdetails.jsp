@@ -40,9 +40,9 @@
                             <div class="row mb-5">
                                 <div class="col-6">
                                      <% if(park.getFoto() != ""){ %>
-                                        <img src="images/<%=park.getFoto()%>"/>
+                                        <img src="images/<%=park.getFoto()%>" onerror="this.src='images/noPic.png'"/>
                                    <%}else{ %>
-                                       <img src="images/noPic.png"/>
+                                       <img src="images/noPic.png" onerror="this.src='images/noPic.png'"/>
                                    <%}%>
                                 </div>
                                 <div class="col-6">
