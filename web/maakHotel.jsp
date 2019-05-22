@@ -40,8 +40,7 @@
                             </div>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <label for="maakHotelRegio">Geef de regio: </label>
-                                
+                                    <label for="maakHotelRegio">Geef de regio: </label>     
                                     <select class="form-control" name="maakHotelRegio" id="maakHotelRegio">
                                         <%for (Regio regio : regios) {%>
                                         <option value="<%=regio.getId()%>"><%=regio.getNaam()%></option>

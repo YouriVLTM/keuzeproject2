@@ -26,11 +26,11 @@
 
                         <%ArrayList<Hotel> hotels = (ArrayList<Hotel>) request.getAttribute("hotels");%>
 
-                        <table class="table table-hover">
+                        <table id="dtBasicParken" class="table table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">Naam</th>
-                                    <th scope="col">Regio</th>
+                                    <th scope="col" class="w-auto">Regio</th>
                                     <th scope="col">Aantalsterren</th>
                                     <th scope="col">Ligging</th>
                                     <th scope="col">Maaltijden</th>
@@ -44,12 +44,12 @@
                                 <tr>
                                     <%for (Hotel hotel : hotels) {%>
                                     <td scope="row"><%=hotel.getNaam()%></td>
-                                    <td><%=hotel.getRegioid()%></td>
+                                    <td class="w-auto"><%=hotel.getRegioid()%></td>
                                     <td><%= hotel.getAantalSterren()%></td>
                                     <td><%= hotel.getLigging()%></td>
                                     <td><%= hotel.getMaaltijden()%></td>
                                     <td><%= hotel.getOntspanning()%></td>
-                                    <td><img src ="images/<%=hotel.getFoto()%>" alt="<%=hotel.getFoto()%>" class="img-fluid"></td>
+                                    <td><img src ="images/<%=hotel.getFoto()%>" alt="<%=hotel.getFoto()%>" class="img-fluid" onerror="this.src='images/noPic.png'"></td>
                                     <td><a href="HotelServlet?Aanpassen=1&hotelid=<%=hotel.getId()%>"> <i class="far fa-edit"></i></a></td>
                                     <td><a href="HotelServlet?Verwijderen=1&hotelid=<%=hotel.getId()%>"><i class="fas fa-trash"></i></a></td>
                                 </tr>
@@ -61,6 +61,9 @@
         </section>
         <!-- tour packages -->
         <jsp:include page="temp/footer.jsp" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" charset="utf8" src="temp/table.js"></script>
     </body>
 </html>
 
