@@ -189,7 +189,7 @@
                             --%>
                             <input type="submit" name="hotelZoeken"id="hotelZoeken" value="Zoeken" class="btn btn-outline-primary">                       
                         </form>
-                        <a href="starthotels.jsp" class="btn btn-outline-primary">Terug naar de startpagina</a>
+                        <a href="starthotels.jsp" class="btn btn-outline-primary mt-2">Terug naar de startpagina</a>
                     </div>
                 </div>
             </div>
