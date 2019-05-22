@@ -31,7 +31,7 @@
 
                             <div class="form-row">
                                 <div class="form-group col-md-6 contact-forms">
-                                    <label for="naam">naam</label>
+                                    <label for="naam">Naam</label>
                                     <input type="text" class="form-control" id="naam" name="naam" placeholder="naam" >
                                 </div>
                             </div>
@@ -42,7 +42,7 @@
                                     <label for="regio">In welke regio moet het Park liggen?</label>
                                 </div>
                                 <div class="form-group col-md-3"> 
-                                    <select class="form-control" name="regio" id="regio">
+                                    <select class="form-control" name="regioId" id="regio">
                                         <option value="0">geen</option>
 
                                         <%for (Regio regio : regios) {%>
@@ -74,10 +74,19 @@
                                 </div>
 
                             </div>
+                               <%String foutmelding = (String) request.getAttribute("foutmelding");%>
+                               <%if (foutmelding != null) {%>
+                               <div class="alert alert-danger">
+                                    <strong>Alert!</strong> 
+                                    <ul>
+                                       <%=foutmelding%>
+                                    </ul>
+                                  </div>
+                                <%}%>
 
                             <div class="form-row">
                                 <div class="col-6">
-                                    <input type="submit" class="btn  sent-butnn btn-outline-primary" name="maaknieuwparkaan" value="Ga door als bezoeker" />
+                                    <input type="submit" class="btn  sent-butnn btn-outline-primary" name="maaknieuwparkaan" value="Voeg park toe" />
                                 </div>
                             </div>
                     </div>

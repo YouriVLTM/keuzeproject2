@@ -75,8 +75,7 @@ public class ParkServlet extends HttpServlet {
             rd = request.getRequestDispatcher("park.jsp");
             request.setAttribute("park", park);
             
-        }
-        else if(request.getParameter("alleVakantiePark") != null){
+        }else if(request.getParameter("alleVakantiePark") != null){
             
             
             ArrayList<Park> parken = dapark.getParken();
@@ -126,19 +125,48 @@ public class ParkServlet extends HttpServlet {
         }else if(request.getParameter("maaknieuwparkaan") != null){
             // voeg park toe surf naar pagina
             String parknaam = request.getParameter("naam");
-            int parkId = Integer.parseInt(request.getParameter("parkId"));           
+            int regioId = Integer.parseInt(request.getParameter("regioId"));           
             int aantalSterren = Integer.parseInt(request.getParameter("aantalSterren"));           
-            String Voorzieningen = request.getParameter("Voorzieningen");
+            String voorzieningen = request.getParameter("Voorzieningen");
             String fotonaam = request.getParameter("fotonaam");
 
-            
+            if (!dapark.zoekParkNaam(parknaam.toLowerCase())) {
+                // Het park bestaat nog niet
+                // insert
+                if(dapark.insertPark(parknaam,regioId,aantalSterren,voorzieningen,fotonaam)){
+                    rd = request.getRequestDispatcher("startparken.jsp");
+                    
+                }else{
+                    ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+                request.setAttribute("alleRegios", alleRegios);
+                rd = request.getRequestDispatcher("voegparktoe.jsp");
+                request.setAttribute("foutmelding", "Er is een fout opgetreden bij het inserten van park");
+
+                }
+                
+                
+                
+            }else{
+                
+                ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+                request.setAttribute("alleRegios", alleRegios);
+                rd = request.getRequestDispatcher("voegparktoe.jsp");
+                request.setAttribute("foutmelding", "Er bestaat al een park met deze naam.");
+                
+            }
 
             
-            ArrayList<Regio> alleRegios = daregio.getAlleRegios();
             
-            rd = request.getRequestDispatcher("voegparktoe.jsp");
-            request.setAttribute("alleRegios", alleRegios);
+        } else if(request.getParameter("adminoverzichtparken") != null){
+            
+            
+            ArrayList<Park> parken = dapark.getParken();
+            
+            rd = request.getRequestDispatcher("adminoverzichtparken.jsp");
+            request.setAttribute("parken", parken);
         }
+        
+        
         
         
         

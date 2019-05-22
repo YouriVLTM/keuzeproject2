@@ -74,7 +74,7 @@
                     </div>
 
                                         <% }else{ %>
-                        <p>Er is geen park gevonden</p>        
+                                        <p>Er is geen park gevonden</p>        
                     <% } %>
 
                     <br>
