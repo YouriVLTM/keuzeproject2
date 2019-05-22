@@ -5,7 +5,7 @@
 --%>
 
 <head>
-  <title>TEST</title>
+  <title>VakantiePlanner</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
   <meta name="keywords" content="Pretpark" />
