@@ -60,8 +60,8 @@
                          <label for="attractieNaam" class="sr-only">attractie Naam</label>
                            <input type="text" class="form-control" id="naam" name="naam" placeholder="Geef de begin letters in">
                     </div>
-                             
              </div>
+                            
              <br>
              <div class="btn-group" role="group" aria-label="Basic example">
                 <input type="submit" class="btn btn-outline-primary"  value="Toon Specifiek Park id 1" name="vakantiePark1" />
@@ -74,14 +74,12 @@
 
             </div>
         </form>
-                        
                     </div>
-			
-                
-			
 		</div>
 	</div>
 </section>
+			
+              
 <!-- tour packages -->
 
 
