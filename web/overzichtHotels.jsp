@@ -66,7 +66,8 @@
                 <% } else { %>
                 <p>Er is geen park gevonden</p>        
                 <% }%>
-                <a href="ZoekParkServlet?uitgebreid=1" class="btn btn-outline-primary">Terug naar zoekfunctie</a>
+                <a href="ZoekHotelServlet?uitgebreid=1" class="btn btn-outline-primary">Terug naar zoekfunctie</a>
+                <%--<a href="zoekhotel.jsp" class="btn btn-outline-primary">Terug naar zoekfunctie</a>--%>
                 <a href="index.jsp" class="btn btn-outline-primary">Terug naar beginpagina</a>
             </div>
         </section>

@@ -7,6 +7,7 @@ package fact.it.www;
 
 import fact.it.www.beans.Hotel;
 import fact.it.www.beans.Park;
+import fact.it.www.beans.Regio;
 import fact.it.www.dataaccess.DAHotel;
 import fact.it.www.dataaccess.DAHotelaanbod;
 import fact.it.www.dataaccess.DAPeriode;
@@ -77,7 +78,16 @@ public class ZoekHotelServlet extends HttpServlet {
         HttpSession session = request.getSession();
         RequestDispatcher rd = null;
 
-        if (request.getParameter("zoekHotelAantalSterren") != null) {
+        if (request.getParameter("uitgebreid") != null){  
+            
+            
+            ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+            
+            rd = request.getRequestDispatcher("zoekpark.jsp");
+            request.setAttribute("alleRegios", alleRegios);
+
+            
+        }else if(request.getParameter("zoekHotelAantalSterren") != null) {
 
             int aantalSterren = Integer.parseInt(request.getParameter("select"));
             ArrayList<Hotel> hotels = dahotel.getHotelsByAantalSterren(aantalSterren);
