@@ -13,26 +13,24 @@
 </section>
           
                 <!-- tour packages -->
+<div class="row justify-content-md-center">                 
 <section class="packages pt-5">
 	<div class="container py-lg-4 py-sm-3">
 		
-		<div class="row">               
+		<div class="row justify-content-md-center">               
 				
                     <div class="col-lg-12 contact-left-form">
                         <h1 class="heading text-center mb-5">Lekker genieten op <strong>vakantie</strong></h1>
+                        <div class="row">
+                        <div class="btn-group" role="group" aria-label="Basic example">
                                      <p>
-            <a href="startparken.jsp">Startpagina vakantieparken</a>
-        </p>
-        <p>
-            <a href="starthotels.jsp">Startpagina hotels</a>
-        </p>   
-        <p>
-            <a href="admin.jsp">Informatie over regio's</a>
-        </p>
-        <p>
-            <a href="HotelServlet?maakHotel=1">Een hotel aanmaken</a>
-        </p>
-                        
+            <a href="startparken.jsp" class="btn btn-outline-primary">Startpagina vakantieparken</a>
+            <a href="starthotels.jsp" class="btn btn-outline-primary">Startpagina hotels</a>
+            <a href="admin.jsp" class="btn btn-outline-primary">Informatie over regio's</a>
+            <a href="HotelServlet?maakHotel=1" class="btn btn-outline-primary">Een hotel aanmaken</a>
+
+                        </div>
+                    </div>
                     </div>
 			
                 
@@ -40,6 +38,7 @@
 		</div>
 	</div>
 </section>
+</div>
 <!-- tour packages -->
 
 

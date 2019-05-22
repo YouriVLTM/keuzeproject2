@@ -36,7 +36,7 @@
                     <div class="row">
                         
                     <% for(Park park : parken) { %>
-
+                    
                         <div class="col-lg-6 col-sm-6 mb-5">
                              <div class="package-info">
                                 <div class="row">
