@@ -24,7 +24,7 @@
         <ul>
             <%for (Hotel hotel : hotels) {%>
             <li>
-                <a href="HotelServlet?hotelId=<%=hotel.getId()%>"><%=hotel.getNaam()%></a> heeft <%=hotel.getAantalSterren()%> sterren
+                <a href="HotelServlet?hotelId=<%=hotel.getId()%>"><%=hotel.getNaam()%></a> heeft <%=hotel.getAantalSterren()%><%if(hotel.getAantalSterren() == 1){%> ster <%} else {%> sterren<%}%>
             </li>
             <%}%>
         </ul>

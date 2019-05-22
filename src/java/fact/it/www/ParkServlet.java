@@ -117,8 +117,12 @@ public class ParkServlet extends HttpServlet {
             request.setAttribute("vakantiehuis", vakantiehuis);
             request.setAttribute("huisaanboden", huisaanboden);
              request.setAttribute("periodes", periodes);
-
+        }else if(request.getParameter("voegparktoepagina") != null){
+            // voeg park toe surf naar pagina
+            ArrayList<Regio> alleRegios = daregio.getAlleRegios();
             
+            rd = request.getRequestDispatcher("voegparktoe.jsp");
+            request.setAttribute("alleRegios", alleRegios);
         }
         
         

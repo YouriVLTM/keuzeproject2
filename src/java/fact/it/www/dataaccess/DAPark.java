@@ -287,7 +287,73 @@ public ArrayList<Park> getParkAantalPersonen(int aantalPersonen) {
         return parken;
     }
 
-    
+    public ArrayList<Park> getParkFilter(int aantalSterren,int regioId,String parkNaam,int aantalSlaapkamers,int aantalPersonen) {
+        Park park = null;
+        ArrayList<Park> parken = new ArrayList <>();
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("select * from park\n" +
+                                                                            "where park.id IN \n" +
+                                                                            "    (select vakantiehuis.PARKID from vakantiehuis \n" +
+                                                                            "     where VAKANTIEHUIS.aantalSlaapKamers = \n" +
+                                                                            "            CASE\n" +
+                                                                            "                WHEN ? > 0 then ?\n" +
+                                                                            "                ELSE nvl(null,VAKANTIEHUIS.aantalSlaapkamers)\n" +
+                                                                            "            END\n" +
+                                                                            "            AND VAKANTIEHUIS.aantalPersonen = CASE\n" +
+                                                                            "                WHEN ? > 0 then ?\n" +
+                                                                            "                ELSE nvl(null,VAKANTIEHUIS.aantalPersonen)\n" +
+                                                                            "            END\n" +
+                                                                            "    )\n" +
+                                                                            "\n" +
+                                                                            "AND park.REGIOID = \n" +
+                                                                            "    CASE\n" +
+                                                                            "        WHEN ? > 0 then ?\n" +
+                                                                            "        ELSE nvl(null,REGIOID)\n" +
+                                                                            "    END \n" +
+                                                                            "AND park.naam = nvl(?,park.naam)\n" +
+                                                                            "AND park.aantalSterren = \n" +
+                                                                            "    CASE\n" +
+                                                                            "        WHEN ? > 0 then ?\n" +
+                                                                            "        ELSE nvl(null,aantalSterren)\n" +
+                                                                            "    END \n" +
+                                                                            "");) {
+
+            
+            
+           
+            statement.setInt(1, aantalSlaapkamers);
+            statement.setInt(2, aantalSlaapkamers);
+            statement.setInt(3, aantalPersonen);
+            statement.setInt(4, aantalPersonen);
+            statement.setInt(5, regioId);
+            statement.setInt(6, regioId);
+            statement.setString(7, parkNaam);
+            statement.setInt(8, aantalSterren);
+            statement.setInt(9, aantalSterren);
+
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                park = new Park();
+                park.setId(resultSet.getInt("id"));
+                park.setNaam(resultSet.getString("naam"));
+                park.setRegioid(resultSet.getInt("regioid"));
+                park.setAantalSterren(resultSet.getInt("aantalSterren"));
+                park.setVoorzieningen(resultSet.getString("voorzieningen"));
+                park.setFoto(resultSet.getString("foto"));
+                
+                parken.add(park);
+            }
+             // standaar staat de arraylist bij null elementen op 0 -> Maar moet opgevormd worden naar null
+            if(parken.isEmpty()){
+                parken = null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return parken;
+    }
 
     
    

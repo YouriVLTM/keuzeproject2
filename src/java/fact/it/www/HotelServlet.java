@@ -121,8 +121,54 @@ public class HotelServlet extends HttpServlet {
             request.setAttribute("allePeriodes", allePeriodes);
             session.setAttribute("maaltijden", maaltijden);
             rd = request.getRequestDispatcher("zoekhotel.jsp");
-        }
+        } else if (request.getParameter("maakHotel") != null) {
 
+            ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+            Boolean hotelAanmaken = true;
+            request.setAttribute("hotelAanmaken", hotelAanmaken);
+            request.setAttribute("alleRegios", alleRegios);
+            rd = request.getRequestDispatcher("maakHotel.jsp");
+
+        } else if (request.getParameter("voegHotelToe") != null) {
+            Boolean hotelAanmaken = true;
+            ArrayList<Hotel> hotels = dahotel.getAlleHotels();
+            int hotelId = hotels.size() + 1;
+            String hotelNaam = request.getParameter("maakHotelNaam");
+            int regioId = Integer.parseInt(request.getParameter("maakHotelRegio"));
+            int aantalSterren = Integer.parseInt(request.getParameter("maakHotelAantalSterren"));
+            String hotelLigging = request.getParameter("maakHotelLigging");
+            String maaltijden = request.getParameter("maakHotelMaaltijden");
+            String ontspanning = request.getParameter("maakHotelOntspanning");
+            String foto = request.getParameter("maakHotelFoto");
+
+            if (!dahotel.zoekHotelNaam(hotelNaam.toLowerCase())) {
+                hotelAanmaken = false;
+                rd = request.getRequestDispatcher("maakHotel.jsp");
+
+                if (dahotel.insertHotel(hotelId, hotelNaam, regioId, aantalSterren, hotelLigging, maaltijden, ontspanning, foto)) {
+
+                    hotels = dahotel.getAlleHotels();
+                    request.setAttribute("hotels", hotels);
+                    rd = request.getRequestDispatcher("overzichtHotels.jsp");
+
+                } else {
+                    rd = request.getRequestDispatcher("maakHotel.jsp");
+                    ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+
+                    request.setAttribute("hotelAanmaken", hotelAanmaken);
+                    request.setAttribute("alleRegios", alleRegios);
+                    request.setAttribute("foutmelding", "Kan hotel niet aanmaken.");
+                }
+
+            } else {
+                ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+                request.setAttribute("hotelAanmaken", hotelAanmaken);
+                request.setAttribute("alleRegios", alleRegios);
+                rd = request.getRequestDispatcher("maakHotel.jsp");
+                request.setAttribute("foutmelding", "Er bestaat al een hotel met deze naam.");
+            }
+
+        }
         rd.forward(request, response);
     }
 

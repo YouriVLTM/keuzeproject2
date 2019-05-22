@@ -315,7 +315,8 @@ public class DAHotel {
         }
         return hotels;
     }
-    public ArrayList<Hotel> getHotelByAlles( int aantalSterren, int regioId, String maaltijdNaam, String hotelNaam, String zoekOntspanning, int periodeid) {
+
+    public ArrayList<Hotel> getHotelByAlles(int aantalSterren, int regioId, String maaltijdNaam, String hotelNaam, String zoekOntspanning, int periodeid) {
         Hotel hotel = null;
         ArrayList<Hotel> hotels = new ArrayList<>();
 
@@ -323,7 +324,7 @@ public class DAHotel {
                 Connection connection = DriverManager.getConnection(url, login, password);
                 PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel join hotelaanbod on hotel.id = hotelaanbod.hotelid where aantalsterren = ? and regioid = ? and maaltijden = ? and lower(naam) like ? and lower(ontspanning) like ? and hotelaanbod.periodeid = ?");) {
 
-            statement.setInt(1,  aantalSterren );
+            statement.setInt(1, aantalSterren);
             statement.setInt(2, regioId);
             statement.setString(3, maaltijdNaam);
             statement.setString(4, "%" + hotelNaam + "%");
@@ -347,6 +348,7 @@ public class DAHotel {
         }
         return hotels;
     }
+
     public ArrayList<Hotel> getHotelByAllesBehalveHotelnaamEnOntspanning(int aantalSterren, int regioId, String maaltijdNaam, int periodeid) {
         Hotel hotel = null;
         ArrayList<Hotel> hotels = new ArrayList<>();
@@ -355,11 +357,11 @@ public class DAHotel {
                 Connection connection = DriverManager.getConnection(url, login, password);
                 PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel join hotelaanbod on hotel.id = hotelaanbod.hotelid where aantalsterren = ? and regioid = ? and maaltijden = ? and hotelaanbod.periodeid = ?");) {
 
-            statement.setInt(1,  aantalSterren );
+            statement.setInt(1, aantalSterren);
             statement.setInt(2, regioId);
             statement.setString(3, maaltijdNaam);
             statement.setInt(2, periodeid);
-            
+
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 hotel = new Hotel();
@@ -378,7 +380,8 @@ public class DAHotel {
         }
         return hotels;
     }
-    public ArrayList<Hotel> getHotelByAllesBehalveHotelnaam(int aantalSterren, int regioId, String maaltijdNaam,String zoekOntspanning, int periodeid) {
+
+    public ArrayList<Hotel> getHotelByAllesBehalveHotelnaam(int aantalSterren, int regioId, String maaltijdNaam, String zoekOntspanning, int periodeid) {
         Hotel hotel = null;
         ArrayList<Hotel> hotels = new ArrayList<>();
 
@@ -386,9 +389,9 @@ public class DAHotel {
                 Connection connection = DriverManager.getConnection(url, login, password);
                 PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel join hotelaanbod on hotel.id = hotelaanbod.hotelid where aantalsterren = ? and regioid = ? and maaltijden = ? and lower(ontspanning) like ? and hotelaanbod.periodeid = ?");) {
 
-            statement.setInt(1,  aantalSterren );
+            statement.setInt(1, aantalSterren);
             statement.setInt(2, regioId);
-            statement.setString(3, maaltijdNaam);            
+            statement.setString(3, maaltijdNaam);
             statement.setString(4, "%" + zoekOntspanning + "%");
             statement.setInt(5, periodeid);
             ResultSet resultSet = statement.executeQuery();
@@ -409,7 +412,8 @@ public class DAHotel {
         }
         return hotels;
     }
-    public ArrayList<Hotel> getHotelByAllesBehalveOntspanning(int aantalSterren, int regioId, String maaltijdNaam,String hotelNaam,  int periodeid) {
+
+    public ArrayList<Hotel> getHotelByAllesBehalveOntspanning(int aantalSterren, int regioId, String maaltijdNaam, String hotelNaam, int periodeid) {
         Hotel hotel = null;
         ArrayList<Hotel> hotels = new ArrayList<>();
 
@@ -417,9 +421,9 @@ public class DAHotel {
                 Connection connection = DriverManager.getConnection(url, login, password);
                 PreparedStatement statement = connection.prepareStatement("SELECT * FROM hotel join hotelaanbod on hotel.id = hotelaanbod.hotelid where aantalsterren = ? and regioid = ? and maaltijden = ? and lower(naam) like ? and hotelaanbod.periodeid = ?");) {
 
-            statement.setInt(1,  aantalSterren );
+            statement.setInt(1, aantalSterren);
             statement.setInt(2, regioId);
-            statement.setString(3, maaltijdNaam);            
+            statement.setString(3, maaltijdNaam);
             statement.setString(4, "%" + hotelNaam + "%");
             statement.setInt(5, periodeid);
             ResultSet resultSet = statement.executeQuery();
@@ -439,6 +443,46 @@ public class DAHotel {
             e.printStackTrace();
         }
         return hotels;
+    }
+
+    public boolean insertHotel(int hotelId, String naam, int regioid, int aantalsterren, String ligging, String maaltijden, String ontspanning, String foto) {
+        boolean resultaat = true;
+        try (Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("insert into hotel values (? , ?  , ? , ? , ? , ? , ? , ? )");) {
+            statement.setInt(1, hotelId);
+            statement.setString(2, naam);
+            statement.setInt(3, regioid);
+            statement.setInt(4, aantalsterren);
+            statement.setString(5, ligging);
+            statement.setString(6, maaltijden);
+            statement.setString(7, ontspanning);
+            statement.setString(8, foto);
+
+            statement.executeUpdate();
+
+        } catch (Exception e) {
+            resultaat = false;
+            e.printStackTrace();
+        }
+        return resultaat;
+    }
+
+    public boolean zoekHotelNaam(String naam) {
+        boolean resultaat = false;
+        try (Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("select * from hotel where lower(naam) = ?");) {
+            statement.setString(1, naam);
+            statement.executeUpdate();
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                  resultaat = true;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return resultaat;
+
     }
 
 }
