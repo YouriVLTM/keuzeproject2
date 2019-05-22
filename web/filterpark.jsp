@@ -60,7 +60,7 @@
             </div>
             <div class="form-group col-md-3"> 
                 <select class="form-control" name="regio" id="regio">
-                    <option value="">geen</option>
+                    <option value="0">geen</option>
 
                     <%for (Regio regio : regios) {%>
                     <option value="<%=regio.getId()%>"><%=regio.getNaam()%></option>
