@@ -445,7 +445,7 @@ public class DAHotel {
         return hotels;
     }
 
-    public boolean insertHotel(int hotelId,String naam, int regioid, int aantalsterren, String ligging, String maaltijden, String ontspanning, String foto) {
+    public boolean insertHotel(int hotelId, String naam, int regioid, int aantalsterren, String ligging, String maaltijden, String ontspanning, String foto) {
         boolean resultaat = true;
         try (Connection connection = DriverManager.getConnection(url, login, password);
                 PreparedStatement statement = connection.prepareStatement("insert into hotel values (? , ?  , ? , ? , ? , ? , ? , ? )");) {
@@ -459,12 +459,30 @@ public class DAHotel {
             statement.setString(8, foto);
 
             statement.executeUpdate();
-            
+
         } catch (Exception e) {
             resultaat = false;
             e.printStackTrace();
         }
         return resultaat;
+    }
+
+    public boolean zoekHotelNaam(String naam) {
+        boolean resultaat = false;
+        try (Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("select * from hotel where lower(naam) = ?");) {
+            statement.setString(1, naam);
+            statement.executeUpdate();
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                  resultaat = true;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return resultaat;
+
     }
 
 }
