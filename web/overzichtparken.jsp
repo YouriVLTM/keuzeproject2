@@ -24,6 +24,7 @@
 
         <!-- tour packages -->
         <section class="packages pt-5">
+            <<<<<<< HEAD
             <div class="container-fluid py-lg-4 py-sm-3">
                 <h2 class="heading text-capitalize text-center">Overzicht VakantiePark</h2>
                 <br>
@@ -33,7 +34,7 @@
 
 
                     <div class="col-sm-12 col-md-3 p-5">
-                        
+
                         <h2 class="pb-3">Filter</h2>
 
                         <form action="ZoekParkServlet">  
@@ -41,14 +42,14 @@
                                 <div class="form-group col-md-12">
                                     <p>
                                         <label for="select">Hoeveel sterren moet het hotel hebben?</label>
-                               
-                                    <select class="form-control" name="aantalSterren" id="select">
-                                        <option value="0">geen</option>
-                                        <option value="2">2 sterren</option>
-                                        <option value="3">3 sterren</option>
-                                        <option value="4">4 sterren</option>
-                                        <option value="5">5 sterren</option>
-                                    </select>
+
+                                        <select class="form-control" name="aantalSterren" id="select">
+                                            <option value="0">geen</option>
+                                            <option value="2">2 sterren</option>
+                                            <option value="3">3 sterren</option>
+                                            <option value="4">4 sterren</option>
+                                            <option value="5">5 sterren</option>
+                                        </select>
                                 </div>
                                 </p>
                             </div>
@@ -59,14 +60,14 @@
                                 <div class="form-group col-md-12">
                                     <p>
                                         <label for="regio">In welke regio moet het hotel liggen?</label>
-                              
-                                    <select class="form-control" name="regio" id="regio">
-                                        <option value="0">geen</option>
 
-                                        <%for (Regio regio : regios) {%>
-                                        <option value="<%=regio.getId()%>"><%=regio.getNaam()%></option>
-                                        <%}%>
-                                    </select>
+                                        <select class="form-control" name="regio" id="regio">
+                                            <option value="0">geen</option>
+
+                                            <%for (Regio regio : regios) {%>
+                                            <option value="<%=regio.getId()%>"><%=regio.getNaam()%></option>
+                                            <%}%>
+                                        </select>
                                 </div>
                                 </p>
                             </div>
@@ -74,7 +75,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="parkNaam">Naam van het Park</label>
-                               
+
                                     <input class="form-control" type="text" name="parkNaam" id="parkNaam" value="">
                                 </div>
                                 </p>
@@ -84,7 +85,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="aantalSlaapkamers">Aantal slaapkamers</label>
-                               
+
                                     <input class="form-control" type="text" name="aantalSlaapkamers" id="aantalSlaapkamers" value="0">
                                 </div>
                                 </p>
@@ -94,12 +95,12 @@
                             <div class="form-row">
                                 <div class="form-group col-md-12">
                                     <label for="aantalPersonen">Aantal Personen</label>
-                               
+
                                     <input class="form-control" type="text" name="aantalPersonen" id="aantalPersonen" value="0">
                                 </div>
                                 </p>
                             </div>
-                            
+
                             <input type="submit" name="zoekFilter" value="Filter" class="btn btn-outline-primary mt-3">
                         </form>
 
@@ -140,6 +141,9 @@
                                                     <%if (park.getAantalSterren() == 2) { %>
                                             <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
                                                     <% }%>    
+                                                    <%if (park.getAantalSterren() == 1) { %>
+                                            <p><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
+                                                    <% }%>
                                         </div>
 
                                     </div>
@@ -166,9 +170,8 @@
                 <a href="index.jsp" class="btn btn-outline-primary">Terug naar beginpagina</a>
             </div>
         </section>
-        <!-- tour packages -->
+        <!-- tour packages -->     
+    <jsp:include page="temp/footer.jsp" />
 
-        <jsp:include page="temp/footer.jsp" />
-
-    </body>
+</body>
 </html>
