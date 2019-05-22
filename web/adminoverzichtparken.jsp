@@ -74,7 +74,7 @@
                                     <td><%=park.getRegioid()%></td>
                                     <td><%=park.getAantalSterren()%></td>
                                     <td><%=park.getVoorzieningen()%></td>
-                                    <td><img src="images/<%=park.getFoto()%>" class="img-fluid"><%=park.getFoto()%></td>
+                                    <td><img src="images/<%=park.getFoto()%>" onerror="this.src='images/noPic.png'"class="img-fluid" ><%=park.getFoto()%></td>
                                     <td><a href="ParkServlet?wijzigparkpagina=<%=park.getId()%>" <i class="far fa-edit"></i></a> </td>
                                     <td><a href="ParkServlet?adminoverzichtparkendelete=<%=park.getId()%>" <i class="fas fa-trash"></i></a></td>
                                 </tr>

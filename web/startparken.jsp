@@ -56,16 +56,16 @@
 
                                 </div>
                                 <input type="submit" class="btn btn-outline-primary"  value="Toon Specifiek Park op begin letters" name="vakantiePark" />
+                                <a href="ParkServlet?vakantiePark1=1" class="btn btn-outline-primary mx-1">Toon Specifiek Park id 1</a>
 
                             </div>
                         </form>
                         <br>
                         <div class="row">
                              <div class="col-12 d-flex justify-content-center">
-                                <a href="ParkServlet?vakantiePark1=1" class="btn btn-outline-primary mx-1">Toon Specifiek Park id 1</a>
+                                
                                 <a href="ParkServlet?alleVakantiePark=1" class="btn btn-outline-primary mx-1">Toon alle Parken</a>
-                                <a href="ZoekParkServlet?uitgebreid=1" class="btn btn-outline-primary mx-1">uitgebreid zoeken</a>                         
-                                <a href="ZoekParkServlet?filter=1" class="btn btn-outline-primary mx-1">filter</a>
+                                <a href="ZoekParkServlet?uitgebreid=1" class="btn btn-outline-primary mx-1">uitgebreid zoeken</a>      
                                 <a href="ParkServlet?voegparktoepagina=1" class="btn btn-outline-primary mx-1">Voeg nieuw park toe</a>
                                 <a href="ParkServlet?adminoverzichtparken=1" class="btn btn-outline-primary mx-1">admin overzicht park</a>
                             </div>                       

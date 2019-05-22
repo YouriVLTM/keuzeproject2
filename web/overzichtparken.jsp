@@ -32,7 +32,7 @@
                 <div class="row">
 
 
-                    <div class="col-3 p-5">
+                    <div class="col-sm-12 col-md-3 p-5">
                         
                         <h2 class="pb-3">Filter</h2>
 
@@ -100,11 +100,11 @@
                                 </p>
                             </div>
                             
-                            <input type="submit" name="zoekFilter" value="Zoek de resultaten" class="btn btn-outline-primary mt-3">
+                            <input type="submit" name="zoekFilter" value="Filter" class="btn btn-outline-primary mt-3">
                         </form>
 
                     </div>
-                    <div class="col-9 p-5">
+                    <div class="col-sm-12 col-md-9 p-5">
                         <%ArrayList<Park> parken = (ArrayList<Park>) request.getAttribute("parken");%>
 
 
