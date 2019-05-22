@@ -18,7 +18,6 @@
         <h1>Overzicht</h1>
         <table>
             <tr>
-                <td>Hotelid</td>
                 <td>Naam</td>
                 <td>Regio</td>
                 <td>Aantalsterren</td>
@@ -31,27 +30,24 @@
             <%for (Hotel hotel : hotels) {%>
             <tr>
                 <td>
-                    <%=hotel.getId()%>
-                </td>
-                   <td>
                     <%=hotel.getNaam()%>
                 </td>
-                   <td>
+                <td>
                     <%=hotel.getRegioid()%>
                 </td>
-                   <td>
+                <td>
                     <%=hotel.getAantalSterren()%>
                 </td>
-                   <td>
+                <td>
                     <%=hotel.getLigging()%>
                 </td>
-                   <td>
+                <td>
                     <%=hotel.getMaaltijden()%>
                 </td>
-                   <td>
+                <td>
                     <%=hotel.getOntspanning()%>
                 </td>
-                   <td>
+                <td>
                     <%=hotel.getFoto()%>
                 </td>
                 <td>

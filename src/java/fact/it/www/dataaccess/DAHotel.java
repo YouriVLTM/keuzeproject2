@@ -466,11 +466,35 @@ public class DAHotel {
         }
         return resultaat;
     }
+
     public boolean deleteHotel(int hotelId) {
         boolean resultaat = true;
         try (Connection connection = DriverManager.getConnection(url, login, password);
                 PreparedStatement statement = connection.prepareStatement("delete from hotel where id = ?");) {
             statement.setInt(1, hotelId);
+
+            statement.executeUpdate();
+
+        } catch (Exception e) {
+            resultaat = false;
+            e.printStackTrace();
+        }
+        return resultaat;
+    }
+
+    public boolean editHotel(String naam, int regioid, int aantalsterren, String ligging, String maaltijden, String ontspanning, String foto, int id) {
+        boolean resultaat = true;
+        try (Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("update hotel set naam = ? , regioid = ? , aantalsterren = ? , ligging = ? , maaltijden = ? , ontspanning = ? , foto = ? where id = ?");) {
+
+            statement.setString(1, naam);
+            statement.setInt(2, regioid);
+            statement.setInt(3, aantalsterren);
+            statement.setString(4, ligging);
+            statement.setString(5, maaltijden);
+            statement.setString(6, ontspanning);
+            statement.setString(7, foto);
+            statement.setInt(8, id);
 
             statement.executeUpdate();
 
@@ -489,7 +513,7 @@ public class DAHotel {
             statement.executeUpdate();
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                  resultaat = true;
+                resultaat = true;
             }
 
         } catch (Exception e) {
