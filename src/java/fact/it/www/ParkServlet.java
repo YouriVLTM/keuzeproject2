@@ -123,7 +123,24 @@ public class ParkServlet extends HttpServlet {
             
             rd = request.getRequestDispatcher("voegparktoe.jsp");
             request.setAttribute("alleRegios", alleRegios);
+        }else if(request.getParameter("maaknieuwparkaan") != null){
+            // voeg park toe surf naar pagina
+            String parknaam = request.getParameter("naam");
+            int parkId = Integer.parseInt(request.getParameter("parkId"));           
+            int aantalSterren = Integer.parseInt(request.getParameter("aantalSterren"));           
+            String Voorzieningen = request.getParameter("Voorzieningen");
+            String fotonaam = request.getParameter("fotonaam");
+
+            
+
+            
+            ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+            
+            rd = request.getRequestDispatcher("voegparktoe.jsp");
+            request.setAttribute("alleRegios", alleRegios);
         }
+        
+        
         
         
         

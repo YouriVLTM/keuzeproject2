@@ -12,31 +12,31 @@
     <jsp:include page="temp/head.jsp" />
     <body>
         <jsp:include page="temp/nav.jsp" />
-                                <!-- banner -->
-<section class="banner_inner" id="home">
-	<div class="banner_inner_overlay">
-	</div>
-</section>
-                                
+        <!-- banner -->
+        <section class="banner_inner" id="home">
+            <div class="banner_inner_overlay">
+            </div>
+        </section>
+
         <section class="packages pt-5">
-	<div class="container py-lg-4 py-sm-3">
-		
-		<div class="row">               
-				
+            <div class="container py-lg-4 py-sm-3">
+
+                <div class="row">               
+
                     <div class="col-lg-12 contact-left-form">
                         <h1 class="heading text-center mb-5">Voeg nieuw park toe</h1>
-                           
 
-         <form action="ParkServlet" >
-                 
-                         <div class="form-row">
-                            <div class="form-group col-md-6 contact-forms">
+
+                        <form action="ParkServlet" >
+
+                            <div class="form-row">
+                                <div class="form-group col-md-6 contact-forms">
                                     <label for="naam">naam</label>
-                                  <input type="text" class="form-control" id="naam" name="naam" placeholder="naam" >
+                                    <input type="text" class="form-control" id="naam" name="naam" placeholder="naam" >
                                 </div>
-                         </div>
-             
-                         <%ArrayList<Regio> regios = (ArrayList<Regio>) request.getAttribute("alleRegios");%>
+                            </div>
+
+                            <%ArrayList<Regio> regios = (ArrayList<Regio>) request.getAttribute("alleRegios");%>
                             <div class="form-row">
                                 <div class="form-group col-md-5">
                                     <label for="regio">In welke regio moet het Park liggen?</label>
@@ -51,35 +51,49 @@
                                     </select>
                                 </div>  
                             </div>
-                                    <div class="form-row">
-                            <div class="form-group col-md-6 contact-forms">
+                            <div class="form-row">
+                                <div class="form-group col-md-6 contact-forms">
                                     <label for="aantalSterren">Aantal sterren</label>
-                                  <input type="text" class="form-control" id="aantalSterren" name="aantalSterren" placeholder="aantal sterren" >
+                                    <input type="text" class="form-control" id="aantalSterren" name="aantalSterren" placeholder="aantal sterren" >
                                 </div>
-                                
-                         </div>
-                                    <div class="form-row">
-                                    
-                                    <div class="form-group col-md-6 contact-forms">
-                                    <label for="aantalSterren">Voorzieningen</label>
-                                  <input type="text" class="form-control" id="aantalSterren" name="aantalSterren" placeholder="aantal sterren" >
+
+                            </div>
+                            <div class="form-row">
+
+                                <div class="form-group col-md-6 contact-forms">
+                                    <label for="Voorzieningen">Voorzieningen</label>
+                                    <input type="text" class="form-control" id="Voorzieningen" name="Voorzieningen" placeholder="Voorzieningen" >
                                 </div>
-                
+
+                            </div>
+                            <div class="form-row">
+
+                                <div class="form-group col-md-6 contact-forms">
+                                    <label for="fotonaam">Foto naam</label>
+                                    <input type="text" class="form-control" id="fotonaam" name="fotonaam" placeholder="Geef de foto naam in" >
                                 </div>
-                                      </div>
-        </form>
-                        
+
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-6">
+                                    <input type="submit" class="btn  sent-butnn btn-outline-primary" name="maaknieuwparkaan" value="Ga door als bezoeker" />
+                                </div>
+                            </div>
                     </div>
-			
-                
-			
-		</div>
-	</div>
-</section>
-<!-- tour packages -->
+                    </form>
+
+                </div>
 
 
 
-        <jsp:include page="temp/footer.jsp" />
-    </body>
+            </div>
+        </div>
+    </section>
+    <!-- tour packages -->
+
+
+
+    <jsp:include page="temp/footer.jsp" />
+</body>
 </html>
