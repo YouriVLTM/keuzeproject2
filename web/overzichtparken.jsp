@@ -43,7 +43,7 @@
                                         <label for="select">Hoeveel sterren moet het hotel hebben?</label>
 
                                         <select class="form-control" name="aantalSterren" id="select">
-                                            <option value="0">geen</option>
+                                            <option value="0">Geen voorkeur</option>
                                             <option value="2">2 sterren</option>
                                             <option value="3">3 sterren</option>
                                             <option value="4">4 sterren</option>
@@ -61,7 +61,7 @@
                                         <label for="regio">In welke regio moet het hotel liggen?</label>
 
                                         <select class="form-control" name="regio" id="regio">
-                                            <option value="0">geen</option>
+                                            <option value="0">Geen voorkeur</option>
 
                                             <%for (Regio regio : regios) {%>
                                             <option value="<%=regio.getId()%>"><%=regio.getNaam()%></option>
