@@ -27,7 +27,7 @@
 
 <section class="services">
 	<div class="container py-lg-5 py-sm-3">
-                <h2 class="heading text-capitalize text-center mb-lg-5 mb-4">Tabel</h2>      
+                <h2 class="heading text-capitalize text-center mb-lg-5 mb-4">Wijzigen</h2>      
                
                 <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-6 service-grid-wthree text-center mb-5">

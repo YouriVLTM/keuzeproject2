@@ -35,7 +35,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="vakantiehuisId">Park id</label>
-                                    <input type="text" class="form-control" id="vakantiehuisId" name="vakantiehuisIdwijzigen" value="<%=vakantiehuis.getId()%>" >
+                                    <input type="text" class="form-control" id="vakantiehuisId" name="vakantiehuisIdwijzigen" value="<%=vakantiehuis.getId()%>" readonly>
                                 </div>
                             </div>
                             

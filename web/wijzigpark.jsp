@@ -34,14 +34,14 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="parkId">Park id</label>
-                                    <input type="text" class="form-control" id="parkId" name="parkIdla" value="<%=park.getId()%>">
-                                </div>
+                                    <input type="text" class="form-control" id="parkId" name="parkIdla" value="<%=park.getId()%>" readonly>
+                                </div> 
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="naam">Naam</label>
-                                    <input type="text" class="form-control" id="naam" name="naam" placeholder="naam" value="<%=park.getNaam()%>" >
+                                    <input type="text" class="form-control" id="naam" name="naam" placeholder="naam" value="<%=park.getNaam()%>">
                                 </div>
                             </div>
 
