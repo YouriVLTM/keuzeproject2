@@ -10,31 +10,40 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
+    <jsp:include page="temp/head.jsp" />
+
     <body>
+        <jsp:include page="temp/nav.jsp" />
+
         <%ArrayList<Periode> periodes = (ArrayList<Periode>) request.getAttribute("periode");%>
         <%ArrayList<Hotelaanbod> hotelaanbiedingen = (ArrayList<Hotelaanbod>) request.getAttribute("hotelaanbod");%>
         <%String zoekPrijsHotelNaam = (String) request.getAttribute("zoekPrijsHotelNaam");%>
-        <h1>Prijzen voor <%=zoekPrijsHotelNaam%></h1>
-        <table>
-            <tr>
-                <td>Periode</td>
-                <td>Prijs</td>
-            </tr>
-        <%for (int i = 0; i < periodes.size(); i++) {%>
-        <tr>
-            <td>
-                <%=periodes.get(i).getNaam()%>
-            </td>
-            <td>
-                <%=hotelaanbiedingen.get(i).getPrijsperdag()%>
-            </td>
-            <%}%>
-        </tr>
-        </table>
-        
+
+        <!-- banner -->
+        <section class="banner_inner" id="home">
+            <div class="banner_inner_overlay"></div>
+        </section>
+
+        <section class="packages pt-5">
+            <div class="container py-lg-4 py-sm-3">
+                <div class="row ">   
+                    <div class="col-lg-12 contact-left-form">
+                        <h1 class="heading text-center mb-5">Prijzen voor <%=zoekPrijsHotelNaam%></h1>
+                        <table id="dtBasicParken" class="table table-hover">
+                            <tr>
+                                <th>Periode</th>
+                                <th>Prijs per dag</th>
+                            </tr>
+                            <%for (int i = 0; i < periodes.size(); i++) {%>
+                            <tr>
+                                <td><%=periodes.get(i).getNaam()%></td>
+                                <td>€<%=hotelaanbiedingen.get(i).getPrijsperdag()%></td>
+                                <%}%>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
     </body>
 </html>
