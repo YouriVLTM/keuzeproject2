@@ -32,13 +32,13 @@
                         <%}%>
                         
                         <form>
-                            <div class="form-row">
+                            <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="maakHotelNaam">Naam: </label>
                                     <input type="text" class="form-control" id="maakHotelNaam" name="maakHotelNaam" placeholder="naam" class="form-control" >
                                 </div>
                             </div>
-                            <div class="form-row">
+                            <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6">
                                     <label for="maakHotelRegio">Geef de regio: </label>     
                                     <select class="form-control" name="maakHotelRegio" id="maakHotelRegio">
@@ -48,38 +48,38 @@
                                     </select>
                                 </div>  
                             </div>
-                            <div class="form-row">
+                            <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="maakHotelAantalSterren">Aantal sterren: </label>
                                     <input type="text" class="form-control" id="maakHotelAantalSterren" name="maakHotelAantalSterren" placeholder="aantal sterren" >
                                 </div>
                             </div>
-                            <div class="form-row">
+                            <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="maakHotelLigging">Ligging: </label>
                                     <input type="text" class="form-control" id="maakHotelLigging" name="maakHotelLigging" placeholder="ligging" >
                                 </div>
                             </div>
-                            <div class="form-row">
+                            <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="maakHotelMaaltijden">Maaltijden: </label>
                                     <input type="text" class="form-control" id="maakHotelMaaltijden" name="maakHotelMaaltijden" placeholder="maaltijden" >
                                 </div>
                             </div>
-                            <div class="form-row">
+                            <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="maakHotelOntspanning">Ontspanning: </label>
                                     <input type="text" class="form-control" id="maakHotelOntspanning" name="maakHotelOntspanning" placeholder="ontspanning" >
                                 </div>
                             </div>
-                            <div class="form-row">
+                            <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="maakHotelFoto">Naam van de foto: </label>
                                     <input type="text" class="form-control" id="maakHotelFoto" name="maakHotelFoto" placeholder="naam van de foto" >
                                 </div>
                             </div>
-                            <p>
-                                <input type="submit" name="voegHotelToe" id="maakHotel" value="Maak Hotel" required class="btn btn-outline-primary">
+                            <p class="d-flex justify-content-center">
+                                <input type="submit" name="voegHotelToe" id="maakHotel" value="Maak Hotel" required class="btn btn-outline-primary mt-2">
                             </p>
                         </form>
                     </div>

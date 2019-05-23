@@ -42,32 +42,20 @@
 
                         <form action="HotelServlet">
 
-                            <%-- NAAST ELKAAR
-                                      <div class="form-row">
-                                          <div class="form-group col-md-5">
-                                              <p><label for="pasAanId">Hotel ID: </label></p>
-                                          </div>
-                                          <div class="form-group col-md-3">    
-                                              <input class="form-control" type="text" name="pasAanId" id="pasAanId" value="<%=hotel.getId()%>" readonly>
-                                          </div>
-                                 
-                                      </div>
-                            --%>
-
                             <%-- onder elkaar --%>
-                            <div class="form-row">
-                                <div class="form-group col-md-6 contact-forms">
+                            <div class="form-row justify-content-center">
+                                <div class="form-group col-md-6 contact-forms ">
                                     <label for="pasAanId">Hotel ID: </label>
                                     <input type="text" class="form-control" id="pasAanId" name="pasAanId" value="<%=hotel.getId()%>" readonly>
                                 </div>
                             </div>
-                            <div class="form-row">
+                            <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="pasAanNaam">Hotel naam: </label>
                                     <input type="text" class="form-control" id="pasAanNaam" name="pasAanNaam" value="<%=hotel.getNaam()%>">
                                 </div>
                             </div>
-                            <div class="form-row">
+                            <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6">
                                     <label for="pasAanRegio">Regio: </label>     
                                     <select class="form-control" name="pasAanRegio" id="pasAanRegio">
@@ -77,39 +65,43 @@
                                     </select>
                                 </div>  
                             </div>
-                            <div class="form-row">
+                            <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="pasAanAantalsterren">Aantal sterren: </label>
                                     <input type="text" class="form-control" id="pasAanAantalsterren" name="pasAanAantalsterren" value="<%=hotel.getAantalSterren()%>">
                                 </div>
                             </div>
-                            <div class="form-row">
+                            <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="pasAanLigging">Ligging: </label>
                                     <input type="text" class="form-control" id="pasAanLigging" name="pasAanLigging" value="<%=hotel.getLigging()%>">
                                 </div>
                             </div>
-                            <div class="form-row">
+                            <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="pasAanMaaltijden">Maaltijden: </label>
                                     <input type="text" class="form-control" id="pasAanMaaltijden" name="pasAanMaaltijden" value="<%=hotel.getMaaltijden()%>">
                                 </div>
                             </div>
-                            <div class="form-row">
+                            <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="pasAanOntspanning">Ontspanning: </label>
                                     <input type="text" class="form-control" id="pasAanOntspanning" name="pasAanOntspanning" value="<%=hotel.getOntspanning()%>">
                                 </div>
                             </div>
-                            <div class="form-row">
+                            <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="pasAanFoto">Fotobestand: </label>
                                     <input type="text" class="form-control" id="pasAanFoto" name="pasAanFoto" value="<%=hotel.getFoto()%>">
                                 </div>
                             </div>
-                            <input type="submit" name="pasHotelAan" value="Opslaan" class="btn btn-outline-primary mt-2">
+
+                            <p class="d-flex justify-content-center">
+                                <input type="submit" name="pasHotelAan" value="Opslaan" class="btn btn-outline-primary mt-2 mx-2">
+                                <a href="starthotels.jsp" class="btn btn-outline-primary mt-2 mx-2">Terug naar de startpagina</a>
+                            </p>
                         </form>
-                        <a href="starthotels.jsp" class="btn btn-outline-primary mt-2">Terug naar de startpagina</a>
+
                     </div>
                 </div>
             </div>

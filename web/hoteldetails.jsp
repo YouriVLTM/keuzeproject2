@@ -67,13 +67,14 @@
                                 <%}%>
                                 <% if (hotel.getOntspanning() != "") {%>
                                 <p>Ontspanningsmgelijkheden:</p> 
-                                <ol>
+                               
+                                <ul>
                                     <%-- De string van ontspaningen scheiden adhv een komma --> anders lijst te lang --%>
                                     <% String[] separated = hotel.getOntspanning().split("\\, |\\. ");
                                         for (int i = 0; i < separated.length; i++) {%>
-                                        <li> <p><%= separated[i].substring(0, 1).toUpperCase() + separated[i].substring(1).toLowerCase()%></p></li>
+                                        <li><p>- <%= separated[i].substring(0, 1).toUpperCase() + separated[i].substring(1).toLowerCase()%></p></li>
                                         <%}%>
-                                </ol>
+                                </ul>
                                 <%} else { %>
                                 <p>Geen ontspanningsmogelijkheden gevonden</p>
                                 <%}%>
