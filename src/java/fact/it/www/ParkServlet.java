@@ -157,9 +157,10 @@ public class ParkServlet extends HttpServlet {
 
         } else if (request.getParameter("adminoverzichtparken") != null) {
             // Hastable 
-            Hashtable<Integer, Regio> regios = daregio.getAlleRegiosHash();
+            
             ArrayList<Park> parken = dapark.getParken();
-
+            //hashtable
+            Hashtable<Integer, Regio> regios = daregio.getAlleRegiosHash();
             rd = request.getRequestDispatcher("adminoverzichtparken.jsp");
             request.setAttribute("parken", parken);
             request.setAttribute("regios", regios);
@@ -224,9 +225,13 @@ public class ParkServlet extends HttpServlet {
         } else if (request.getParameter("adminoverzichtvakantiehuizen") != null) {
 
             ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
+            
+            Hashtable<Integer, Park> parken = dapark.getAlleParkenHash();
 
             rd = request.getRequestDispatcher("adminoverzichtvakantiehuizen.jsp");
             request.setAttribute("vakantiehuizen", vakantiehuizen);
+            request.setAttribute("parken", parken);
+
         } else if (request.getParameter("wijzigvakantiehuispagina") != null) {
             int vakantiehuisId = Integer.parseInt(request.getParameter("wijzigvakantiehuispagina"));
             
@@ -234,11 +239,16 @@ public class ParkServlet extends HttpServlet {
             Vakantiehuis vakantiehuis = davakantiehuis.getVakantiehuizenById(vakantiehuisId);
             // alle regio's tonen
             ArrayList<Park> parken = dapark.getParken();
+            //Hashtabels
+            Hashtable<Integer, Regio> regios = daregio.getAlleRegiosHash();
+            
+            
 
             rd = request.getRequestDispatcher("wijzigvakantiehuis.jsp");
             request.setAttribute("huisaanboden", huisaanboden);
             request.setAttribute("vakantiehuis", vakantiehuis);
             request.setAttribute("parken", parken);
+            request.setAttribute("regios", regios);
         }else if (request.getParameter("voegvakantiehuistoepagina") != null) {
             
             ArrayList<Park> parken = dapark.getParken();

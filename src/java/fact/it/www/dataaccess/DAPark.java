@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 public class DAPark {
 
@@ -128,6 +129,31 @@ public class DAPark {
             // standaar staat de arraylist bij null elementen op 0 -> Maar moet opgevormd worden naar null
             if(parken.isEmpty()){
                 parken = null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return parken;
+    }
+        
+    public Hashtable<Integer, Park> getAlleParkenHash() {
+        Park park = null;
+        Hashtable<Integer, Park> parken = new Hashtable<Integer, Park>();
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM park");) {
+            while (resultSet.next()) {
+                park = new Park();                
+                park.setId(resultSet.getInt("id"));
+                park.setNaam(resultSet.getString("naam"));
+                park.setRegioid(resultSet.getInt("regioid"));
+                park.setAantalSterren(resultSet.getInt("aantalSterren"));
+                park.setVoorzieningen(resultSet.getString("voorzieningen"));
+                park.setFoto(resultSet.getString("foto"));
+                //put in hash table
+                parken.put(park.getId(),park);
             }
         } catch (Exception e) {
             e.printStackTrace();

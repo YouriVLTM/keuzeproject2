@@ -4,6 +4,7 @@
     Author     : yourivanlaer
 --%>
 
+<%@page import="java.util.Hashtable"%>
 <%@page import="fact.it.www.beans.Vakantiehuis"%>
 <%@page import="fact.it.www.beans.Park"%>
 <%@page import="fact.it.www.beans.Regio"%>
@@ -51,6 +52,7 @@
                         <br>
 
                         <%ArrayList<Vakantiehuis> vakantiehuizen = (ArrayList<Vakantiehuis>) request.getAttribute("vakantiehuizen");%>
+                        <%Hashtable<Integer, Park> parken = (Hashtable<Integer, Park>) request.getAttribute("parken");%>
 
                         <% if (!vakantiehuizen.isEmpty()) { %>
 
@@ -71,7 +73,7 @@
                                 <% for (Vakantiehuis vakantiehuis : vakantiehuizen) {%>
                                 <tr>
                                     <th scope="row"><%=vakantiehuis.getId()%></th>
-                                    <td><%=vakantiehuis.getParkid()%></td>
+                                    <td><%=parken.get(vakantiehuis.getParkid()).getNaam()%></td>
                                     <td><%=vakantiehuis.getType()%></td>
                                     <td><%=vakantiehuis.getAantalSlaapkamers()%></td>
                                     <td><%=vakantiehuis.getAantalPersonen()%></td>

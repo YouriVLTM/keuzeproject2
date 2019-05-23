@@ -94,8 +94,7 @@
                         <table id="dtBasicParken" class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th scope="col">id</th>
-                                    <th scope="col">ParkID</th>
+                                    <th scope="col">Id</th>
                                     <th scope="col">Type</th>
                                     <th scope="col">aantal slaapkamers</th>
                                     <th scope="col">aantal personen</th>
@@ -108,7 +107,6 @@
                                 <% for (Vakantiehuis vakantiehuis : vakantiehuizen) {%>
                                 <tr>
                                     <th scope="row"><%=vakantiehuis.getId()%></th>
-                                    <td><%=vakantiehuis.getParkid()%></td>
                                     <td><%=vakantiehuis.getType()%></td>
                                     <td><%=vakantiehuis.getAantalSlaapkamers()%></td>
                                     <td><%=vakantiehuis.getAantalPersonen()%></td>

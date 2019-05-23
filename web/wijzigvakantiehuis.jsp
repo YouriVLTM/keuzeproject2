@@ -4,6 +4,7 @@
     Author     : yourivanlaer
 --%>
 
+<%@page import="java.util.Hashtable"%>
 <%@page import="fact.it.www.beans.Huisaanbod"%>
 <%@page import="fact.it.www.beans.Vakantiehuis"%>
 <%@page import="fact.it.www.beans.Park"%>
@@ -89,17 +90,17 @@
                                 <h2>Prijzen</h2>
                                 
                             <%ArrayList<Huisaanbod> huisaanboden = (ArrayList<Huisaanbod>) request.getAttribute("huisaanboden");%>
+                            <%Hashtable<Integer, Regio> regios = (Hashtable<Integer, Regio>) request.getAttribute("regios");%>
                             
-                            
-                            
+                            <% if (!regios.isEmpty()) { %>
                             <% if (!huisaanboden.isEmpty()) { %>
 
                         <table id="dtBasicParken" class="table table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">id</th>
-                                    <th scope="col">periodeId</th>
-                                    <th scope="col">getprijsperweek</th>
+                                    <th scope="col">periode naam</th>
+                                    <th scope="col">prijs per week</th>
                                     <th scope="col">Edit</th>
                                 </tr>
                             </thead>
@@ -107,7 +108,7 @@
                                 <%for (Huisaanbod huisaanbod : huisaanboden) {%>
                                 <tr>
                                     <th scope="row"><%=huisaanbod.getId()%></th>
-                                    <td><%=huisaanbod.getPeriodeid()%></td>
+                                    <td><%=regios.get(huisaanbod.getPeriodeid()).getNaam() %></td>
                                     <td><%=huisaanbod.getPrijsperweek()%> €</td>
                                     <td><a href="ParkServlet?wijzighuisaanbodpagina=<%=huisaanbod.getId()%>" <i class="far fa-edit"></i></a> </td>
                                 </tr>
@@ -116,6 +117,9 @@
                         </table>
                         <%} else {%>
                         <p>Er is zijn geen gevonden</p>        
+                        <%}%>
+                        <%} else {%>
+                        <p>Er is zijn parken gevonden hashtable</p>        
                         <%}%>
 
                                                             

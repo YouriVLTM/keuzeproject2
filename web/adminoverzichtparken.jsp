@@ -52,7 +52,8 @@
 
                         <%ArrayList<Park> parken = (ArrayList<Park>) request.getAttribute("parken");%>
                         <%Hashtable<Integer, Regio> regios = (Hashtable<Integer, Regio>) request.getAttribute("regios");%>
-
+                        
+                        <% if (regios != null) { %>
                         <% if (parken != null) { %>
 
                         <table id="dtBasicParken" class="table table-hover">
@@ -85,6 +86,9 @@
                         </table>
                         <%} else {%>
                         <p>Er is geen park gevonden</p>        
+                        <%}%>
+                        <%} else {%>
+                        <p>Er is geen regio in hashtable</p>        
                         <%}%>
                     </div>
                 </div>
