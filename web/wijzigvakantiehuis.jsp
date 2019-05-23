@@ -34,52 +34,69 @@
                         <form action="ParkServlet" >
                             <div class="form-row">
                                 <div class="form-group col-md-6 contact-forms">
-                                    <label for="parkId">Park id</label>
-                                    <input type="text" class="form-control" id="parkId" name="parkIdla" value="<%=vakantiehuis.getId()%>">
+                                    <label for="vakantiehuisId">Park id</label>
+                                    <input type="text" class="form-control" id="vakantiehuisId" name="vakantiehuisIdwijzigen" value="<%=vakantiehuis.getId()%>" >
                                 </div>
+                            </div>
+                            
+                            <%ArrayList<Park> parken = (ArrayList<Park>) request.getAttribute("parken");%>
+                            <div class="form-row">
+                                <div class="form-group col-md-5">
+                                    <label for="park">In welke regio moet het Park liggen?</label>
+                                </div>
+                                <div class="form-group col-md-3"> 
+                                    <select class="form-control" name="parkIdvakantie" id="park">
+                                        <%for (Park park : parken) {%>
+                                        <option value="<%=park.getId()%>"><%=park.getNaam()%></option>
+                                        <%}%>
+                                    </select>
+                                </div>  
                             </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6 contact-forms">
-                                    <label for="naam">Naam</label>
-                                    <input type="text" class="form-control" id="naam" name="naam" placeholder="naam" value="<%=vakantiehuis.getType()%>" >
+                                    <label for="type">Type</label>
+                                    <input type="text" class="form-control" id="type" name="type" placeholder="type" value="<%=vakantiehuis.getType()%>">
                                 </div>
                             </div>
 
-                          
-                               
+                            
                             <div class="form-row">
                                 <div class="form-group col-md-6 contact-forms">
-                                    <label for="aantalSterren">Aantal sterren</label>
-                                    <input type="text" class="form-control" id="aantalSterren" name="aantalSterren" placeholder="aantal sterren"  value="<%=vakantiehuis.getAantalSlaapkamers()%>">
+                                    <label for="aantalSlaapKamers">aantal slaapkamers</label>
+                                    <input type="text" class="form-control" id="aantalSlaapKamers" name="aantalSlaapkamers" placeholder="aantal slaap kamers" value="<%=vakantiehuis.getAantalSlaapkamers()%>">
                                 </div>
+
                             </div>
                             <div class="form-row">
+
                                 <div class="form-group col-md-6 contact-forms">
-                                    <label for="Voorzieningen">Voorzieningen</label>
-                                    <input type="text" class="form-control" id="Voorzieningen" name="Voorzieningen" placeholder="Voorzieningen" value="<%=vakantiehuis.getAantalPersonen()%>">
+                                    <label for="aantalPersonen">aantal personen</label>
+                                    <input type="text" class="form-control" id="aantalPersonen" name="aantalPersonen" placeholder="aantal personen" value="<%=vakantiehuis.getAantalPersonen()%>">
                                 </div>
+
                             </div>
                             <div class="form-row">
+
                                 <div class="form-group col-md-6 contact-forms">
-                                    <label for="fotonaam">Foto naam</label>
-                                    <input type="text" class="form-control" id="fotonaam" name="fotonaam" placeholder="Geef de foto naam in" value="<%=vakantiehuis.getOppervlakte()%>">
+                                    <label for="oppervlakte">Oppervlakte</label>
+                                    <input type="text" class="form-control" id="oppervlakte" name="oppervlakte" placeholder="oppervlakte" value="<%=vakantiehuis.getOppervlakte()%>" >
                                 </div>
+
                             </div>
-                                
-                            <%String foutmelding = (String) request.getAttribute("foutmelding");%>
-                            <%if (foutmelding != null) {%>
-                            <div class="alert alert-danger">
-                                <strong>Alert!</strong> 
-                                <ul>
-                                    <%=foutmelding%>
-                                </ul>
-                            </div>
-                            <%}%>
+                               <%String foutmelding = (String) request.getAttribute("foutmelding");%>
+                               <%if (foutmelding != null) {%>
+                               <div class="alert alert-danger">
+                                    <strong>Alert!</strong> 
+                                    <ul>
+                                       <%=foutmelding%>
+                                    </ul>
+                                  </div>
+                                <%}%>
 
                             <div class="form-row">
                                 <div class="col-6">
-                                    <input type="submit" class="btn  sent-butnn btn-outline-primary" name="wijzigpark" value="Wijzeging opslaan" />
+                                    <input type="submit" class="btn  sent-butnn btn-outline-primary" name="wijzigvakantiehuis" value="Wijziging opslaan vakantiehuis" />
                                 </div>
                             </div>
                     </div>

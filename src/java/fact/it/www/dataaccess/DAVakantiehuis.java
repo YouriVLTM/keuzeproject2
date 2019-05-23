@@ -136,6 +136,27 @@ public class DAVakantiehuis {
         }
         return resultaat;
     }
+    
+    public boolean updatePark(int vakantiehuisId,int parkId,String type,int aantalSlaapkamers,int aantalPersonen,int oppervlakte){
+        boolean resultaat = true;
+
+        try (Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement
+                = connection.prepareStatement("update vakantiehuis set parkid=?, type=?, aantalSlaapkamers=?, aantalPersonen=?, oppervlakte=?  where id=?");) {
+            
+            statement.setInt(1, parkId);
+            statement.setString(2, type);
+            statement.setInt(3, aantalSlaapkamers);
+            statement.setInt(4, aantalPersonen);
+            statement.setInt(5, oppervlakte);
+            statement.setInt(6, vakantiehuisId);
+            statement.executeUpdate();
+        } catch (Exception e) {
+            resultaat = false;
+            e.printStackTrace();
+        }
+        return resultaat;
+    }
            
            
 }
