@@ -104,7 +104,7 @@
                                         <h4 class="pb-3">Uitgebreid zoeken</h4>
                                         <p>Hier kan je uitgebreid op parken zoeken. Doormiddel van een aantal criteria die je zelf kan invoeren. En zo dan het park vinden wat jij zoekt.</p>
                                     </div>
-                                    <a href="ZoekParkServlet?uitgebreid=1" class="btn btn-outline-primary mx-1">uitgebreid zoeken</a>      
+                                    <a href="ZoekParkServlet?uitgebreid=1" class="btn btn-outline-primary mx-1">Uitgebreid zoeken</a>      
 
                                 </div>
                             </div>
@@ -117,20 +117,10 @@
                                         <h4 class="pb-3">Admin Pagina</h4>
                                         <p>Hier kan je doorgaan naar de admin pagina. Zo kan je zowel parken als vakantiehuizen aanpassen verwijderen en toevoegen</p>
                                     </div>
-                                    <a href="ParkServlet?adminoverzichtparken=1" class="btn btn-outline-primary mx-1">admin overzicht park</a>
+                                    <a href="ParkServlet?adminoverzichtparken=1" class="btn btn-outline-primary mx-1">Admin overzicht</a>
 
                                 </div>
                             </div>
-                        </form>
-                        <div class="row">
-                             <div class="col-12 d-flex justify-content-center">
-                                
-                                <a href="ParkServlet?alleVakantiePark=1" class="btn btn-outline-primary mx-1">Toon alle Parken</a>
-                                <a href="ZoekParkServlet?uitgebreid=1" class="btn btn-outline-primary mx-1">uitgebreid zoeken</a>      
-                                <a href="ParkServlet?voegparktoepagina=1" class="btn btn-outline-primary mx-1">Voeg nieuw park toe</a>
-                                <a href="ParkServlet?adminoverzichtparken=1" class="btn btn-outline-primary mx-1">admin overzicht park</a>
-                            </div>                       
-                        </div>
                     </div>
 
 
