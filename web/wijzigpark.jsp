@@ -83,41 +83,49 @@
                                 </div>
                             </div>
 
-                            <h2>Vakantiehuizen</h2>
+                                
+                                
+                                <h2>Vakantiehuizen</h2>
+                                <br>
+                                <a href="ParkServlet?voegvakantiehuistoepagina=1" class="btn btn-outline-primary">Voeg nieuw vakantiehuis toe</a>
+                                <br>
+                                <br>
+                                
+                                <%ArrayList<Vakantiehuis> vakantiehuizen = (ArrayList<Vakantiehuis>) request.getAttribute("vakantiehuizen");%>
 
-                            <%ArrayList<Vakantiehuis> vakantiehuizen = (ArrayList<Vakantiehuis>) request.getAttribute("vakantiehuizen");%>
+                        <% if (!vakantiehuizen.isEmpty()) { %>
 
-                            <% if (!vakantiehuizen.isEmpty()) { %>
-
-                            <table id="dtBasicParken" class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">Type</th>
-                                        <th scope="col">aantal slaapkamers</th>
-                                        <th scope="col">aantal personen</th>
-                                        <th scope="col">oppervlakte</th>
-                                        <th scope="col">Edit</th>
-                                        <th scope="col">Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <% for (Vakantiehuis vakantiehuis : vakantiehuizen) {%>
-                                    <tr>
-                                        <th scope="row"><%=vakantiehuis.getId()%></th>
-                                        <td><%=vakantiehuis.getType()%></td>
-                                        <td><%=vakantiehuis.getAantalSlaapkamers()%></td>
-                                        <td><%=vakantiehuis.getAantalPersonen()%></td>
-                                        <td><%=vakantiehuis.getOppervlakte()%></td>
-                                        <td><a href="ParkServlet?wijzigvakantiehuispagina=<%=vakantiehuis.getId()%>" <i class="far fa-edit"></i></a> </td>
-                                        <td><a href="ParkServlet?adminoverzichtvakantiehuisdelete=<%=vakantiehuis.getId()%>" <i class="fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <%}%>
-                                </tbody>
-                            </table>
-                            <%} else {%>
-                            <p>Er is geen vakantiehuis gevonden</p>        
-                            <%}%>
+                        <table id="dtBasicParken" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">aantal slaapkamers</th>
+                                    <th scope="col">aantal personen</th>
+                                    <th scope="col">oppervlakte</th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for (Vakantiehuis vakantiehuis : vakantiehuizen) {%>
+                                <tr>
+                                    <th scope="row"><%=vakantiehuis.getId()%></th>
+                                    <td><%=vakantiehuis.getType()%></td>
+                                    <td><%=vakantiehuis.getAantalSlaapkamers()%></td>
+                                    <td><%=vakantiehuis.getAantalPersonen()%></td>
+                                    <td><%=vakantiehuis.getOppervlakte()%></td>
+                                    <td><a href="ParkServlet?wijzigvakantiehuispagina=<%=vakantiehuis.getId()%>" <i class="far fa-edit"></i></a> </td>
+                                    <td><a href="ParkServlet?adminoverzichtvakantiehuisdelete=<%=vakantiehuis.getId()%>" <i class="fas fa-trash"></i></a></td>
+                                </tr>
+                                <%}%>
+                            </tbody>
+                        </table>
+                        <%} else {%>
+                        <p>Er is geen vakantiehuis gevonden</p>        
+                        <%}%>
+                        
+                                
 
                             <%String foutmelding = (String) request.getAttribute("foutmelding");%>
                             <%if (foutmelding != null) {%>

@@ -53,7 +53,7 @@
 
                         <%ArrayList<Vakantiehuis> vakantiehuizen = (ArrayList<Vakantiehuis>) request.getAttribute("vakantiehuizen");%>
                         <%Hashtable<Integer, Park> parken = (Hashtable<Integer, Park>) request.getAttribute("parken");%>
-
+                        <% if (!parken.isEmpty()) { %>
                         <% if (!vakantiehuizen.isEmpty()) { %>
 
                         <table id="dtBasicParken" class="table table-hover">
@@ -85,7 +85,10 @@
                             </tbody>
                         </table>
                         <%} else {%>
-                        <p>Er is geen park gevonden</p>        
+                        <p>Er is geen vakantiehuizen gevonden</p>        
+                        <%}%>
+                        <%} else {%>
+                        <p>Er is geen parken gevonden</p>        
                         <%}%>
                     </div>
                 </div>

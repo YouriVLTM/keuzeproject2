@@ -81,8 +81,8 @@ public class ParkServlet extends HttpServlet {
 
         } else if (request.getParameter("alleVakantiePark") != null) {
 
-            ArrayList<Regio> alleRegios = daregio.getAlleRegios();              
-                
+            ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+
             ArrayList<Park> parken = dapark.getParken();
 
             rd = request.getRequestDispatcher("overzichtparken.jsp");
@@ -157,7 +157,7 @@ public class ParkServlet extends HttpServlet {
 
         } else if (request.getParameter("adminoverzichtparken") != null) {
             // Hastable 
-            
+
             ArrayList<Park> parken = dapark.getParken();
             //hashtable
             Hashtable<Integer, Regio> regios = daregio.getAlleRegiosHash();
@@ -174,7 +174,6 @@ public class ParkServlet extends HttpServlet {
                 request.setAttribute("parken", parken);
                 request.setAttribute("melding", "Park is succesvol gedelete!");
 
-
             } else {
                 ArrayList<Park> parken = dapark.getParken();
                 rd = request.getRequestDispatcher("adminoverzichtparken.jsp");
@@ -187,21 +186,19 @@ public class ParkServlet extends HttpServlet {
             int parkId = Integer.parseInt(request.getParameter("wijzigparkpagina"));
 
             Park park = dapark.getParkId(parkId);
-            
-             ArrayList<Regio> alleRegios = daregio.getAlleRegios();
 
-            
+            ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+
             // alle regio's tonen
             ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizenByParkIdBeschikbaar(parkId);
-            
 
             rd = request.getRequestDispatcher("wijzigpark.jsp");
             request.setAttribute("park", park);
             request.setAttribute("alleRegios", alleRegios);
             request.setAttribute("vakantiehuizen", vakantiehuizen);
 
-        }else if (request.getParameter("wijzigpark") != null) {
-            
+        } else if (request.getParameter("wijzigpark") != null) {
+
             int parkId = Integer.parseInt(request.getParameter("parkIdla"));
             String parknaam = request.getParameter("naam");
             int regioId = Integer.parseInt(request.getParameter("regioId"));
@@ -209,23 +206,23 @@ public class ParkServlet extends HttpServlet {
             String voorzieningen = request.getParameter("Voorzieningen");
             String fotonaam = request.getParameter("fotonaam");
 
-            if(dapark.updatePark(parkId,parknaam,regioId,aantalSterren,voorzieningen,fotonaam)){
+            if (dapark.updatePark(parkId, parknaam, regioId, aantalSterren, voorzieningen, fotonaam)) {
                 ArrayList<Park> parken = dapark.getParken();
                 rd = request.getRequestDispatcher("adminoverzichtparken.jsp");
                 request.setAttribute("parken", parken);
                 request.setAttribute("melding", "Park succesvol geupdate");
-            }else{
+            } else {
                 ArrayList<Park> parken = dapark.getParken();
                 rd = request.getRequestDispatcher("adminoverzichtparken.jsp");
                 request.setAttribute("parken", parken);
                 request.setAttribute("foutmelding", "Deze park kan niet worden geupdate");
 
             }
-           
+
         } else if (request.getParameter("adminoverzichtvakantiehuizen") != null) {
 
             ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
-            
+
             Hashtable<Integer, Park> parken = dapark.getAlleParkenHash();
 
             rd = request.getRequestDispatcher("adminoverzichtvakantiehuizen.jsp");
@@ -234,27 +231,25 @@ public class ParkServlet extends HttpServlet {
 
         } else if (request.getParameter("wijzigvakantiehuispagina") != null) {
             int vakantiehuisId = Integer.parseInt(request.getParameter("wijzigvakantiehuispagina"));
-            
+
             ArrayList<Huisaanbod> huisaanboden = daHuisaanbod.getHuisaanbodByVakantiehuisId(vakantiehuisId);
             Vakantiehuis vakantiehuis = davakantiehuis.getVakantiehuizenById(vakantiehuisId);
             // alle regio's tonen
             ArrayList<Park> parken = dapark.getParken();
             //Hashtabels
             Hashtable<Integer, Regio> regios = daregio.getAlleRegiosHash();
-            
-            
 
             rd = request.getRequestDispatcher("wijzigvakantiehuis.jsp");
             request.setAttribute("huisaanboden", huisaanboden);
             request.setAttribute("vakantiehuis", vakantiehuis);
             request.setAttribute("parken", parken);
             request.setAttribute("regios", regios);
-        }else if (request.getParameter("voegvakantiehuistoepagina") != null) {
-            
+        } else if (request.getParameter("voegvakantiehuistoepagina") != null) {
+
             ArrayList<Park> parken = dapark.getParken();
             rd = request.getRequestDispatcher("voegvakantiehuistoe.jsp");
-             request.setAttribute("parken", parken);
-        }else if (request.getParameter("maaknieuwvakantiehuisaan") != null) {
+            request.setAttribute("parken", parken);
+        } else if (request.getParameter("maaknieuwvakantiehuisaan") != null) {
             // voeg park toe surf naar pagina
             int parkId = Integer.parseInt(request.getParameter("parkIdvakantie"));
             String type = request.getParameter("type");
@@ -262,8 +257,6 @@ public class ParkServlet extends HttpServlet {
             int aantalPersonen = Integer.parseInt(request.getParameter("aantalPersonen"));
             int oppervlakte = Integer.parseInt(request.getParameter("oppervlakte"));
 
-
-                
             if (davakantiehuis.insertVakantiehuis(parkId, type, aantalSlaapkamers, aantalPersonen, oppervlakte)) {
                 ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
                 rd = request.getRequestDispatcher("adminoverzichtvakantiehuizen.jsp");
@@ -274,10 +267,10 @@ public class ParkServlet extends HttpServlet {
                 ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
                 rd = request.getRequestDispatcher("adminoverzichtvakantiehuizen.jsp");
                 request.setAttribute("vakantiehuizen", vakantiehuizen);
-                request.setAttribute("foutmelding", "Er is een fout opgetreden bij het inserten van park");               
+                request.setAttribute("foutmelding", "Er is een fout opgetreden bij het inserten van park");
 
             }
-        }else if (request.getParameter("adminoverzichtvakantiehuisdelete") != null) {
+        } else if (request.getParameter("adminoverzichtvakantiehuisdelete") != null) {
             int vakantiehuisId = Integer.parseInt(request.getParameter("adminoverzichtvakantiehuisdelete"));
             // delete park
 
@@ -295,8 +288,8 @@ public class ParkServlet extends HttpServlet {
 
             }
 
-        }else if (request.getParameter("wijzigvakantiehuis") != null) {
-            
+        } else if (request.getParameter("wijzigvakantiehuis") != null) {
+
             int vakantiehuisId = Integer.parseInt(request.getParameter("vakantiehuisIdwijzigen"));
             int parkId = Integer.parseInt(request.getParameter("parkIdvakantie"));
             String type = request.getParameter("type");
@@ -304,66 +297,57 @@ public class ParkServlet extends HttpServlet {
             int aantalPersonen = Integer.parseInt(request.getParameter("aantalPersonen"));
             int oppervlakte = Integer.parseInt(request.getParameter("oppervlakte"));
 
-            if(davakantiehuis.updateVakantiehuis(vakantiehuisId,parkId, type, aantalSlaapkamers, aantalPersonen, oppervlakte)){
-              ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
+            if (davakantiehuis.updateVakantiehuis(vakantiehuisId, parkId, type, aantalSlaapkamers, aantalPersonen, oppervlakte)) {
+                ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
+                Hashtable<Integer, Park> parken = dapark.getAlleParkenHash();
                 rd = request.getRequestDispatcher("adminoverzichtvakantiehuizen.jsp");
                 request.setAttribute("vakantiehuizen", vakantiehuizen);
+                request.setAttribute("parken", parken);
+
                 request.setAttribute("melding", "Vakantiehuis succesvol bijgewerkt!");
-            }else{
-               ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
+            } else {
+                ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
+                Hashtable<Integer, Park> parken = dapark.getAlleParkenHash();
+
                 rd = request.getRequestDispatcher("adminoverzichtvakantiehuizen.jsp");
                 request.setAttribute("vakantiehuizen", vakantiehuizen);
+                request.setAttribute("parken", parken);
                 request.setAttribute("foutmelding", "Vakantiehuis kan niet worden bijgewerk!");
 
             }
-           
-        }else if (request.getParameter("wijzighuisaanbodpagina") != null) {
+
+        } else if (request.getParameter("wijzighuisaanbodpagina") != null) {
             int huisaanbodId = Integer.parseInt(request.getParameter("wijzighuisaanbodpagina"));
-            
+
             Huisaanbod huisaanbod = daHuisaanbod.getHuisaandbodId(huisaanbodId);
+
             // alle regio's tonen
-            
             rd = request.getRequestDispatcher("wijzighuisaanbod.jsp");
             request.setAttribute("huisaanbod", huisaanbod);
-            
-        }else if (request.getParameter("wijzighuisaanbod") != null) {
-            
+
+        } else if (request.getParameter("wijzighuisaanbod") != null) {
+
             int huisaanbodId = Integer.parseInt(request.getParameter("huisaanbodId"));
             int prijsperweek = Integer.parseInt(request.getParameter("prijsperweek"));
 
-            if(daHuisaanbod.updateHuisaanbod(huisaanbodId,prijsperweek)){
-              ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
+            if (daHuisaanbod.updateHuisaanbod(huisaanbodId, prijsperweek)) {
+                ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
+                Hashtable<Integer, Park> parken = dapark.getAlleParkenHash();
                 rd = request.getRequestDispatcher("adminoverzichtvakantiehuizen.jsp");
                 request.setAttribute("vakantiehuizen", vakantiehuizen);
+                request.setAttribute("parken", parken);
                 request.setAttribute("melding", "Prijs perweek succesvol bijgewerkt!");
-            }else{
-               ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
+            } else {
+                ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
+                Hashtable<Integer, Park> parken = dapark.getAlleParkenHash();
                 rd = request.getRequestDispatcher("adminoverzichtvakantiehuizen.jsp");
                 request.setAttribute("vakantiehuizen", vakantiehuizen);
+                request.setAttribute("parken", parken);
                 request.setAttribute("foutmelding", "Prijs per week kan niet worden bijgewerk!");
 
             }
-           
-        }
-        
-        
-        
-        
-        
-        
 
-            
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        }
 
         rd.forward(request, response);
     }
