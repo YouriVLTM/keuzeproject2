@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <!-- fontawesome css -->
   <!-- //css files -->
-
+  <link href="${pageContext.request.contextPath}/assets/css/opmaak.css" type="text/css" rel="stylesheet" media="all">
   <link href="${pageContext.request.contextPath}/assets/css/css_slider.css" type="text/css" rel="stylesheet" media="all">
 
   <!-- google fonts -->

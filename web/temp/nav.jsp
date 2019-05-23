@@ -5,6 +5,7 @@
 --%>
 
   <!-- header -->
+  <main>
   <header>
     <div class="container">
       <!-- nav -->

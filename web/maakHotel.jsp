@@ -35,7 +35,7 @@
                             <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="maakHotelNaam">Naam: </label>
-                                    <input type="text" class="form-control" id="maakHotelNaam" name="maakHotelNaam" placeholder="naam" class="form-control" >
+                                    <input type="text" class="form-control" id="maakHotelNaam" name="maakHotelNaam" placeholder="naam" class="form-control" required >
                                 </div>
                             </div>
                             <div class="form-row justify-content-center">
@@ -51,31 +51,31 @@
                             <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="maakHotelAantalSterren">Aantal sterren: </label>
-                                    <input type="text" class="form-control" id="maakHotelAantalSterren" name="maakHotelAantalSterren" placeholder="aantal sterren" >
+                                    <input type="text" class="form-control" id="maakHotelAantalSterren" name="maakHotelAantalSterren" placeholder="aantal sterren" required >
                                 </div>
                             </div>
                             <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="maakHotelLigging">Ligging: </label>
-                                    <input type="text" class="form-control" id="maakHotelLigging" name="maakHotelLigging" placeholder="ligging" >
+                                    <input type="text" class="form-control" id="maakHotelLigging" name="maakHotelLigging" placeholder="ligging" required>
                                 </div>
                             </div>
                             <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="maakHotelMaaltijden">Maaltijden: </label>
-                                    <input type="text" class="form-control" id="maakHotelMaaltijden" name="maakHotelMaaltijden" placeholder="maaltijden" >
+                                    <input type="text" class="form-control" id="maakHotelMaaltijden" name="maakHotelMaaltijden" placeholder="maaltijden" required>
                                 </div>
                             </div>
                             <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="maakHotelOntspanning">Ontspanning: </label>
-                                    <input type="text" class="form-control" id="maakHotelOntspanning" name="maakHotelOntspanning" placeholder="ontspanning" >
+                                    <input type="text" class="form-control" id="maakHotelOntspanning" name="maakHotelOntspanning" placeholder="ontspanning" required>
                                 </div>
                             </div>
                             <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="maakHotelFoto">Naam van de foto: </label>
-                                    <input type="text" class="form-control" id="maakHotelFoto" name="maakHotelFoto" placeholder="naam van de foto" >
+                                    <input type="text" class="form-control" id="maakHotelFoto" name="maakHotelFoto" placeholder="naam van de foto" required>
                                 </div>
                             </div>
                             <p class="d-flex justify-content-center">

@@ -5,7 +5,8 @@
 --%>
 
   <!-- copyright -->
-  <div class="copyright py-3 text-center">
+</main>
+  <footer class="copyright py-3 text-center">
     <p>© 2019 VakantieParken | Design by het team </p>
-  </div>
+  </footer>
   <!-- //copyright -->
