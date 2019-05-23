@@ -347,6 +347,22 @@ public class ParkServlet extends HttpServlet {
 
             }
 
+        }  else if (request.getParameter("adminoverzichtpagina") != null) {
+            // Haal aantal parken op
+            int aantalparken = dapark.getAantalParken();
+            int aantalvakantiehuizen = davakantiehuis.getAantalVakantiehuizen();
+            int grootsteprijshuisaanbod = daHuisaanbod.getGrootstePrijs();
+            int laagsteprijshuisaanbod = daHuisaanbod.getLaagstePrijs();
+
+            
+            // alle regio's tonen
+            rd = request.getRequestDispatcher("adminoverzicht.jsp");
+            request.setAttribute("aantalparken", aantalparken);
+            request.setAttribute("aantalvakantiehuizen", aantalvakantiehuizen);
+            request.setAttribute("grootsteprijshuisaanbod", grootsteprijshuisaanbod);
+            request.setAttribute("laagsteprijshuisaanbod", laagsteprijshuisaanbod);
+
+
         }
 
         rd.forward(request, response);

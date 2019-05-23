@@ -46,7 +46,7 @@
                             </ul>
                         </div>
                         <%}%>
-                        <a href="adminoverzicht.jsp" class="btn btn-outline-primary">Terug naar admin dashboard</a>
+                        <a href="ParkServlet?adminoverzichtpagina=1" class="btn btn-outline-primary">Terug naar admin dashboard</a>
                         <a href="ParkServlet?voegvakantiehuistoepagina=1" class="btn btn-outline-primary">Voeg nieuw vakantiehuis toe</a>
                         <br>
                         <br>

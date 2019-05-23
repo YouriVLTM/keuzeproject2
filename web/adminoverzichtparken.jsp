@@ -45,7 +45,7 @@
                             </ul>
                         </div>
                         <%}%>
-                        <a href="adminoverzicht.jsp" class="btn btn-outline-primary">Terug naar dashboard</a>
+                        <a href="ParkServlet?adminoverzichtpagina=1" class="btn btn-outline-primary">Terug naar dashboard</a>
                         <a href="ParkServlet?voegparktoepagina=1" class="btn btn-outline-primary">Voeg nieuw park toe</a>
                         <br>
                         <br>

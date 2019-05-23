@@ -157,6 +157,23 @@ public class DAVakantiehuis {
         }
         return resultaat;
     }
-           
+      
+    
+    public int getAantalVakantiehuizen() {
+        int aantalVakantiehuizen = 0;
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("select count(*) As aantal from vakantiehuis");) {
+            if (resultSet.next()) {
+                aantalVakantiehuizen = resultSet.getInt("aantal");
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return aantalVakantiehuizen;
+    }
            
 }

@@ -457,6 +457,24 @@ public ArrayList<Park> getParkAantalPersonen(int aantalPersonen) {
         return resultaat;
     }
         
+        
+ public int getAantalParken() {
+        int aantalParken = 0;
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("select count(*) As aantal from park");) {
+            if (resultSet.next()) {
+                aantalParken = resultSet.getInt("aantal");
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return aantalParken;
+    }
+        
        
     
 
