@@ -219,12 +219,14 @@ public class ParkServlet extends HttpServlet {
             request.setAttribute("vakantiehuizen", vakantiehuizen);
         } else if (request.getParameter("wijzigvakantiehuispagina") != null) {
             int vakantiehuisId = Integer.parseInt(request.getParameter("wijzigvakantiehuispagina"));
-
+            
+            ArrayList<Huisaanbod> huisaanboden = daHuisaanbod.getHuisaanbodByVakantiehuisId(vakantiehuisId);
             Vakantiehuis vakantiehuis = davakantiehuis.getVakantiehuizenById(vakantiehuisId);
             // alle regio's tonen
             ArrayList<Park> parken = dapark.getParken();
 
             rd = request.getRequestDispatcher("wijzigvakantiehuis.jsp");
+            request.setAttribute("huisaanboden", huisaanboden);
             request.setAttribute("vakantiehuis", vakantiehuis);
             request.setAttribute("parken", parken);
         }else if (request.getParameter("voegvakantiehuistoepagina") != null) {

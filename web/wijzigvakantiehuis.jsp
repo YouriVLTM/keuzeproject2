@@ -4,6 +4,7 @@
     Author     : yourivanlaer
 --%>
 
+<%@page import="fact.it.www.beans.Huisaanbod"%>
 <%@page import="fact.it.www.beans.Vakantiehuis"%>
 <%@page import="fact.it.www.beans.Park"%>
 <%@page import="fact.it.www.beans.Regio"%>
@@ -19,7 +20,7 @@
             <div class="banner_inner_overlay">
             </div>
         </section>
-
+        
         <%Vakantiehuis vakantiehuis = (Vakantiehuis) request.getAttribute("vakantiehuis");%>
 
 
@@ -84,6 +85,46 @@
                                 </div>
 
                             </div>
+                                
+                                <h2>Prijzen</h2>
+                                
+                            <%ArrayList<Huisaanbod> huisaanboden = (ArrayList<Huisaanbod>) request.getAttribute("huisaanboden");%>
+                            
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                            
+                            
+                            <% if (!huisaanboden.isEmpty()) { %>
+
+                        <table id="dtBasicParken" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">id</th>
+                                    <th scope="col">periodeId</th>
+                                    <th scope="col">getprijsperweek</th>
+                                    <th scope="col">Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%for (Huisaanbod huisaanbod : huisaanboden) {%>
+                                <tr>
+                                    <th scope="row"><%=huisaanbod.getId()%></th>
+                                    <td><%=huisaanbod.getPeriodeid()%></td>
+                                    <td><%=huisaanbod.getPrijsperweek()%> €</td>
+                                    <td><a href="ParkServlet?" <i class="far fa-edit"></i></a> </td>
+                                </tr>
+                                <%}%>
+                            </tbody>
+                        </table>
+                        <%} else {%>
+                        <p>Er is geen park gevonden</p>        
+                        <%}%>
+
+                                                            
+                                                            
+                                                            
                                <%String foutmelding = (String) request.getAttribute("foutmelding");%>
                                <%if (foutmelding != null) {%>
                                <div class="alert alert-danger">
