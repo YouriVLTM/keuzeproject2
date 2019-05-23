@@ -41,7 +41,7 @@
                                         <img src="images/<%=hotel.getFoto()%>" class="rounded img-fluid" style="width: 250px" onerror="this.src='images/noPic.png'"/>
                                     </div>
                                     <div class="col-6">
-                                        <p>AantalSterren: <%=hotel.getAantalSterren()%> </p> 
+                                        <p>Aantal sterren: <%=hotel.getAantalSterren()%> </p> 
                                         <a href="HotelServlet?hotelId=<%=hotel.getId()%>">meer info</a>
                                         <%if (hotel.getAantalSterren() == 5) { %>
                                         <p><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
