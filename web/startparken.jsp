@@ -17,7 +17,6 @@
             </div>
         </section> 
 
-
         <!-- how to book -->
         <section class="book py-5">
             <div class="container py-lg-5 py-sm-3">
@@ -42,16 +41,12 @@
         </section>
         <!-- //how to book -->
 
-
-
         <section class="packages pt-5">
             <div class="container py-lg-4 py-sm-3">
 
                 <div class="row">               
 
                     <div class="col-lg-12 contact-left-form">
-
-
 
                         <%String foutmelding = (String) request.getAttribute("foutmelding");%>
                         <%if (foutmelding != null) {%>
@@ -78,7 +73,6 @@
                             </div>
                         </div>
 
-
                         <div class="row mt-2">
                             <div class="col-lg-4 col-md-6 col-sm-6 service-grid-wthree text-center mb-5">
                                 <div class="ser-fashion-grid">
@@ -90,7 +84,6 @@
                                         <p>Hier kan je alle parken bekijken die beschikbaar zijn. Je kan ook filteren op allerlei criteria die je zelf kan invoeren en zo jouw park kiezen.</p>
                                     </div>
                                     <a href="ParkServlet?alleVakantiePark=1" class="btn btn-outline-primary mx-1">Toon alle Parken</a>
-
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-6 service-grid-wthree text-center mb-5">
@@ -103,7 +96,6 @@
                                         <p>Hier kan je uitgebreid op parken zoeken. Doormiddel van een aantal criteria die je zelf kan invoeren. En zo dan het park vinden wat jij zoekt.</p>
                                     </div>
                                     <a href="ZoekParkServlet?uitgebreid=1" class="btn btn-outline-primary mx-1">Uitgebreid zoeken</a>      
-
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-6 service-grid-wthree text-center mb-5">
@@ -116,21 +108,13 @@
                                         <p>Hier kan je doorgaan naar de admin pagina. Zo kan je zowel parken als vakantiehuizen aanpassen verwijderen en toevoegen</p>
                                     </div>
                                     <a href="adminoverzicht.jsp" class="btn btn-outline-primary mx-1">Admin overzicht</a>
-
                                 </div>
                             </div>
                         </div>
-
-
-
                     </div>
                 </div>
         </section>
         <!-- tour packages -->
-
-
-
-
         <jsp:include page="temp/footer.jsp" />
     </body>
 </html>

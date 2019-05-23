@@ -31,17 +31,11 @@
                                 </div>
                             </div>
                         </div>
-
-
-
                     </div>
                 </div>
             </section>
         </div>
         <!-- tour packages -->
-
-
-
         <jsp:include page="temp/footer.jsp" />
     </body>
 </html>

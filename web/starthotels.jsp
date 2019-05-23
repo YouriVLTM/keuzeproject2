@@ -58,7 +58,7 @@
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-6 service-grid-wthree text-center mb-5">
                                 <div class="ser-fashion-grid">
-                                    
+
                                     <div class="about-icon mb-md-4 mb-3">
                                         <span class="fas fa-search fa-3x" aria-hidden="true"></span>
                                     </div>
@@ -87,8 +87,6 @@
                     </div>
                 </div>
         </section>
-
-
         <jsp:include page="temp/footer.jsp" />
     </body>
 </html>

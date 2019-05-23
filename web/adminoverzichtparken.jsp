@@ -52,7 +52,7 @@
 
                         <%ArrayList<Park> parken = (ArrayList<Park>) request.getAttribute("parken");%>
                         <%Hashtable<Integer, Regio> regios = (Hashtable<Integer, Regio>) request.getAttribute("regios");%>
-                        
+
                         <% if (regios != null) { %>
                         <% if (parken != null) { %>
 

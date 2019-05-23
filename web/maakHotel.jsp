@@ -20,17 +20,17 @@
 
         <%ArrayList<Regio> regios = (ArrayList<Regio>) request.getAttribute("alleRegios");%>
         <%String foutmelding = (String) request.getAttribute("foutmelding");%>
-        
+
         <section class="packages pt-5">
             <div class="container py-lg-4 py-sm-3">
                 <div class="row">               
                     <div class="col-lg-12 contact-left-form">
                         <h1 class="heading text-center mb-5">Voeg nieuw hotel toe</h1>
-                        
+
                         <%if (foutmelding != null) {%>
                         <h1><%=foutmelding%></h1>
                         <%}%>
-                        
+
                         <form>
                             <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">

@@ -21,9 +21,8 @@
             <div class="banner_inner_overlay">
             </div>
         </section>
-        
-        <%Vakantiehuis vakantiehuis = (Vakantiehuis) request.getAttribute("vakantiehuis");%>
 
+        <%Vakantiehuis vakantiehuis = (Vakantiehuis) request.getAttribute("vakantiehuis");%>
 
         <section class="packages pt-5">
             <div class="container py-lg-4 py-sm-3">
@@ -40,7 +39,7 @@
                                     <input type="text" class="form-control" id="vakantiehuisId" name="vakantiehuisIdwijzigen" value="<%=vakantiehuis.getId()%>" readonly>
                                 </div>
                             </div>
-                            
+
                             <%ArrayList<Park> parken = (ArrayList<Park>) request.getAttribute("parken");%>
                             <div class="form-row">
                                 <div class="form-group col-md-5">
@@ -62,7 +61,6 @@
                                 </div>
                             </div>
 
-                            
                             <div class="form-row">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="aantalSlaapKamers">aantal slaapkamers</label>
@@ -86,54 +84,51 @@
                                 </div>
 
                             </div>
-                                
-                                <h2>Prijzen</h2>
-                                
+
+                            <h2>Prijzen</h2>
+
                             <%ArrayList<Huisaanbod> huisaanboden = (ArrayList<Huisaanbod>) request.getAttribute("huisaanboden");%>
                             <%Hashtable<Integer, Regio> regios = (Hashtable<Integer, Regio>) request.getAttribute("regios");%>
-                            
+
                             <% if (!regios.isEmpty()) { %>
                             <% if (!huisaanboden.isEmpty()) { %>
 
-                        <table id="dtBasicParken" class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">id</th>
-                                    <th scope="col">periode naam</th>
-                                    <th scope="col">prijs per week</th>
-                                    <th scope="col">Edit</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <%for (Huisaanbod huisaanbod : huisaanboden) {%>
-                                <tr>
-                                    <th scope="row"><%=huisaanbod.getId()%></th>
-                                    <td><%=regios.get(huisaanbod.getPeriodeid()).getNaam() %></td>
-                                    <td><%=huisaanbod.getPrijsperweek()%> €</td>
-                                    <td><a href="ParkServlet?wijzighuisaanbodpagina=<%=huisaanbod.getId()%>" <i class="far fa-edit"></i></a> </td>
-                                </tr>
-                                <%}%>
-                            </tbody>
-                        </table>
-                        <%} else {%>
-                        <p>Er is zijn geen gevonden</p>        
-                        <%}%>
-                        <%} else {%>
-                        <p>Er is zijn parken gevonden hashtable</p>        
-                        <%}%>
+                            <table id="dtBasicParken" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">id</th>
+                                        <th scope="col">periode naam</th>
+                                        <th scope="col">prijs per week</th>
+                                        <th scope="col">Edit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <%for (Huisaanbod huisaanbod : huisaanboden) {%>
+                                    <tr>
+                                        <th scope="row"><%=huisaanbod.getId()%></th>
+                                        <td><%=regios.get(huisaanbod.getPeriodeid()).getNaam()%></td>
+                                        <td><%=huisaanbod.getPrijsperweek()%> €</td>
+                                        <td><a href="ParkServlet?wijzighuisaanbodpagina=<%=huisaanbod.getId()%>" <i class="far fa-edit"></i></a> </td>
+                                    </tr>
+                                    <%}%>
+                                </tbody>
+                            </table>
+                            <%} else {%>
+                            <p>Er is zijn geen gevonden</p>        
+                            <%}%>
+                            <%} else {%>
+                            <p>Er is zijn parken gevonden hashtable</p>        
+                            <%}%>
 
-                                                            
-                                                            
-                                                            
-                               <%String foutmelding = (String) request.getAttribute("foutmelding");%>
-                               <%if (foutmelding != null) {%>
-                               <div class="alert alert-danger">
-                                    <strong>Alert!</strong> 
-                                    <ul>
-                                       <%=foutmelding%>
-                                    </ul>
-                                  </div>
-                                <%}%>
+                            <%String foutmelding = (String) request.getAttribute("foutmelding");%>
+                            <%if (foutmelding != null) {%>
+                            <div class="alert alert-danger">
+                                <strong>Alert!</strong> 
+                                <ul>
+                                    <%=foutmelding%>
+                                </ul>
+                            </div>
+                            <%}%>
 
                             <div class="form-row">
                                 <div class="col-6">
@@ -148,9 +143,6 @@
         </div>
     </section>
     <!-- tour packages -->
-
-
-
     <jsp:include page="temp/footer.jsp" />
 </body>
 </html>

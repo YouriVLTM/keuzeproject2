@@ -27,9 +27,8 @@
                     <div class="col-lg-12 contact-left-form">
                         <h1 class="heading text-center mb-5">Voeg nieuw vakantiehuis toe</h1>
 
-
                         <form action="ParkServlet" >
-                            
+
                             <%ArrayList<Park> parken = (ArrayList<Park>) request.getAttribute("parken");%>
                             <div class="form-row">
                                 <div class="form-group col-md-5">
@@ -51,7 +50,7 @@
                                 </div>
                             </div>
 
-                            
+
                             <div class="form-row">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="aantalSlaapKamers">aantal slaapkamers</label>
@@ -75,15 +74,15 @@
                                 </div>
 
                             </div>
-                               <%String foutmelding = (String) request.getAttribute("foutmelding");%>
-                               <%if (foutmelding != null) {%>
-                               <div class="alert alert-danger">
-                                    <strong>Alert!</strong> 
-                                    <ul>
-                                       <%=foutmelding%>
-                                    </ul>
-                                  </div>
-                                <%}%>
+                            <%String foutmelding = (String) request.getAttribute("foutmelding");%>
+                            <%if (foutmelding != null) {%>
+                            <div class="alert alert-danger">
+                                <strong>Alert!</strong> 
+                                <ul>
+                                    <%=foutmelding%>
+                                </ul>
+                            </div>
+                            <%}%>
 
                             <div class="form-row">
                                 <div class="col-6">
@@ -92,10 +91,7 @@
                             </div>
                     </div>
                     </form>
-
                 </div>
-
-
 
             </div>
         </div>

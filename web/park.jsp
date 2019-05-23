@@ -57,9 +57,7 @@
                         <p class="mx-2"><a href="index.jsp">Terug naar beginpagina</a></p>
                         <% }%>
 
-
                     </div>
-
 
                 </div>
             </div> 

@@ -39,7 +39,6 @@
                                 </div> 
                             </div>
 
-
                             <div class="form-row">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="aantalSterren">periode id</label>
@@ -52,8 +51,7 @@
                                     <input type="text" class="form-control" id="prijsperweek" name="prijsperweek" placeholder="prijsperweek" value="<%=huisaanbod.getPrijsperweek()%>">
                                 </div>
                             </div>
-                            
-                                
+
                             <%String foutmelding = (String) request.getAttribute("foutmelding");%>
                             <%if (foutmelding != null) {%>
                             <div class="alert alert-danger">

@@ -17,7 +17,6 @@
             <div class="banner_inner_overlay">
             </div>
         </section>
-
         <section class="packages pt-5">
             <div class="container py-lg-4 py-sm-3">
 
@@ -25,7 +24,6 @@
 
                     <div class="col-lg-12 contact-left-form">
                         <h1 class="heading text-center mb-5">Voeg nieuw park toe</h1>
-
 
                         <form action="ParkServlet" >
 
@@ -72,15 +70,15 @@
                                 </div>
 
                             </div>
-                               <%String foutmelding = (String) request.getAttribute("foutmelding");%>
-                               <%if (foutmelding != null) {%>
-                               <div class="alert alert-danger">
-                                    <strong>Alert!</strong> 
-                                    <ul>
-                                       <%=foutmelding%>
-                                    </ul>
-                                  </div>
-                                <%}%>
+                            <%String foutmelding = (String) request.getAttribute("foutmelding");%>
+                            <%if (foutmelding != null) {%>
+                            <div class="alert alert-danger">
+                                <strong>Alert!</strong> 
+                                <ul>
+                                    <%=foutmelding%>
+                                </ul>
+                            </div>
+                            <%}%>
 
                             <div class="form-row">
                                 <div class="col-6">
@@ -92,14 +90,10 @@
 
                 </div>
 
-
-
             </div>
         </div>
     </section>
     <!-- tour packages -->
-
-
 
     <jsp:include page="temp/footer.jsp" />
 </body>

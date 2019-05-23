@@ -22,7 +22,6 @@
 
         <%Park park = (Park) request.getAttribute("park");%>
 
-
         <section class="packages pt-5">
             <div class="container py-lg-4 py-sm-3">
 
@@ -61,7 +60,7 @@
                                         <option value="<%=regio.getId()%>"><%=regio.getNaam()%></option>
                                         <%}%>
                                         <%}%>
-                                        
+
                                     </select>
                                 </div>  
                             </div>
@@ -83,45 +82,43 @@
                                     <input type="text" class="form-control" id="fotonaam" name="fotonaam" placeholder="Geef de foto naam in" value="<%=park.getFoto()%>">
                                 </div>
                             </div>
-                                
-                                
-                                <h2>Vakantiehuizen</h2>
-                                
-                                <%ArrayList<Vakantiehuis> vakantiehuizen = (ArrayList<Vakantiehuis>) request.getAttribute("vakantiehuizen");%>
 
-                        <% if (!vakantiehuizen.isEmpty()) { %>
+                            <h2>Vakantiehuizen</h2>
 
-                        <table id="dtBasicParken" class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Id</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">aantal slaapkamers</th>
-                                    <th scope="col">aantal personen</th>
-                                    <th scope="col">oppervlakte</th>
-                                    <th scope="col">Edit</th>
-                                    <th scope="col">Delete</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <% for (Vakantiehuis vakantiehuis : vakantiehuizen) {%>
-                                <tr>
-                                    <th scope="row"><%=vakantiehuis.getId()%></th>
-                                    <td><%=vakantiehuis.getType()%></td>
-                                    <td><%=vakantiehuis.getAantalSlaapkamers()%></td>
-                                    <td><%=vakantiehuis.getAantalPersonen()%></td>
-                                    <td><%=vakantiehuis.getOppervlakte()%></td>
-                                    <td><a href="ParkServlet?wijzigvakantiehuispagina=<%=vakantiehuis.getId()%>" <i class="far fa-edit"></i></a> </td>
-                                    <td><a href="ParkServlet?adminoverzichtvakantiehuisdelete=<%=vakantiehuis.getId()%>" <i class="fas fa-trash"></i></a></td>
-                                </tr>
-                                <%}%>
-                            </tbody>
-                        </table>
-                        <%} else {%>
-                        <p>Er is geen vakantiehuis gevonden</p>        
-                        <%}%>
-                        
-                                
+                            <%ArrayList<Vakantiehuis> vakantiehuizen = (ArrayList<Vakantiehuis>) request.getAttribute("vakantiehuizen");%>
+
+                            <% if (!vakantiehuizen.isEmpty()) { %>
+
+                            <table id="dtBasicParken" class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Id</th>
+                                        <th scope="col">Type</th>
+                                        <th scope="col">aantal slaapkamers</th>
+                                        <th scope="col">aantal personen</th>
+                                        <th scope="col">oppervlakte</th>
+                                        <th scope="col">Edit</th>
+                                        <th scope="col">Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% for (Vakantiehuis vakantiehuis : vakantiehuizen) {%>
+                                    <tr>
+                                        <th scope="row"><%=vakantiehuis.getId()%></th>
+                                        <td><%=vakantiehuis.getType()%></td>
+                                        <td><%=vakantiehuis.getAantalSlaapkamers()%></td>
+                                        <td><%=vakantiehuis.getAantalPersonen()%></td>
+                                        <td><%=vakantiehuis.getOppervlakte()%></td>
+                                        <td><a href="ParkServlet?wijzigvakantiehuispagina=<%=vakantiehuis.getId()%>" <i class="far fa-edit"></i></a> </td>
+                                        <td><a href="ParkServlet?adminoverzichtvakantiehuisdelete=<%=vakantiehuis.getId()%>" <i class="fas fa-trash"></i></a></td>
+                                    </tr>
+                                    <%}%>
+                                </tbody>
+                            </table>
+                            <%} else {%>
+                            <p>Er is geen vakantiehuis gevonden</p>        
+                            <%}%>
+
                             <%String foutmelding = (String) request.getAttribute("foutmelding");%>
                             <%if (foutmelding != null) {%>
                             <div class="alert alert-danger">
@@ -138,24 +135,13 @@
                                 </div>
                             </div>
                     </div>
-                    </form>
-                            
-                            
-                           
-                            
-                        
-                            
-                            
-                            
+                    </form>    
                 </div>
                 <a href="startparken.jsp" class="btn btn-outline-primary">Terug naar parken</a>
             </div>
         </div>
     </section>
     <!-- tour packages -->
-
-
-
     <jsp:include page="temp/footer.jsp" />
 </body>
 </html>

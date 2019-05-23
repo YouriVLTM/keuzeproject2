@@ -14,9 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "ZoekParkServlet", urlPatterns = {"/ZoekParkServlet"}, initParams = {
-    @WebInitParam(name = "url", value = "jdbc:oracle:thin:@itf-oracledb01.thomasmore.be:1521:XE"),
-    @WebInitParam(name = "login", value = "r0662682"),
-    @WebInitParam(name = "password", value = "1234"),
+    @WebInitParam(name = "url", value = "jdbc:oracle:thin:@itf-oracledb01.thomasmore.be:1521:XE")
+    ,
+    @WebInitParam(name = "login", value = "r0662682")
+    ,
+    @WebInitParam(name = "password", value = "1234")
+    ,
     @WebInitParam(name = "driver", value = "oracle.jdbc.driver.OracleDriver")})
 
 public class ZoekParkServlet extends HttpServlet {
@@ -58,105 +61,92 @@ public class ZoekParkServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 //vul aan
- RequestDispatcher rd = null;
-        if(request.getParameter("uitgebreid") != null){  
-            
-            
+        RequestDispatcher rd = null;
+        if (request.getParameter("uitgebreid") != null) {
+
             ArrayList<Regio> alleRegios = daregio.getAlleRegios();
-            
+
             rd = request.getRequestDispatcher("zoekpark.jsp");
             request.setAttribute("alleRegios", alleRegios);
 
-            
-        }else if(request.getParameter("zoekParkAantalSterren") != null){
-            int aantalSterren = Integer.parseInt(request.getParameter("aantalSterren"));            
-            
-             ArrayList<Park> parken = dapark.getAantalSterren(aantalSterren); 
-             ArrayList<Regio> alleRegios = daregio.getAlleRegios();
-            
-            rd = request.getRequestDispatcher("overzichtparken.jsp");
-            request.setAttribute("parken", parken);
-            request.setAttribute("alleRegios", alleRegios);
-            
-        }else if(request.getParameter("zoekParkRegio") != null){
-            
-            int regio = Integer.parseInt(request.getParameter("regio")); 
-            
-            
-             ArrayList<Park> parken = dapark.getParksByRegio(regio);
+        } else if (request.getParameter("zoekParkAantalSterren") != null) {
+            int aantalSterren = Integer.parseInt(request.getParameter("aantalSterren"));
+
+            ArrayList<Park> parken = dapark.getAantalSterren(aantalSterren);
             ArrayList<Regio> alleRegios = daregio.getAlleRegios();
-            
+
             rd = request.getRequestDispatcher("overzichtparken.jsp");
             request.setAttribute("parken", parken);
             request.setAttribute("alleRegios", alleRegios);
-            
-        }else if(request.getParameter("zoekParkNaam") != null){
-            
-            String parkNaam = request.getParameter("parkNaam"); 
-            
+
+        } else if (request.getParameter("zoekParkRegio") != null) {
+
+            int regio = Integer.parseInt(request.getParameter("regio"));
+
+            ArrayList<Park> parken = dapark.getParksByRegio(regio);
+            ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+
+            rd = request.getRequestDispatcher("overzichtparken.jsp");
+            request.setAttribute("parken", parken);
+            request.setAttribute("alleRegios", alleRegios);
+
+        } else if (request.getParameter("zoekParkNaam") != null) {
+
+            String parkNaam = request.getParameter("parkNaam");
+
             ArrayList<Park> parken = dapark.getParkNaam(parkNaam);
             ArrayList<Regio> alleRegios = daregio.getAlleRegios();
-            
+
             rd = request.getRequestDispatcher("overzichtparken.jsp");
             request.setAttribute("parken", parken);
             request.setAttribute("alleRegios", alleRegios);
-            
-        }else if(request.getParameter("zoekAantalslaapkamers") != null){
-            
-            int aantalslaapkamers = Integer.parseInt(request.getParameter("aantalSlaapkamers")); 
-            
+
+        } else if (request.getParameter("zoekAantalslaapkamers") != null) {
+
+            int aantalslaapkamers = Integer.parseInt(request.getParameter("aantalSlaapkamers"));
+
             ArrayList<Park> parken = dapark.getParkAantalSlaapkamers(aantalslaapkamers);
             ArrayList<Regio> alleRegios = daregio.getAlleRegios();
-            
+
             rd = request.getRequestDispatcher("overzichtparken.jsp");
             request.setAttribute("parken", parken);
             request.setAttribute("alleRegios", alleRegios);
-            
-        }else if(request.getParameter("zoekAantalPersonen") != null){
-            
-            int aantalslaapkamers = Integer.parseInt(request.getParameter("aantalPersonen")); 
-            
-            ArrayList<Park> parken = dapark.getParkAantalPersonen(aantalslaapkamers); 
+
+        } else if (request.getParameter("zoekAantalPersonen") != null) {
+
+            int aantalslaapkamers = Integer.parseInt(request.getParameter("aantalPersonen"));
+
+            ArrayList<Park> parken = dapark.getParkAantalPersonen(aantalslaapkamers);
             ArrayList<Regio> alleRegios = daregio.getAlleRegios();
-            
+
             rd = request.getRequestDispatcher("overzichtparken.jsp");
             request.setAttribute("parken", parken);
             request.setAttribute("alleRegios", alleRegios);
-            
-        }else if(request.getParameter("filter") != null){
-            
+
+        } else if (request.getParameter("filter") != null) {
+
             ArrayList<Regio> alleRegios = daregio.getAlleRegios();
-            
+
             rd = request.getRequestDispatcher("filterpark.jsp");
             request.setAttribute("alleRegios", alleRegios);
-            
-        }else if(request.getParameter("zoekFilter") != null){
-            
-           int aantalSterren = Integer.parseInt(request.getParameter("aantalSterren")); 
-           int regioId = Integer.parseInt(request.getParameter("regio"));
-           String parkNaam = request.getParameter("parkNaam");
-           // kijken of deze leeg is
-           int aantalSlaapkamers = Integer.parseInt(request.getParameter("aantalSlaapkamers")); 
-           int aantalPersonen = Integer.parseInt(request.getParameter("aantalPersonen")); 
-           
-           
-           ArrayList<Park> parken = dapark.getParkFilter(aantalSterren,regioId,parkNaam,aantalSlaapkamers,aantalPersonen);
-           
-           ArrayList<Regio> alleRegios = daregio.getAlleRegios();              
-            
+
+        } else if (request.getParameter("zoekFilter") != null) {
+
+            int aantalSterren = Integer.parseInt(request.getParameter("aantalSterren"));
+            int regioId = Integer.parseInt(request.getParameter("regio"));
+            String parkNaam = request.getParameter("parkNaam");
+            // kijken of deze leeg is
+            int aantalSlaapkamers = Integer.parseInt(request.getParameter("aantalSlaapkamers"));
+            int aantalPersonen = Integer.parseInt(request.getParameter("aantalPersonen"));
+
+            ArrayList<Park> parken = dapark.getParkFilter(aantalSterren, regioId, parkNaam, aantalSlaapkamers, aantalPersonen);
+
+            ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+
             rd = request.getRequestDispatcher("overzichtparken.jsp");
             request.setAttribute("parken", parken);
             request.setAttribute("alleRegios", alleRegios);
         }
-        
-        
-        
-        
-        
-      
-        
-
-
 
         rd.forward(request, response);
     }

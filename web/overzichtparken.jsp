@@ -19,18 +19,12 @@
             </div>
         </section>
 
-
-
-
         <!-- tour packages -->
         <section class="packages pt-5">
             <div class="container-fluid py-lg-4 py-sm-3">
                 <h2 class="heading text-capitalize text-center">Overzicht VakantiePark</h2>
                 <br>
-
-
                 <div class="row">
-
 
                     <div class="col-sm-12 col-md-3 p-5">
 
@@ -52,7 +46,6 @@
                                 </div>
                                 </p>
                             </div>
-
 
                             <%ArrayList<Regio> regios = (ArrayList<Regio>) request.getAttribute("alleRegios");%>
                             <div class="form-row">
@@ -107,8 +100,6 @@
                     <div class="col-sm-12 col-md-9 p-5">
                         <%ArrayList<Park> parken = (ArrayList<Park>) request.getAttribute("parken");%>
 
-
-
                         <% if (parken != null) { %>
 
                         <div class="row">
@@ -144,10 +135,7 @@
                                             <p><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
                                                     <% }%>
                                         </div>
-
                                     </div>
-
-
                                 </div>
                             </div>
 
@@ -160,17 +148,12 @@
 
                     </div>
                 </div>
-
-
-
-
                 <br>
                 <a href="ZoekParkServlet?uitgebreid=1" class="btn btn-outline-primary">Terug naar zoekfunctie</a>
                 <a href="index.jsp" class="btn btn-outline-primary">Terug naar beginpagina</a>
             </div>
         </section>
         <!-- tour packages -->     
-    <jsp:include page="temp/footer.jsp" />
-
-</body>
+        <jsp:include page="temp/footer.jsp" />
+    </body>
 </html>

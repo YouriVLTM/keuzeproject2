@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
 
-        <jsp:include page="temp/head.jsp" />
+    <jsp:include page="temp/head.jsp" />
     <body>
         <jsp:include page="temp/nav.jsp" />
 
@@ -52,14 +52,11 @@
                                     <% }%>
                             <p><a href="HotelServlet?hotelId=<%=hotel.getId()%>">Meer details</a></p>       
                             <%}%>
-                            
                         </div>
-
                     </div>
-
-                            <p class="mt-3"><a href="starthotels.jsp" class="btn btn-outline-primary">Terug naar startpagina hotels</a></p>
+                    <p class="mt-3"><a href="starthotels.jsp" class="btn btn-outline-primary">Terug naar startpagina hotels</a></p>
                 </div>
-                            
+
             </div> 
         </div>
 
