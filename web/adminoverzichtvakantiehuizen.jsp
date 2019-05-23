@@ -1,9 +1,10 @@
 <%-- 
-    Document   : adminoverzichtparken
+    Document   : adminoverzichtvakantiehuizen
     Created on : May 22, 2019, 10:06:58 AM
     Author     : yourivanlaer
 --%>
 
+<%@page import="fact.it.www.beans.Vakantiehuis"%>
 <%@page import="fact.it.www.beans.Park"%>
 <%@page import="fact.it.www.beans.Regio"%>
 <%@page import="java.util.ArrayList"%>
@@ -24,7 +25,7 @@
                 <div class="row">               
 
                     <div class="col-lg-12 contact-left-form">
-                        <h1 class="heading text-center mb-5">Lijst van Parken</h1>
+                        <h1 class="heading text-center mb-5">Lijst van Vakantiehuizen</h1>
 
                         <%String foutmelding = (String) request.getAttribute("foutmelding");%>
                         <%if (foutmelding != null) {%>
@@ -44,39 +45,39 @@
                             </ul>
                         </div>
                         <%}%>
-                        <a href="startparken.jsp" class="btn btn-outline-primary">Terug naar parken</a>
-                        <a href="ParkServlet?voegparktoepagina=1" class="btn btn-outline-primary">Voeg nieuw park toe</a>
+                        <a href="adminoverzicht.jsp" class="btn btn-outline-primary">Terug naar admin dashboard</a>
+                        <a href="ParkServlet?voegvakantiehuistoepagina=1" class="btn btn-outline-primary">Voeg nieuw vakantiehuis toe</a>
                         <br>
                         <br>
 
-                        <%ArrayList<Park> parken = (ArrayList<Park>) request.getAttribute("parken");%>
+                        <%ArrayList<Vakantiehuis> vakantiehuizen = (ArrayList<Vakantiehuis>) request.getAttribute("vakantiehuizen");%>
 
-                        <% if (parken != null) { %>
+                        <% if (!vakantiehuizen.isEmpty()) { %>
 
                         <table id="dtBasicParken" class="table table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">id</th>
-                                    <th scope="col">Naam</th>
-                                    <th scope="col">RegioId</th>
-                                    <th scope="col">Aantalsterren</th>
-                                    <th scope="col">voorzieningen</th>
-                                    <th scope="col">foto</th>
+                                    <th scope="col">ParkID</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">aantal slaapkamers</th>
+                                    <th scope="col">aantal personen</th>
+                                    <th scope="col">oppervlakte</th>
                                     <th scope="col">Edit</th>
                                     <th scope="col">Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <% for (Park park : parken) {%>
+                                <% for (Vakantiehuis vakantiehuis : vakantiehuizen) {%>
                                 <tr>
-                                    <th scope="row"><%=park.getId()%></th>
-                                    <td><%=park.getNaam()%></td>
-                                    <td><%=park.getRegioid()%></td>
-                                    <td><%=park.getAantalSterren()%></td>
-                                    <td><%=park.getVoorzieningen()%></td>
-                                    <td><img src="images/<%=park.getFoto()%>" onerror="this.src='images/noPic.png'" class="img-fluid" ><%=park.getFoto()%></td>
-                                    <td><a href="ParkServlet?wijzigparkpagina=<%=park.getId()%>" <i class="far fa-edit"></i></a> </td>
-                                    <td><a href="ParkServlet?adminoverzichtparkendelete=<%=park.getId()%>" <i class="fas fa-trash"></i></a></td>
+                                    <th scope="row"><%=vakantiehuis.getId()%></th>
+                                    <td><%=vakantiehuis.getParkid()%></td>
+                                    <td><%=vakantiehuis.getType()%></td>
+                                    <td><%=vakantiehuis.getAantalSlaapkamers()%></td>
+                                    <td><%=vakantiehuis.getAantalPersonen()%></td>
+                                    <td><%=vakantiehuis.getOppervlakte()%></td>
+                                    <td><a href="ParkServlet?wijzigvakantiehuispagina=<%=vakantiehuis.getId()%>" <i class="far fa-edit"></i></a> </td>
+                                    <td><a href="ParkServlet?adminoverzichtvakantiehuisdelete=<%=vakantiehuis.getId()%>" <i class="fas fa-trash"></i></a></td>
                                 </tr>
                                 <%}%>
                             </tbody>

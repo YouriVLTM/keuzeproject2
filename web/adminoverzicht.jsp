@@ -52,7 +52,7 @@
                                           <h4 class="pb-3">Vakantiehuizen</h4>
                                           <p>Hier krijg je een totaal overzicht van alle vakantiehuizen</p>
                                         </div>
-                                         <a class="btn btn-outline-primary btn-block" href="nieuwPretpark.jsp">klik hier</a>
+                                         <a class="btn btn-outline-primary btn-block" href="ParkServlet?adminoverzichtvakantiehuizen=1">klik hier</a>
 
                           </div>
                         </div>
