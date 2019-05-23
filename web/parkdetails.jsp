@@ -70,12 +70,12 @@
                                    <p>Er is geen Aantalsterren gegeven</p>
                                <%}%>
                                <% if(park.getVoorzieningen() != ""){ %>
-                                   <p>voorzieningen <%=park.getVoorzieningen()%> </p> 
+                                   <p>voorzieningen: <%=park.getVoorzieningen()%> </p> 
                                <%}else{ %>
                                    <p>Er is geen voorziening gegeven</p>
                                <%}%>
                                 <% if(regio != null){ %>
-                                   <p> Regio : <%=regio.getNaam()%></p>
+                                   <p> Regio: <%=regio.getNaam()%></p>
                                <%}else{ %>
                                    <p>Er is geen regio gegeven</p>
                                <%}%>
