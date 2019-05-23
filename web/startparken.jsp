@@ -16,6 +16,32 @@
             <div class="banner_inner_overlay">
             </div>
         </section> 
+        
+        
+                <!-- how to book -->
+<section class="book py-5">
+	<div class="container py-lg-5 py-sm-3">
+		<h2 class="heading text-capitalize text-center"> Welkom op onze pretparken</h2>            
+    
+                    
+                     <form action="MaakServlet" method="POST"> 
+                         <div class="form-row mt-5">
+                             <div class="col-8 contact-forms">
+                                  <label for="attractieNaam" class="sr-only">attractie Naam</label>
+                                    <input type="text" class="form-control" id="attractieNaam" name="attractieNaam" placeholder="attractie Naam">
+                             </div>
+                             <div class="col-4">
+                                 <input type="submit" class="btn btn-outline-light mb-2 btn-lg" name="zoekAttractie" value="Zoek de attractie op" />
+                             </div>
+                         </div>
+                     </form>
+			
+	</div>
+</section>
+<!-- //how to book -->
+
+
+
         <section class="packages pt-5">
             <div class="container py-lg-4 py-sm-3">
 
