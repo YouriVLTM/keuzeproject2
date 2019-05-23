@@ -338,7 +338,7 @@ public ArrayList<Park> getParkAantalPersonen(int aantalPersonen) {
                                                                             "        WHEN ? > 0 then ?\n" +
                                                                             "        ELSE nvl(null,REGIOID)\n" +
                                                                             "    END \n" +
-                                                                            "AND park.naam = nvl(?,park.naam)\n" +
+                                                                            "AND lower(park.naam) like ?\n" +
                                                                             "AND park.aantalSterren = \n" +
                                                                             "    CASE\n" +
                                                                             "        WHEN ? > 0 then ?\n" +
@@ -355,7 +355,7 @@ public ArrayList<Park> getParkAantalPersonen(int aantalPersonen) {
             statement.setInt(4, aantalPersonen);
             statement.setInt(5, regioId);
             statement.setInt(6, regioId);
-            statement.setString(7, parkNaam);
+            statement.setString(7, parkNaam.toLowerCase() + "%");
             statement.setInt(8, aantalSterren);
             statement.setInt(9, aantalSterren);
 
