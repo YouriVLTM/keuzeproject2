@@ -117,7 +117,7 @@
                                         <h4 class="pb-3">Admin Pagina</h4>
                                         <p>Hier kan je doorgaan naar de admin pagina. Zo kan je zowel parken als vakantiehuizen aanpassen verwijderen en toevoegen</p>
                                     </div>
-                                    <a href="ParkServlet?adminoverzichtparken=1" class="btn btn-outline-primary mx-1">Admin overzicht</a>
+                                    <a href="adminoverzicht.jsp" class="btn btn-outline-primary mx-1">Admin overzicht</a>
 
                                 </div>
                             </div>
