@@ -21,20 +21,24 @@
                 <!-- how to book -->
 <section class="book py-5">
 	<div class="container py-lg-5 py-sm-3">
-		<h2 class="heading text-capitalize text-center"> Welkom op onze pretparken</h2>            
-    
-                    
-                     <form action="MaakServlet" method="POST"> 
-                         <div class="form-row mt-5">
-                             <div class="col-8 contact-forms">
-                                  <label for="attractieNaam" class="sr-only">attractie Naam</label>
-                                    <input type="text" class="form-control" id="attractieNaam" name="attractieNaam" placeholder="attractie Naam">
-                             </div>
-                             <div class="col-4">
-                                 <input type="submit" class="btn btn-outline-light mb-2 btn-lg" name="zoekAttractie" value="Zoek de attractie op" />
-                             </div>
-                         </div>
-                     </form>
+            <h2 class="heading text-capitalize text-center">Vakantiepark zoeken</h2>            
+             
+                            <form action="ParkServlet" >                
+
+                                <div class="form-row mt-5">
+                                    <div class="col-8 contact-forms">
+                                        <label for="naam">Ga op zoek naar u park</label>         
+                                    </div>
+                                    <div class="col-5 contact-forms">
+                                        <label for="attractieNaam" class="sr-only">attractie Naam</label>
+                                        <input type="text" class="form-control" id="naam" name="naam" placeholder="Geef de begin letters in">
+
+                                    </div>
+                                    <input type="submit" class="btn btn-outline-light mb-2 btn-lg"  value="Zoek naar u specifiek park" name="vakantiePark" />
+                                    <a href="ParkServlet?vakantiePark1=1" class="btn btn-outline-light mb-2 btn-lg">Zoek op park id 1</a>
+
+                                </div>
+                            </form>
 			
 	</div>
 </section>
@@ -73,27 +77,11 @@
                         <div class="row">
                             <div class="col">
                                  <h1 class="heading text-center mb-5">VakantiePark</h1>
-                            <form action="ParkServlet" >                
-
-                                <div class="form-row">
-                                    <div class="col-12">
-                                        <label for="naam">Ga op zoek naar u park</label>         
-                                    </div>
-                                    <div class="col-5 contact-forms">
-                                        <label for="attractieNaam" class="sr-only">attractie Naam</label>
-                                        <input type="text" class="form-control" id="naam" name="naam" placeholder="Geef de begin letters in">
-
-                                    </div>
-                                    <input type="submit" class="btn btn-outline-primary"  value="Zoek naar u specifiek park" name="vakantiePark" />
-                                    <a href="ParkServlet?vakantiePark1=1" class="btn btn-outline-primary mx-1">Zoek op park id 1</a>
-
-                                </div>
-                            </form>
                                 </div>
                             </div>
                            
 
-                        <div class="row mt-5">
+                        <div class="row mt-2">
                             <div class="col-lg-4 col-md-6 col-sm-6 service-grid-wthree text-center mb-5">
                                 <div class="ser-fashion-grid">
                                     <div class="about-icon mb-md-4 mb-3">
