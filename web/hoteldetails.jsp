@@ -40,7 +40,7 @@
                             <div class="col-6">
 
                                 <% if (hotel.getNaam() != "") {%>
-                                <p>Naam: <%=hotel.getNaam()%> </p>  
+                                <p>Naam: <a href="HotelServlet?zoekPrijs=1&zoekPrijsHotelNaam=<%=hotel.getNaam()%>"><%=hotel.getNaam()%></a> </p>  
                                 <%} else { %>
                                 <p>Er is geen naam gegeven</p>
                                 <%}%>

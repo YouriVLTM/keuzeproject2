@@ -10,12 +10,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-        <title>Hotel zoeken</title>
-        <jsp:include page="temp/head.jsp" />
-    </head>
+    <jsp:include page="temp/head.jsp" />
+
     <body>
         <jsp:include page="temp/nav.jsp" />
 

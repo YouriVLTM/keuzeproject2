@@ -28,8 +28,7 @@
 
                         </div>
                         <div class="col-8">
-
-                            <input class="btn btn-outline-light mb-2 btn-lg mx-3"  type="submit" value="Zoeken naar uw specifiek hotel" name="zoekHotel">
+                            <input class="btn btn-outline-light mb-2 btn-lg mr-3"  type="submit" value="Zoeken naar uw specifiek hotel" name="zoekHotel">
                             <a href="HotelServlet?toonspecifiek=1" class="btn btn-outline-light mb-2 btn-lg">Zoek op hotel id 1</a>
 
                         </div>
@@ -59,6 +58,7 @@
                             </div>
                             <div class="col-lg-4 col-md-6 col-sm-6 service-grid-wthree text-center mb-5">
                                 <div class="ser-fashion-grid">
+                                    
                                     <div class="about-icon mb-md-4 mb-3">
                                         <span class="fas fa-search fa-3x" aria-hidden="true"></span>
                                     </div>

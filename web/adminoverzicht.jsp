@@ -39,7 +39,7 @@
                                           <h4 class="pb-3">Parken</h4>
                                           <p>Hier krijg je een totaal overzicht van alle parken. Hier kan je ook je parken aanpassen verwijderen en ook nieuwe parken toevoegen.</p>
                                         </div>
-                                         <a class="btn btn-outline-primary btn-block" href="ParkServlet?adminoverzichtparken=1">klik hier</a>
+                                         <a class="btn btn-outline-primary btn-block" href="ParkServlet?adminoverzichtparken=1">Overzicht Parken</a>
 
                           </div>
                         </div>
@@ -52,7 +52,7 @@
                                           <h4 class="pb-3">Vakantiehuizen</h4>
                                           <p>Hier krijg je een totaal overzicht van alle vakantiehuizen. Hier kan je ook je vakantiehuizen toevoegen aan het correcte park, ook vakantiehuizen wijzigen en verwijderen.</p>
                                         </div>
-                                         <a class="btn btn-outline-primary btn-block" href="ParkServlet?adminoverzichtvakantiehuizen=1">klik hier</a>
+                                         <a class="btn btn-outline-primary btn-block" href="ParkServlet?adminoverzichtvakantiehuizen=1">Overzicht Vakantiehuizen</a>
 
                           </div>
                         </div>

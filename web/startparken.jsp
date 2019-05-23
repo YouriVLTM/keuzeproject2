@@ -16,33 +16,31 @@
             <div class="banner_inner_overlay">
             </div>
         </section> 
-        
-        
-                <!-- how to book -->
-<section class="book py-5">
-	<div class="container py-lg-5 py-sm-3">
-            <h2 class="heading text-capitalize text-center">Vakantiepark zoeken</h2>            
-             
-                            <form action="ParkServlet" >                
 
-                                <div class="form-row mt-5">
-                                    <div class="col-8 contact-forms">
-                                        <label for="naam">Ga op zoek naar u park</label>         
-                                    </div>
-                                    <div class="col-5 contact-forms">
-                                        <label for="attractieNaam" class="sr-only">attractie Naam</label>
-                                        <input type="text" class="form-control" id="naam" name="naam" placeholder="Geef de begin letters in">
 
-                                    </div>
-                                    <input type="submit" class="btn btn-outline-light mb-2 btn-lg"  value="Zoek naar u specifiek park" name="vakantiePark" />
-                                    <a href="ParkServlet?vakantiePark1=1" class="btn btn-outline-light mb-2 btn-lg">Zoek op park id 1</a>
+        <!-- how to book -->
+        <section class="book py-5">
+            <div class="container py-lg-5 py-sm-3">
+                <h2 class="heading text-capitalize text-center">Vakantiepark zoeken</h2>            
 
-                                </div>
-                            </form>
-			
-	</div>
-</section>
-<!-- //how to book -->
+                <form action="ParkServlet" >                
+
+                    <div class="form-row mt-5 justify-content-center">                                    
+                        <div class="col-8 contact-forms mb-3">
+                            <label for="naam" class="text-white ml-2">Ga op zoek naar u park</label>  
+                            <input type="text" class="form-control" id="naam" name="naam" placeholder="Geef de begin letters in">
+
+                        </div>
+                        <div class="col-8">
+                            <input type="submit" class="btn btn-outline-light mb-2 btn-lg mr-3"  value="Zoek naar u specifiek park" name="vakantiePark" />
+                            <a href="ParkServlet?vakantiePark1=1" class="btn btn-outline-light mb-2 btn-lg">Zoek op park id 1</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </section>
+        <!-- //how to book -->
 
 
 
@@ -52,7 +50,7 @@
                 <div class="row">               
 
                     <div class="col-lg-12 contact-left-form">
-                       
+
 
 
                         <%String foutmelding = (String) request.getAttribute("foutmelding");%>
@@ -76,10 +74,10 @@
 
                         <div class="row">
                             <div class="col">
-                                 <h1 class="heading text-center mb-5">VakantiePark</h1>
-                                </div>
+                                <h1 class="heading text-center mb-5">VakantiePark</h1>
                             </div>
-                           
+                        </div>
+
 
                         <div class="row mt-2">
                             <div class="col-lg-4 col-md-6 col-sm-6 service-grid-wthree text-center mb-5">
@@ -121,12 +119,12 @@
 
                                 </div>
                             </div>
+                        </div>
+
+
+
                     </div>
-
-
-
                 </div>
-            </div>
         </section>
         <!-- tour packages -->
 

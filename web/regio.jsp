@@ -2,11 +2,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Regio</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
     <jsp:include page="temp/head.jsp" />
-    </head>  
+      
     <body>
                 <jsp:include page="temp/nav.jsp" />
                 
