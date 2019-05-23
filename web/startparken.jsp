@@ -110,6 +110,18 @@
                                     <a href="ParkServlet?adminoverzichtpagina=1" class="btn btn-outline-primary mx-1">Admin overzicht</a>
                                 </div>
                             </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6 service-grid-wthree text-center mb-5">
+                                <div class="ser-fashion-grid">
+                                    <div class="about-icon mb-md-4 mb-3">
+                                        <span class="fas fa-not-equal fa-3x" aria-hidden="true"></span>
+                                    </div>
+                                    <div class="ser-sevice-grid mb-3">
+                                        <h4 class="pb-3">Vergelijken</h4>
+                                        <p>Hier kan je parken met elkaar gaan vergelijken. Doormiddel van twee parken te selecteren.</p>
+                                    </div>
+                                    <a href="ParkServlet?vergelijkparkenpagina=1" class="btn btn-outline-primary mx-1">Vergelijken</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

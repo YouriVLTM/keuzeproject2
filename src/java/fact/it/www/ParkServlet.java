@@ -371,7 +371,37 @@ public class ParkServlet extends HttpServlet {
             request.setAttribute("laagsteprijshuisaanbod", laagsteprijshuisaanbod);
 
 
+        }else if (request.getParameter("vergelijkparkenpagina") != null) {
+            ArrayList<Park> parken = dapark.getParken();
+            // alle regio's tonen
+            rd = request.getRequestDispatcher("vergelijkparken.jsp");
+            request.setAttribute("parken", parken);
+
+           
+        }else if (request.getParameter("vergelijkpark") != null) {
+            int naam1Id = Integer.parseInt(request.getParameter("naam1Id"));
+            int naam2Id = Integer.parseInt(request.getParameter("naam2Id"));
+            
+            // query ophalen 
+            Park park1 = dapark.getParkId(naam1Id);
+            Park park2 = dapark.getParkId(naam2Id);
+            
+            Hashtable<Integer, Regio> regios = daregio.getAlleRegiosHash();
+            
+            // alle regio's tonen
+            rd = request.getRequestDispatcher("overzichtvergelijkpark.jsp");
+            request.setAttribute("park1", park1);
+            request.setAttribute("park2", park2);
+            request.setAttribute("regios", regios);
+
+
+           
         }
+        
+        
+        
+        
+        
 
         rd.forward(request, response);
     }
