@@ -24,7 +24,6 @@
 
         <!-- tour packages -->
         <section class="packages pt-5">
-            <<<<<<< HEAD
             <div class="container-fluid py-lg-4 py-sm-3">
                 <h2 class="heading text-capitalize text-center">Overzicht VakantiePark</h2>
                 <br>
