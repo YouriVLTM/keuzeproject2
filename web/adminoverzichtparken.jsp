@@ -4,6 +4,7 @@
     Author     : yourivanlaer
 --%>
 
+<%@page import="java.util.Hashtable"%>
 <%@page import="fact.it.www.beans.Park"%>
 <%@page import="fact.it.www.beans.Regio"%>
 <%@page import="java.util.ArrayList"%>
@@ -50,6 +51,7 @@
                         <br>
 
                         <%ArrayList<Park> parken = (ArrayList<Park>) request.getAttribute("parken");%>
+                        <%Hashtable<Integer, Regio> regios = (Hashtable<Integer, Regio>) request.getAttribute("regios");%>
 
                         <% if (parken != null) { %>
 
@@ -71,7 +73,7 @@
                                 <tr>
                                     <th scope="row"><%=park.getId()%></th>
                                     <td><%=park.getNaam()%></td>
-                                    <td><%=park.getRegioid()%></td>
+                                    <td><%=regios.get(park.getRegioid()).getNaam()%></td>
                                     <td><%=park.getAantalSterren()%></td>
                                     <td><%=park.getVoorzieningen()%></td>
                                     <td><img src="images/<%=park.getFoto()%>" onerror="this.src='images/noPic.png'" class="img-fluid" ><%=park.getFoto()%></td>

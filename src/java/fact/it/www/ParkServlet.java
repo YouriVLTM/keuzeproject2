@@ -4,6 +4,7 @@ import fact.it.www.beans.*;
 import fact.it.www.dataaccess.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -155,11 +156,13 @@ public class ParkServlet extends HttpServlet {
             }
 
         } else if (request.getParameter("adminoverzichtparken") != null) {
-
+            // Hastable 
+            Hashtable<Integer, Regio> regios = daregio.getAlleRegiosHash();
             ArrayList<Park> parken = dapark.getParken();
 
             rd = request.getRequestDispatcher("adminoverzichtparken.jsp");
             request.setAttribute("parken", parken);
+            request.setAttribute("regios", regios);
         } else if (request.getParameter("adminoverzichtparkendelete") != null) {
             int parkId = Integer.parseInt(request.getParameter("adminoverzichtparkendelete"));
             // delete park

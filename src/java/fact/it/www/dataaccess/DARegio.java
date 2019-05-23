@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 public class DARegio {
 
@@ -91,6 +92,26 @@ public class DARegio {
                 regio.setId(resultSet.getInt("id"));
                 regio.setNaam(resultSet.getString("naam"));
                 regios.add(regio);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return regios;
+    }
+    
+    public Hashtable<Integer, Regio> getAlleRegiosHash() {
+        Regio regio = null;
+        Hashtable<Integer, Regio> regios = new Hashtable<Integer, Regio>();
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM regio");) {
+            while (resultSet.next()) {
+                regio = new Regio();
+                regio.setId(resultSet.getInt("id"));
+                regio.setNaam(resultSet.getString("naam"));
+                regios.put(regio.getId(),regio);
             }
         } catch (Exception e) {
             e.printStackTrace();
