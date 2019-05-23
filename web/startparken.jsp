@@ -71,11 +71,11 @@
                             <div class="col-lg-4 col-md-6 col-sm-6 service-grid-wthree text-center mb-5">
                                 <div class="ser-fashion-grid">
                                     <div class="about-icon mb-md-4 mb-3">
-                                        <span class="fas fa-user-plus fa-3x" aria-hidden="true"></span>
+                                        <span class="far fa-building fa-3x" aria-hidden="true"></span>
                                     </div>
                                     <div class="ser-sevice-grid mb-3">
-                                        <h4 class="pb-3">Nieuw bezoeker</h4>
-                                        <p>Hier kan je een nieuw bezoeker aanmaken.</p>
+                                        <h4 class="pb-3">Overzicht Parken</h4>
+                                        <p>Hier kan je alle parken bekijken die beschikbaar zijn. Je kan ook filteren op allerlei criteria die je zelf kan invoeren en zo jouw park kiezen.</p>
                                     </div>
                                     <a href="ParkServlet?alleVakantiePark=1" class="btn btn-outline-primary mx-1">Toon alle Parken</a>
 
@@ -84,11 +84,11 @@
                             <div class="col-lg-4 col-md-6 col-sm-6 service-grid-wthree text-center mb-5">
                                 <div class="ser-fashion-grid">
                                     <div class="about-icon mb-md-4 mb-3">
-                                        <span class="far fa-building fa-3x" aria-hidden="true"></span>
+                                        <span class="fas fa-search fa-3x" aria-hidden="true"></span>
                                     </div>
                                     <div class="ser-sevice-grid mb-3">
-                                        <h4 class="pb-3">Nieuw pretpark</h4>
-                                        <p>Hier kan je een nieuw pretpark aanmaken.</p>
+                                        <h4 class="pb-3">Uitgebreid zoeken</h4>
+                                        <p>Hier kan je uitgebreid op parken zoeken. Doormiddel van een aantal criteria die je zelf kan invoeren. En zo dan het park vinden wat jij zoekt.</p>
                                     </div>
                                     <a href="ZoekParkServlet?uitgebreid=1" class="btn btn-outline-primary mx-1">uitgebreid zoeken</a>      
 
@@ -97,11 +97,11 @@
                             <div class="col-lg-4 col-md-6 col-sm-6 service-grid-wthree text-center mb-5">
                                 <div class="ser-fashion-grid">
                                     <div class="about-icon mb-md-4 mb-3">
-                                        <span class="fas fa-user-tie fa-3x" aria-hidden="true"></span>
+                                        <span class="fas fa-user-shield fa-3x" aria-hidden="true"></span>
                                     </div>
                                     <div class="ser-sevice-grid mb-3">
-                                        <h4 class="pb-3">Nieuw persooneelslid</h4>
-                                        <p>Hier kan je een nieuw persooneelslid aanmaken.</p>
+                                        <h4 class="pb-3">Admin Pagina</h4>
+                                        <p>Hier kan je doorgaan naar de admin pagina. Zo kan je zowel parken als vakantiehuizen aanpassen verwijderen en toevoegen</p>
                                     </div>
                                     <a href="ParkServlet?adminoverzichtparken=1" class="btn btn-outline-primary mx-1">admin overzicht park</a>
 
