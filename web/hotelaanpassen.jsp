@@ -25,8 +25,10 @@
                         <h1 class="heading text-center mb-5">Lijst van Hotels</h1>
 
                         <%ArrayList<Hotel> hotels = (ArrayList<Hotel>) request.getAttribute("hotels");%>
+                        <div class="mb-3">
                         <a href="starthotels.jsp" class="btn btn-outline-primary">Terug naar hotels</a>
                         <a href="HotelServlet?maakHotel=1" class="btn btn-outline-primary">Voeg nieuw hotel toe</a>
+                        </div>
                         <table id="dtBasicParken" class="table table-hover">
                             <thead>
                                 <tr>
