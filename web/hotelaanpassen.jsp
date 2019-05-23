@@ -46,9 +46,21 @@
                                     <td scope="row"><%=hotel.getNaam()%></td>
                                     <td class="w-auto"><%=hotel.getRegioid()%></td>
                                     <td><%= hotel.getAantalSterren()%></td>
+                                    <%if (hotel.getLigging() == null) {%>
+                                    <td></td>
+                                    <%}else{%>
                                     <td><%= hotel.getLigging()%></td>
+                                    <%}%>
+                                     <%if (hotel.getMaaltijden() == null) {%>
+                                    <td></td>
+                                    <%}else{%>
                                     <td><%= hotel.getMaaltijden()%></td>
+                                    <%}%>
+                                     <%if (hotel.getOntspanning() == null) {%>
+                                    <td></td>
+                                    <%}else{%>
                                     <td><%= hotel.getOntspanning()%></td>
+                                    <%}%>
                                     <td><img src ="images/<%=hotel.getFoto()%>" alt="<%=hotel.getFoto()%>" class="img-fluid" onerror="this.src='images/noPic.png'"></td>
                                     <td><a href="HotelServlet?Aanpassen=1&hotelid=<%=hotel.getId()%>"> <i class="far fa-edit"></i></a></td>
                                     <td><a href="HotelServlet?Verwijderen=1&hotelid=<%=hotel.getId()%>"><i class="fas fa-trash"></i></a></td>
