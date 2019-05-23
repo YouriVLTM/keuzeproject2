@@ -25,13 +25,13 @@
                         <h1 class="heading text-center mb-5">Lijst van Hotels</h1>
 
                         <%ArrayList<Hotel> hotels = (ArrayList<Hotel>) request.getAttribute("hotels");%>
-
+                        <a href="starthotels.jsp" class="btn btn-outline-primary">Terug naar hotels</a>
+                        <a href="HotelServlet?maakHotel=1" class="btn btn-outline-primary">Voeg nieuw hotel toe</a>
                         <table id="dtBasicParken" class="table table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">Naam</th>
-                                    <th scope="col" class="w-auto">Regio</th>
-                                    <th scope="col">Aantalsterren</th>
+                                    <th scope="col">Sterren</th>
                                     <th scope="col">Ligging</th>
                                     <th scope="col">Maaltijden</th>
                                     <th scope="col">Ontspanning</th>
@@ -43,27 +43,26 @@
                             <tbody>
                                 <tr>
                                     <%for (Hotel hotel : hotels) {%>
-                                    <td scope="row"><%=hotel.getNaam()%></td>
-                                    <td class="w-auto"><%=hotel.getRegioid()%></td>
+                                    <td scope="row"><%=hotel.getNaam()%></td>                                    
                                     <td><%= hotel.getAantalSterren()%></td>
                                     <%if (hotel.getLigging() == null) {%>
                                     <td></td>
-                                    <%}else{%>
+                                    <%} else {%>
                                     <td><%= hotel.getLigging()%></td>
                                     <%}%>
-                                     <%if (hotel.getMaaltijden() == null) {%>
+                                    <%if (hotel.getMaaltijden() == null) {%>
                                     <td></td>
-                                    <%}else{%>
+                                    <%} else {%>
                                     <td><%= hotel.getMaaltijden()%></td>
                                     <%}%>
-                                     <%if (hotel.getOntspanning() == null) {%>
+                                    <%if (hotel.getOntspanning() == null) {%>
                                     <td></td>
-                                    <%}else{%>
+                                    <%} else {%>
                                     <td><%= hotel.getOntspanning()%></td>
                                     <%}%>
                                     <td><img src ="images/<%=hotel.getFoto()%>" alt="<%=hotel.getFoto()%>" class="img-fluid" onerror="this.src='images/noPic.png'"></td>
-                                    <td><a href="HotelServlet?Aanpassen=1&hotelid=<%=hotel.getId()%>"> <i class="far fa-edit"></i></a></td>
-                                    <td><a href="HotelServlet?Verwijderen=1&hotelid=<%=hotel.getId()%>"><i class="fas fa-trash"></i></a></td>
+                                    <td class="text-center"><a href="HotelServlet?Aanpassen=1&hotelid=<%=hotel.getId()%>"> <i class="far fa-edit"></i></a></td>
+                                    <td class="text-center"><a href="HotelServlet?Verwijderen=1&hotelid=<%=hotel.getId()%>"><i class="fas fa-trash"></i></a></td>
                                 </tr>
                                 <%}%>
                             </tbody>
