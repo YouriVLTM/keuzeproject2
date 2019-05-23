@@ -36,7 +36,6 @@
                                 <% if (hotel.getFoto() != "") {%>
                                 <img src="images/<%=hotel.getFoto()%>" onerror="this.src='images/noPic.png'" class="img-fluid w-100"/>
                                 <%}%>
-
                             </div>
                             <div class="col-6">
 
@@ -46,7 +45,7 @@
                                 <p>Er is geen naam gegeven</p>
                                 <%}%>
                                 <% if (hotel.getAantalSterren() != 0) {%>
-                                <p>Aantalsterren: <%=hotel.getAantalSterren()%> </p>
+                                <p>Aantal sterren: <%=hotel.getAantalSterren()%> </p>
                                 <%if (hotel.getAantalSterren() == 5) { %>
                                 <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
                                     <% }%>
@@ -63,10 +62,10 @@
                                 <p><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
                                         <% }%>
                                         <%} else { %>
-                                <p>Er is geen Aantalsterren gegeven</p>
+                                <p>Aantal sterren niet gevonden</p>
                                 <%}%>
                                 <% if (hotel.getOntspanning() != "") {%>
-                                <p>Ontspanningsmgelijkheden:</p> 
+                                <p>ontspanningsmogelijkheden</p> 
                                
                                 <ul>
                                     <%-- De string van ontspaningen scheiden adhv een komma --> anders lijst te lang --%>
@@ -90,14 +89,6 @@
                                 <%}%>
                             </div>
                         </div>                           
-                        <%--
-                                                <p>Naam: <a href="HotelServlet?zoekPrijs=<%=hotel.getId()%>&zoekPrijsHotelNaam=<%=hotel.getNaam()%>"><%=hotel.getNaam()%></a></p>
-                                                <p>Aantal Sterren: <%=hotel.getAantalSterren()%></p>
-                                                <p>Ligging: <%=hotel.getLigging()%></p>
-                                                <p>Ontspanningsmogelijkheden: <%=hotel.getOntspanning()%></p>              
-                                                <p>Naam van de streek: <%=regio.getNaam()%></p>
-                                                <img src="images/<%=hotel.getFoto()%>">
-                        --%>
                         <a class="btn btn-outline-primary" href="starthotels.jsp">Terug naar startpagina hotels</a>
                     </div>          
 
