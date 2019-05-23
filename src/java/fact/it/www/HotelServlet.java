@@ -185,14 +185,26 @@ public class HotelServlet extends HttpServlet {
             request.setAttribute("hotels", hotels);
             rd = request.getRequestDispatcher("hotelaanpassen.jsp");
         } else if (request.getParameter("Aanpassen") != null) {
-
-            ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+            
             int hotelId = Integer.parseInt(request.getParameter("hotelid"));
+            ArrayList<Periode> periode = daperiode.getHotelPrijs(hotelId);
+            ArrayList<Hotelaanbod> hotelaanbod = daHotelaanbod.getHotelPrijs(hotelId);  
+            ArrayList<Regio> alleRegios = daregio.getAlleRegios();            
             Hotel hotel = dahotel.getHotelById(hotelId);
             request.setAttribute("hotel", hotel);
             request.setAttribute("alleRegios", alleRegios);
+            request.setAttribute("hotelaanbod", hotelaanbod);
+            request.setAttribute("periode", periode);
             rd = request.getRequestDispatcher("hoteledit.jsp");
-        } else if (request.getParameter("pasHotelAan") != null) {
+            
+        }else if (request.getParameter("pasHotelAan") != null) {
+                
+            int hotelid = Integer.parseInt(request.getParameter("zoekPrijs"));
+            String zoekPrijsHotelNaam = request.getParameter("zoekPrijsHotelNaam");
+            ArrayList<Periode> periode = daperiode.getHotelPrijs(hotelid);
+            ArrayList<Hotelaanbod> hotelaanbod = daHotelaanbod.getHotelPrijs(hotelid);
+            request.setAttribute("hotelaanbod", hotelaanbod);
+            request.setAttribute("periode", periode);
 
             String hotelNaam = request.getParameter("pasAanNaam");
             int id = Integer.parseInt(request.getParameter("pasAanId"));
@@ -217,7 +229,7 @@ public class HotelServlet extends HttpServlet {
                 request.setAttribute("alleRegios", alleRegios);
                 request.setAttribute("foutmelding", "Kan hotel niet aanmaken.");
             }
-          
+
         }
 
         rd.forward(request, response);

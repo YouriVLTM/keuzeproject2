@@ -29,7 +29,7 @@
                 <div class="row">   
 
                     <div class="col-lg-12 contact-left-form">
-                        <h1 class="heading text-center mb-5">Pas <%=hotel.getNaam()%> aan</h1></h1>
+                        <h1 class="heading text-center mb-5">Pas <%=hotel.getNaam()%> aan</h1>
 
                         <%if (foutmelding != null) {%>
                         <h1>Aanpassen Mislukt!</h1>
@@ -90,13 +90,13 @@
                                     <input type="text" class="form-control" id="pasAanFoto" name="pasAanFoto" value="<%=hotel.getFoto()%>">
                                 </div>
                             </div>
+                                
 
-                            <p class="d-flex justify-content-center">
+                            <p class="d-flex justify-content-center">                                
                                 <input type="submit" name="pasHotelAan" value="Opslaan" class="btn btn-outline-primary mt-2 mx-2">
                                 <a href="starthotels.jsp" class="btn btn-outline-primary mt-2 mx-2">Terug naar de startpagina</a>
                             </p>
                         </form>
-
                     </div>
                 </div>
             </div>
