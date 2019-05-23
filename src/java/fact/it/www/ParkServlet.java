@@ -183,12 +183,19 @@ public class ParkServlet extends HttpServlet {
             int parkId = Integer.parseInt(request.getParameter("wijzigparkpagina"));
 
             Park park = dapark.getParkId(parkId);
+            
+             ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+
+            
             // alle regio's tonen
-            ArrayList<Regio> alleRegios = daregio.getAlleRegios();
+            ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizenByParkIdBeschikbaar(parkId);
+            
 
             rd = request.getRequestDispatcher("wijzigpark.jsp");
             request.setAttribute("park", park);
             request.setAttribute("alleRegios", alleRegios);
+            request.setAttribute("vakantiehuizen", vakantiehuizen);
+
         }else if (request.getParameter("wijzigpark") != null) {
             
             int parkId = Integer.parseInt(request.getParameter("parkIdla"));

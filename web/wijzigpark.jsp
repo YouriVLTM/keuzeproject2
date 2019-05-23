@@ -4,6 +4,7 @@
     Author     : yourivanlaer
 --%>
 
+<%@page import="fact.it.www.beans.Vakantiehuis"%>
 <%@page import="fact.it.www.beans.Park"%>
 <%@page import="fact.it.www.beans.Regio"%>
 <%@page import="java.util.ArrayList"%>
@@ -83,6 +84,46 @@
                                 </div>
                             </div>
                                 
+                                
+                                <h2>Vakantiehuizen</h2>
+                                
+                                <%ArrayList<Vakantiehuis> vakantiehuizen = (ArrayList<Vakantiehuis>) request.getAttribute("vakantiehuizen");%>
+
+                        <% if (!vakantiehuizen.isEmpty()) { %>
+
+                        <table id="dtBasicParken" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">id</th>
+                                    <th scope="col">ParkID</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">aantal slaapkamers</th>
+                                    <th scope="col">aantal personen</th>
+                                    <th scope="col">oppervlakte</th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for (Vakantiehuis vakantiehuis : vakantiehuizen) {%>
+                                <tr>
+                                    <th scope="row"><%=vakantiehuis.getId()%></th>
+                                    <td><%=vakantiehuis.getParkid()%></td>
+                                    <td><%=vakantiehuis.getType()%></td>
+                                    <td><%=vakantiehuis.getAantalSlaapkamers()%></td>
+                                    <td><%=vakantiehuis.getAantalPersonen()%></td>
+                                    <td><%=vakantiehuis.getOppervlakte()%></td>
+                                    <td><a href="ParkServlet?wijzigvakantiehuispagina=<%=vakantiehuis.getId()%>" <i class="far fa-edit"></i></a> </td>
+                                    <td><a href="ParkServlet?adminoverzichtvakantiehuisdelete=<%=vakantiehuis.getId()%>" <i class="fas fa-trash"></i></a></td>
+                                </tr>
+                                <%}%>
+                            </tbody>
+                        </table>
+                        <%} else {%>
+                        <p>Er is geen vakantiehuis gevonden</p>        
+                        <%}%>
+                        
+                                
                             <%String foutmelding = (String) request.getAttribute("foutmelding");%>
                             <%if (foutmelding != null) {%>
                             <div class="alert alert-danger">
@@ -100,6 +141,14 @@
                             </div>
                     </div>
                     </form>
+                            
+                            
+                           
+                            
+                        
+                            
+                            
+                            
                 </div>
                 <a href="startparken.jsp" class="btn btn-outline-primary">Terug naar parken</a>
             </div>

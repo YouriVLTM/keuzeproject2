@@ -90,10 +90,6 @@
                                 
                             <%ArrayList<Huisaanbod> huisaanboden = (ArrayList<Huisaanbod>) request.getAttribute("huisaanboden");%>
                             
-                                <p></p>
-                                <p></p>
-                                <p></p>
-                                <p></p>
                             
                             
                             <% if (!huisaanboden.isEmpty()) { %>
