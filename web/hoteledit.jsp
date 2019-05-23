@@ -63,7 +63,7 @@
                             <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="pasAanAantalsterren">Aantal sterren: </label>
-                                    <input type="text" class="form-control" id="pasAanAantalsterren" name="pasAanAantalsterren" value="<%=hotel.getAantalSterren()%>">
+                                    <input type="number" class="form-control py-0" min="0" max="5" id="pasAanAantalsterren" name="pasAanAantalsterren" value="<%=hotel.getAantalSterren()%>">
                                 </div>
                             </div>
                             <div class="form-row justify-content-center">

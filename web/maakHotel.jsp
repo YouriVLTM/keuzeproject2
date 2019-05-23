@@ -51,7 +51,7 @@
                             <div class="form-row justify-content-center">
                                 <div class="form-group col-md-6 contact-forms">
                                     <label for="maakHotelAantalSterren">Aantal sterren: </label>
-                                    <input type="text" class="form-control" id="maakHotelAantalSterren" name="maakHotelAantalSterren" placeholder="aantal sterren" required >
+                                    <input type="number" min="0" max="5" class="form-control py-0" id="maakHotelAantalSterren" name="maakHotelAantalSterren" placeholder="aantal sterren" required >
                                 </div>
                             </div>
                             <div class="form-row justify-content-center">
