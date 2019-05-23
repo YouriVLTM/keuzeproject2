@@ -197,14 +197,7 @@ public class HotelServlet extends HttpServlet {
             request.setAttribute("periode", periode);
             rd = request.getRequestDispatcher("hoteledit.jsp");
 
-        } else if (request.getParameter("pasHotelAan") != null) {
-
-            int hotelid = Integer.parseInt(request.getParameter("zoekPrijs"));
-            String zoekPrijsHotelNaam = request.getParameter("zoekPrijsHotelNaam");
-            ArrayList<Periode> periode = daperiode.getHotelPrijs(hotelid);
-            ArrayList<Hotelaanbod> hotelaanbod = daHotelaanbod.getHotelPrijs(hotelid);
-            request.setAttribute("hotelaanbod", hotelaanbod);
-            request.setAttribute("periode", periode);
+        } else if (request.getParameter("pasHotelAan") != null) {                  
 
             String hotelNaam = request.getParameter("pasAanNaam");
             int id = Integer.parseInt(request.getParameter("pasAanId"));
