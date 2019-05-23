@@ -60,7 +60,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">id</th>
-                                    <th scope="col">ParkID</th>
+                                    <th scope="col">Park naam</th>
                                     <th scope="col">Type</th>
                                     <th scope="col">aantal slaapkamers</th>
                                     <th scope="col">aantal personen</th>
@@ -73,7 +73,7 @@
                                 <% for (Vakantiehuis vakantiehuis : vakantiehuizen) {%>
                                 <tr>
                                     <th scope="row"><%=vakantiehuis.getId()%></th>
-                                    <td><%=parken.get(vakantiehuis.getParkid()).getNaam()%></td>
+                                    <td><a href="ParkServlet?wijzigparkpagina=<%=vakantiehuis.getParkid()%>" ><%=parken.get(vakantiehuis.getParkid()).getNaam()%></a></td>
                                     <td><%=vakantiehuis.getType()%></td>
                                     <td><%=vakantiehuis.getAantalSlaapkamers()%></td>
                                     <td><%=vakantiehuis.getAantalPersonen()%></td>

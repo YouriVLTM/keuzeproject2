@@ -61,8 +61,8 @@
                                 <tr>
                                     <th scope="col">Id</th>
                                     <th scope="col">Naam</th>
-                                    <th scope="col">RegioId</th>
-                                    <th scope="col">Aantalsterren</th>
+                                    <th scope="col">Regio naam</th>
+                                    <th scope="col">Aantal sterren</th>
                                     <th scope="col">Voorzieningen</th>
                                     <th scope="col">Foto</th>
                                     <th scope="col">Edit</th>

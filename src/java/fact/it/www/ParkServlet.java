@@ -258,15 +258,19 @@ public class ParkServlet extends HttpServlet {
             int oppervlakte = Integer.parseInt(request.getParameter("oppervlakte"));
 
             if (davakantiehuis.insertVakantiehuis(parkId, type, aantalSlaapkamers, aantalPersonen, oppervlakte)) {
+                Hashtable<Integer, Park> parken = dapark.getAlleParkenHash();
                 ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
                 rd = request.getRequestDispatcher("adminoverzichtvakantiehuizen.jsp");
                 request.setAttribute("vakantiehuizen", vakantiehuizen);
+                request.setAttribute("parken", parken);
                 request.setAttribute("melding", "Vakantiehuis succesvol toe gevoegd");
 
             } else {
+                Hashtable<Integer, Park> parken = dapark.getAlleParkenHash();
                 ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
                 rd = request.getRequestDispatcher("adminoverzichtvakantiehuizen.jsp");
                 request.setAttribute("vakantiehuizen", vakantiehuizen);
+                request.setAttribute("parken", parken);
                 request.setAttribute("foutmelding", "Er is een fout opgetreden bij het inserten van park");
 
             }
@@ -275,15 +279,19 @@ public class ParkServlet extends HttpServlet {
             // delete park
 
             if (davakantiehuis.deleteVakantie(vakantiehuisId)) {
+                Hashtable<Integer, Park> parken = dapark.getAlleParkenHash();
                 ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
                 rd = request.getRequestDispatcher("adminoverzichtvakantiehuizen.jsp");
                 request.setAttribute("vakantiehuizen", vakantiehuizen);
+                request.setAttribute("parken", parken);
                 request.setAttribute("melding", "Park is succesvol gedelete!");
 
             } else {
+                Hashtable<Integer, Park> parken = dapark.getAlleParkenHash();
                 ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
                 rd = request.getRequestDispatcher("adminoverzichtvakantiehuizen.jsp");
                 request.setAttribute("vakantiehuizen", vakantiehuizen);
+                request.setAttribute("parken", parken);
                 request.setAttribute("foutmelding", "Deze park kan niet worden delete!");
 
             }
