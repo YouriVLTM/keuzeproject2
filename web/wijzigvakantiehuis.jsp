@@ -113,13 +113,13 @@
                                     <th scope="row"><%=huisaanbod.getId()%></th>
                                     <td><%=huisaanbod.getPeriodeid()%></td>
                                     <td><%=huisaanbod.getPrijsperweek()%> €</td>
-                                    <td><a href="ParkServlet?" <i class="far fa-edit"></i></a> </td>
+                                    <td><a href="ParkServlet?wijzighuisaanbodpagina=<%=huisaanbod.getId()%>" <i class="far fa-edit"></i></a> </td>
                                 </tr>
                                 <%}%>
                             </tbody>
                         </table>
                         <%} else {%>
-                        <p>Er is geen park gevonden</p>        
+                        <p>Er is zijn geen gevonden</p>        
                         <%}%>
 
                                                             

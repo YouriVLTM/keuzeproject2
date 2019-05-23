@@ -284,7 +284,7 @@ public class ParkServlet extends HttpServlet {
             int aantalPersonen = Integer.parseInt(request.getParameter("aantalPersonen"));
             int oppervlakte = Integer.parseInt(request.getParameter("oppervlakte"));
 
-            if(davakantiehuis.updatePark(vakantiehuisId,parkId, type, aantalSlaapkamers, aantalPersonen, oppervlakte)){
+            if(davakantiehuis.updateVakantiehuis(vakantiehuisId,parkId, type, aantalSlaapkamers, aantalPersonen, oppervlakte)){
               ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
                 rd = request.getRequestDispatcher("adminoverzichtvakantiehuizen.jsp");
                 request.setAttribute("vakantiehuizen", vakantiehuizen);
@@ -297,7 +297,38 @@ public class ParkServlet extends HttpServlet {
 
             }
            
+        }else if (request.getParameter("wijzighuisaanbodpagina") != null) {
+            int huisaanbodId = Integer.parseInt(request.getParameter("wijzighuisaanbodpagina"));
+            
+            Huisaanbod huisaanbod = daHuisaanbod.getHuisaandbodId(huisaanbodId);
+            // alle regio's tonen
+            
+            rd = request.getRequestDispatcher("wijzighuisaanbod.jsp");
+            request.setAttribute("huisaanbod", huisaanbod);
+            
+        }else if (request.getParameter("wijzighuisaanbod") != null) {
+            
+            int huisaanbodId = Integer.parseInt(request.getParameter("huisaanbodId"));
+            int prijsperweek = Integer.parseInt(request.getParameter("prijsperweek"));
+
+            if(daHuisaanbod.updateHuisaanbod(huisaanbodId,prijsperweek)){
+              ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
+                rd = request.getRequestDispatcher("adminoverzichtvakantiehuizen.jsp");
+                request.setAttribute("vakantiehuizen", vakantiehuizen);
+                request.setAttribute("melding", "Prijs perweek succesvol bijgewerkt!");
+            }else{
+               ArrayList<Vakantiehuis> vakantiehuizen = davakantiehuis.getVakantiehuizen();
+                rd = request.getRequestDispatcher("adminoverzichtvakantiehuizen.jsp");
+                request.setAttribute("vakantiehuizen", vakantiehuizen);
+                request.setAttribute("foutmelding", "Prijs per week kan niet worden bijgewerk!");
+
+            }
+           
         }
+        
+        
+        
+        
         
         
 

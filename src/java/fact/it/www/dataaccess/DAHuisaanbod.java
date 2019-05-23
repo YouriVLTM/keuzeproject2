@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DAHuisaanbod {
@@ -18,6 +19,29 @@ public class DAHuisaanbod {
         this.password = password;
     }
 
+    public Huisaanbod getHuisaandbodId(int huisaanbodId) {
+        Huisaanbod huisaanbod = null;
+
+        try (
+               Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM huisaanbod where id = ?");     ) {
+                
+           statement.setInt(1, huisaanbodId);
+                ResultSet resultSet = statement.executeQuery();
+                
+            if (resultSet.next()) {
+                huisaanbod = new Huisaanbod();
+                huisaanbod.setId(resultSet.getInt("id"));
+                huisaanbod.setVakantiehuisid(resultSet.getInt("vakantiehuisid"));
+                huisaanbod.setPeriodeid(resultSet.getInt("periodeid"));
+                huisaanbod.setPrijsperweek(resultSet.getInt("prijsperweek"));
+                
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return huisaanbod;
+    }
    
     public ArrayList<Huisaanbod> getHuisaanbodByVakantiehuisId(int vakantiehuisId) {        
         ArrayList<Huisaanbod> huisaanboden = new ArrayList <>();
@@ -46,5 +70,22 @@ public class DAHuisaanbod {
             e.printStackTrace();
         }
         return huisaanboden;
+    }
+    
+        public boolean updateHuisaanbod(int huisaanbodId,int prijsperweek){
+        boolean resultaat = true;
+
+        try (Connection connection = DriverManager.getConnection(url, login, password);
+                PreparedStatement statement
+                = connection.prepareStatement("update Huisaanbod set prijsperweek=?  where id=?");) {
+            
+            statement.setInt(1, prijsperweek);
+            statement.setInt(2, huisaanbodId);
+            statement.executeUpdate();
+        } catch (Exception e) {
+            resultaat = false;
+            e.printStackTrace();
+        }
+        return resultaat;
     }
 }

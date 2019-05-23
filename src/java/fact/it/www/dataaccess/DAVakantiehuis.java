@@ -137,7 +137,7 @@ public class DAVakantiehuis {
         return resultaat;
     }
     
-    public boolean updatePark(int vakantiehuisId,int parkId,String type,int aantalSlaapkamers,int aantalPersonen,int oppervlakte){
+    public boolean updateVakantiehuis(int vakantiehuisId,int parkId,String type,int aantalSlaapkamers,int aantalPersonen,int oppervlakte){
         boolean resultaat = true;
 
         try (Connection connection = DriverManager.getConnection(url, login, password);
