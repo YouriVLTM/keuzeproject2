@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 public class DAPeriode {
 
@@ -83,6 +84,28 @@ public class DAPeriode {
                 periode.setId(resultSet.getInt("id"));
                 periode.setNaam(resultSet.getString("naam"));
                 periodes.add(periode);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return periodes;
+    }
+    
+    
+        public Hashtable<Integer, Periode> getAllePeriodeHash() {
+        Periode periode = null;
+        Hashtable<Integer, Periode> periodes = new Hashtable<Integer, Periode>();
+
+        try (
+                Connection connection = DriverManager.getConnection(url, login, password);
+                Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("SELECT * FROM periode");) {
+            while (resultSet.next()) {
+                periode = new Periode();
+                periode.setId(resultSet.getInt("id"));
+                periode.setNaam(resultSet.getString("naam"));
+                
+                periodes.put(periode.getId(),periode);
             }
         } catch (Exception e) {
             e.printStackTrace();

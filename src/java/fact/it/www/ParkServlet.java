@@ -237,13 +237,13 @@ public class ParkServlet extends HttpServlet {
             // alle regio's tonen
             ArrayList<Park> parken = dapark.getParken();
             //Hashtabels
-            Hashtable<Integer, Regio> regios = daregio.getAlleRegiosHash();
+            Hashtable<Integer, Periode> periodes = daperiode.getAllePeriodeHash();
 
             rd = request.getRequestDispatcher("wijzigvakantiehuis.jsp");
             request.setAttribute("huisaanboden", huisaanboden);
             request.setAttribute("vakantiehuis", vakantiehuis);
             request.setAttribute("parken", parken);
-            request.setAttribute("regios", regios);
+            request.setAttribute("periodes", periodes);
         } else if (request.getParameter("voegvakantiehuistoepagina") != null) {
 
             ArrayList<Park> parken = dapark.getParken();

@@ -4,6 +4,7 @@
     Author     : yourivanlaer
 --%>
 
+<%@page import="fact.it.www.beans.Periode"%>
 <%@page import="java.util.Hashtable"%>
 <%@page import="fact.it.www.beans.Huisaanbod"%>
 <%@page import="fact.it.www.beans.Vakantiehuis"%>
@@ -88,9 +89,9 @@
                             <h2>Prijzen</h2>
 
                             <%ArrayList<Huisaanbod> huisaanboden = (ArrayList<Huisaanbod>) request.getAttribute("huisaanboden");%>
-                            <%Hashtable<Integer, Regio> regios = (Hashtable<Integer, Regio>) request.getAttribute("regios");%>
+                            <%Hashtable<Integer, Periode> periodes = (Hashtable<Integer, Periode>) request.getAttribute("periodes");%>
 
-                            <% if (!regios.isEmpty()) { %>
+                            <% if (!periodes.isEmpty()) { %>
                             <% if (!huisaanboden.isEmpty()) { %>
 
                             <table id="dtBasicParken" class="table table-hover">
@@ -106,7 +107,7 @@
                                     <%for (Huisaanbod huisaanbod : huisaanboden) {%>
                                     <tr>
                                         <th scope="row"><%=huisaanbod.getId()%></th>
-                                        <td><%=regios.get(huisaanbod.getPeriodeid()).getNaam()%></td>
+                                        <td><%=periodes.get(huisaanbod.getPeriodeid()).getNaam()%></td>
                                         <td><%=huisaanbod.getPrijsperweek()%> €</td>
                                         <td><a href="ParkServlet?wijzighuisaanbodpagina=<%=huisaanbod.getId()%>" <i class="far fa-edit"></i></a> </td>
                                     </tr>
